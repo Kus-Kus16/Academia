@@ -1,32 +1,32 @@
 -- Listy obecności na szkoleniach
 create view VW_All_Attendance as
-select D.AttendableID, D.StartDate, D.EndDate, S.Name, S.Surname, A.Attendance
+select D.AttendableID, D.StartDate, D.EndDate, S.StudentID, S.Name, S.Surname, A.Attendance
 from Attendances A inner join Students S on S.StudentID = A.StudentID
     inner join Attendable D on D.AttendableID = A.AttendableID;
 go
 
 create view VW_Internships_Attendance as
-select I.InternshipID, 'Internship' Type, A.StartDate, A.Name, A.Surname, A.Attendance
+select I.InternshipID, 'Internship' Type, A.StartDate, A.StudentID, A.Name, A.Surname, A.Attendance
 from VW_All_Attendance A inner join Internships I on I.AttendableID = A.AttendableID;
 go
 
 create view VW_StationaryClasses_Attendance as
-select C.StationaryClassID, 'StationaryClass' Type, A.StartDate, A.Name, A.Surname, A.Attendance
+select C.StationaryClassID, 'StationaryClass' Type, A.StartDate, A.StudentID, A.Name, A.Surname, A.Attendance
 from VW_All_Attendance A inner join StationaryClasses C on C.AttendableID = A.AttendableID;
 go
 
 create view VW_OnlineClasses_Attendance as
-select C.OnlineClassID, 'OnlineClass' Type, A.StartDate, A.Name, A.Surname, A.Attendance
+select C.OnlineClassID, 'OnlineClass' Type, A.StartDate, A.StudentID, A.Name, A.Surname, A.Attendance
 from VW_All_Attendance A inner join OnlineClasses C on C.AttendableID = A.AttendableID;
 go
 
 create view VW_StationaryCourseModules_Attendance as
-select M.StationaryCourseID, 'StationaryCourseModule' Type, A.StartDate, A.Name, A.Surname, A.Attendance
+select M.StationaryCourseID, 'StationaryCourseModule' Type, A.StartDate, A.StudentID, A.Name, A.Surname, A.Attendance
 from VW_All_Attendance A inner join StationaryCourseModules M on M.AttendableID = A.AttendableID;
 go
 
 create view VW_OnlineCourseModules_Attendance as
-select M.OnlineCourseID, 'OnlineCourseModule' Type, A.StartDate, A.Name, A.Surname, A.Attendance
+select M.OnlineCourseID, 'OnlineCourseModule' Type, A.StartDate, A.StudentID, A.Name, A.Surname, A.Attendance
 from VW_All_Attendance A inner join OnlineCourseModules M on M.AttendableID = A.AttendableID;
 go
 
@@ -42,7 +42,71 @@ create view VW_Total_Attendance as
     (select * from VW_OnlineCourseModules_Attendance);
 go
 
+-- Raport dotyczący frekwencji na zakończonych już wydarzeniach.
+create view VW_Attendance_Summary as
+select A.AttendableID, count(A.StudentID) TotalStudents, sum(case when A.Attendance = 1 then 1 else 0 end) as PresentStudents,
+    round( cast(sum(case when A.Attendance = 1 then 1 else 0 end) as float) / count(A.StudentID) * 100, 2 ) as AttendanceRate
+from VW_All_Attendance A 
+where A.EndDate < getdate()
+group by A.AttendableID
+go
+
+create view VW_Attendance_CourseModules as
+select A.attendableid, totalstudents, presentstudents, attendancerate
+from VW_Attendance_Summary A
+left outer join OnlineCourseModules OCM on A.attendableid = OCM.AttendableID
+left outer join StationaryCourseModules SCM on OCM.AttendableID = SCM.AttendableID;
+go
+
+create view VW_Attendance_Classes as
+select A.attendableid, totalstudents, presentstudents, attendancerate
+from VW_Attendance_Summary A
+left outer join OnlineClasses OC on A.attendableid = OC.AttendableID
+left outer join StationaryClasses SC on A.attendableid = SC.AttendableID;
+go
+
+create view VW_Attendance_Internships as
+select A.attendableid, totalstudents, presentstudents, attendancerate
+from VW_Attendance_Summary A
+inner join Internships I on A.attendableid = I.AttendableID;
+go
+
+-- Lista przyszłych wydarzeń
+create view VW_All_FutureLectures as
+select L.LectureID, L.Date
+from Lectures L inner join Enrollments E on E.LectureID = L.LectureID
+    and E.Status = 'InProgress' and L.Date > getdate();
+go
+
+create view VW_Future_CourseModules as
+select C.CourseID, M.CourseModuleID, A.Date, case when O.CourseModuleID is not null then 'Online' else 'Stationary' end Type
+from VW_All_FutureLectures A inner join Courses C on C.LectureID = A.LectureID
+    inner join CourseModules M on M.CourseID = C.CourseID
+    left outer join OnlineCourseModules O on O.CourseModuleID = M.CourseModuleID
+    left outer join StationaryCourseModules S on S.CourseModuleID = M.CourseModuleID;
+go
+
+create view VW_Future_Webinars as
+select W.WebinarID, A.Date, 'Online' Type
+from VW_All_FutureLectures A inner join Webinars W on W.LectureID = A.LectureID;
+go
+
+create view VW_Future_Classes as
+select D.StudiesID, C.ClassID, A.Date, case when O.OnlineClassID is not null then 'Online' else 'Stationary' end Type
+from VW_All_FutureLectures A inner join Studies D on D.LectureID = A.LectureID
+    inner join Classes C on C.StudiesID = D.StudiesID
+    left outer join OnlineClasses O on O.ClassID = C.ClassID
+    left outer join StationaryClasses S on S.ClassID = C.ClassID;
+go
+
+create view VW_Future_Internships as
+select D.StudiesID, I.InternshipID, A.Date, 'Stationary' Type
+from VW_All_FutureLectures A inner join Studies D on D.LectureID = A.LectureID
+    inner join Internships I on I.StudiesID = D.StudiesID;
+go
+
 -- Liczba osób zapisanych na przyszłe wydarzenia
+-- czy to powinny być przyszłe wydarzenia, czy przyszłe spotkania?
 create view VW_All_FutureParticipants as
 select L.LectureID, L.Date, count(E.EnrollmentID) TotalFutureParticipants
 from Lectures L inner join Enrollments E on E.LectureID = L.LectureID
@@ -79,7 +143,7 @@ go
 
 -- Raport bilokacji - osoby zapisane na zajęcia kolidujące czasowo
 create view VW_All_FutureEnrollments as
-select S.StudentID, S.Name, S.Surname, L.LectureID
+select S.StudentID, S.Name, S.Surname, L.LectureID, L.Date
 from Enrollments E inner join Lectures L on L.LectureID = E.LectureID
     and E.Status = 'InProgress' and L.Date > getdate()
     inner join Orders O on O.OrderID = E.OrderID
@@ -123,14 +187,7 @@ from students_allAttendable A inner join students_allAttendable B
     on A.StudentID = B.StudentID and B.StartDate < A.EndDate;
 go
 
---Lista dłużników
-create view VW_All_Loaners as
-select distinct s.StudentID, s.Name, s.Surname
-from Students s inner join Orders O on s.StudentID = O.StudentID
-inner join Loans L on O.OrderID = L.OrderID;
-go
-
---Zestawienie przychodów dla każdego webinaru/kursu/studium.
+-- Zestawienie przychodów dla każdego webinaru/kursu/studium
 create view VW_FinancialReports as
 select
     l.LectureID,
@@ -150,66 +207,9 @@ inner join Enrollments e on l.LectureID = e.LectureID and e.status in ('Complete
 group by l.LectureID, w.WebinarID, c.CourseID, s.StudiesID;
 go
 
---Raport dotyczący frekwencji na zakończonych już wydarzeniach.
-create view VW_Attendance_Summary as
-select a.attendableid, count(*) as totalstudents, sum(case when at.attendance = 1 then 1 else 0 end) as presentstudents,
-round(cast(sum(case when at.attendance = 1 then 1 else 0 end) as float) / count(*) * 100, 2) as attendancerate
-from attendable a inner join attendances at on a.attendableid = at.attendableid
-where a.enddate < getdate()
-group by a.attendableid;
-go
-
-create view VW_Attendance_CourseModules as
-select A.attendableid, totalstudents, presentstudents, attendancerate
-from VW_Attendance_Summary A
-left outer join OnlineCourseModules OCM on A.attendableid = OCM.AttendableID
-left outer join StationaryCourseModules SCM on OCM.AttendableID = SCM.AttendableID;
-go
-
-create view VW_Attendance_Classes as
-select A.attendableid, totalstudents, presentstudents, attendancerate
-from VW_Attendance_Summary A
-left outer join OnlineClasses OC on A.attendableid = OC.AttendableID
-left outer join StationaryClasses SC on A.attendableid = SC.AttendableID;
-go
-
-create view VW_Attendance_Internships as
-select A.attendableid, totalstudents, presentstudents, attendancerate
-from VW_Attendance_Summary A
-inner join Internships I on A.attendableid = I.AttendableID;
-go
-
-
---Lista przyszłych wydarzeń
-create view VW_All_FutureLectures as
-select L.LectureID, L.Date
-from Lectures L inner join Enrollments E on E.LectureID = L.LectureID
-    and E.Status = 'InProgress' and L.Date > getdate();
-go
-
-create view VW_Future_CourseModules as
-select C.CourseID, M.CourseModuleID, A.Date, case when O.CourseModuleID is not null then 'Online' else 'Stationary' end Type
-from VW_All_FutureLectures A inner join Courses C on C.LectureID = A.LectureID
-    inner join CourseModules M on M.CourseID = C.CourseID
-    left outer join OnlineCourseModules O on O.CourseModuleID = M.CourseModuleID
-    left outer join StationaryCourseModules S on S.CourseModuleID = M.CourseModuleID;
-go
-
-create view VW_Future_Webinars as
-select W.WebinarID, A.Date, 'Online' Type
-from VW_All_FutureLectures A inner join Webinars W on W.LectureID = A.LectureID;
-go
-
-create view VW_Future_Classes as
-select D.StudiesID, C.ClassID, A.Date, case when O.OnlineClassID is not null then 'Online' else 'Stationary' end Type
-from VW_All_FutureLectures A inner join Studies D on D.LectureID = A.LectureID
-    inner join Classes C on C.StudiesID = D.StudiesID
-    left outer join OnlineClasses O on O.ClassID = C.ClassID
-    left outer join StationaryClasses S on S.ClassID = C.ClassID;
-go
-
-create view VW_Future_Internships as
-select D.StudiesID, I.InternshipID, A.Date, 'Stationary' Type
-from VW_All_FutureLectures A inner join Studies D on D.LectureID = A.LectureID
-    inner join Internships I on I.StudiesID = D.StudiesID;
+-- Lista dłużników
+create view VW_All_Loaners as
+select distinct s.StudentID, s.Name, s.Surname
+from Students s inner join Orders O on s.StudentID = O.StudentID
+inner join Loans L on O.OrderID = L.OrderID;
 go
