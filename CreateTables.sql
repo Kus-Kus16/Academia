@@ -4,10 +4,10 @@ CREATE TABLE Students (
     Name nvarchar(50)  NOT NULL,
     Surname nvarchar(50)  NOT NULL,
     Email nvarchar(100)  NOT NULL,
-    Phone nvarchar(20)  NOT NULL,
+    Phone nvarchar(30)  NOT NULL,
     Address nvarchar(255)  NOT NULL,
     City nvarchar(50)  NOT NULL,
-    Country nvarchar(20)  NOT NULL,
+    Country nvarchar(69)  NOT NULL,
     BirthDate date  NOT NULL,
 
     CONSTRAINT Students_pk PRIMARY KEY (StudentID),
@@ -22,10 +22,10 @@ CREATE TABLE Translators (
     Name nvarchar(50)  NOT NULL,
     Surname nvarchar(50)  NOT NULL,
     Email nvarchar(100)  NOT NULL,
-    Phone nvarchar(20)  NOT NULL,
+    Phone nvarchar(30)  NOT NULL,
     Address nvarchar(255)  NOT NULL,
     City nvarchar(50)  NOT NULL,
-    Country nvarchar(20)  NOT NULL,
+    Country nvarchar(69)  NOT NULL,
     BirthDate date  NOT NULL,
     HireDate date  NOT NULL,
     Language nvarchar(10)  NOT NULL,
@@ -43,10 +43,10 @@ CREATE TABLE Teachers (
     Name nvarchar(50)  NOT NULL,
     Surname nvarchar(50)  NOT NULL,
     Email nvarchar(100)  NOT NULL,
-    Phone nvarchar(20)  NOT NULL,
+    Phone nvarchar(30)  NOT NULL,
     Address nvarchar(255)  NOT NULL,
     City nvarchar(50)  NOT NULL,
-    Country nvarchar(20)  NOT NULL,
+    Country nvarchar(69)  NOT NULL,
     BirthDate date  NOT NULL,
     HireDate date  NOT NULL,
     TitleOfCourtesy nvarchar(20)  NOT NULL,
@@ -62,9 +62,9 @@ CREATE TABLE Teachers (
 CREATE TABLE Orders (
     OrderID int  NOT NULL IDENTITY(1,1),
     StudentID int  NOT NULL,
-    OrderDate date  NULL DEFAULT NULL,
-    AdvancePaidDate date  NULL DEFAULT NULL,
-    TotalPaidDate date  NULL DEFAULT NULL,
+    OrderDate datetime  NULL DEFAULT NULL,
+    AdvancePaidDate datetime  NULL DEFAULT NULL,
+    TotalPaidDate datetime  NULL DEFAULT NULL,
     Status nvarchar(15)  NOT NULL,
 
     CONSTRAINT Orders_pk PRIMARY KEY (OrderID),
@@ -75,8 +75,8 @@ CREATE TABLE Orders (
 
 CREATE TABLE Loans (
     OrderID int  NOT NULL,
-    DueDate date  NOT NULL,
-    PaidDate date  NULL DEFAULT NULL,
+    DueDate datetime  NOT NULL,
+    PaidDate datetime  NULL DEFAULT NULL,
 
     CONSTRAINT Loans_pk PRIMARY KEY (OrderID),
     CONSTRAINT Loans_Orders FOREIGN KEY (OrderID) REFERENCES Orders (OrderID),
@@ -87,7 +87,7 @@ CREATE TABLE Loans (
 CREATE TABLE Lectures (
     LectureID int  NOT NULL IDENTITY(1,1),
     TranslatorID int  NULL DEFAULT NULL,
-    LectureName nvarchar(50)  NOT NULL,
+    LectureName nvarchar(100)  NOT NULL,
     Description nvarchar(MAX)  NOT NULL,
     AdvancePrice money NULL DEFAULT NULL,
     TotalPrice money  NOT NULL,
@@ -99,7 +99,7 @@ CREATE TABLE Lectures (
     CONSTRAINT Lectures_Translators FOREIGN KEY (TranslatorID) REFERENCES Translators (TranslatorID),
 
     CONSTRAINT CHK_Lectures_TotalPrice CHECK (TotalPrice >= 0),
-    CONSTRAINT CHK_Lectures_AdvancePrice CHECK (AdvancePrice is NULL OR TotalPrice >= 0),
+    CONSTRAINT CHK_Lectures_AdvancePrice CHECK (AdvancePrice is NULL OR AdvancePrice >= 0),
     CONSTRAINT CHK_Lectures_Date CHECK (Date >= GETDATE())
 );
 
@@ -119,7 +119,7 @@ CREATE TABLE Enrollments (
     LectureID int  NOT NULL,
     AdvancePrice money  NULL DEFAULT NULL,
     TotalPrice money  NOT NULL,
-    Status nvarchar(15)  NOT NULL,
+    Status nvarchar(20)  NOT NULL,
 
     CONSTRAINT Enrollments_pk PRIMARY KEY (EnrollmentID),
     CONSTRAINT Enrollments_Lectures FOREIGN KEY (LectureID) REFERENCES Lectures (LectureID),
@@ -165,7 +165,7 @@ CREATE TABLE CourseModules (
     CourseModuleID int  NOT NULL IDENTITY(1,1),
     TeacherID int  NOT NULL,
     CourseID int  NOT NULL,
-    Name nvarchar(50)  NOT NULL,
+    Name nvarchar(100)  NOT NULL,
     Description nvarchar(MAX)  NOT NULL,
 
     CONSTRAINT CourseModules_pk PRIMARY KEY (CourseModuleID),
@@ -216,7 +216,7 @@ CREATE TABLE Internships (
     AttendableID int  NOT NULL,
     StudiesID nchar(5)  NOT NULL,
     Address nvarchar(255)  NOT NULL,
-    Name nvarchar(50)  NOT NULL,
+    Name nvarchar(100)  NOT NULL,
     Description nvarchar(MAX)  NOT NULL,
 
     CONSTRAINT Internships_pk PRIMARY KEY (InternshipID),
@@ -228,7 +228,7 @@ CREATE TABLE Classes (
     ClassID int  NOT NULL IDENTITY(1,1),
     StudiesID nchar(5)  NOT NULL,
     TeacherID int  NOT NULL,
-    Name nvarchar(50)  NOT NULL,
+    Name nvarchar(100)  NOT NULL,
     Description nvarchar(MAX)  NOT NULL,
 
     CONSTRAINT Classes_pk PRIMARY KEY (ClassID),
