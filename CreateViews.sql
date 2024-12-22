@@ -1,4 +1,4 @@
--- Listy obecności na szkoleniach
+-- Listy obecności na szkoleniach -M-
 create view VW_All_Attendance as
 select D.AttendableID, D.StartDate, D.EndDate, S.StudentID, S.Name, S.Surname, A.Attendance
 from Attendances A inner join Students S on S.StudentID = A.StudentID
@@ -42,7 +42,7 @@ create view VW_Total_Attendance as
     (select * from VW_OnlineCourseModules_Attendance);
 go
 
--- Raport dotyczący frekwencji na zakończonych już wydarzeniach.
+-- Raport dotyczący frekwencji na zakończonych już wydarzeniach. -K-
 create view VW_Attendance_Summary as
 select A.AttendableID, count(A.StudentID) TotalStudents, sum(case when A.Attendance = 1 then 1 else 0 end) as PresentStudents,
     round( cast(sum(case when A.Attendance = 1 then 1 else 0 end) as float) / count(A.StudentID) * 100, 2 ) as AttendanceRate
@@ -71,7 +71,7 @@ from VW_Attendance_Summary A
 inner join Internships I on A.attendableid = I.AttendableID;
 go
 
--- Lista przyszłych wydarzeń
+-- Lista przyszłych wydarzeń -K-
 create view VW_All_FutureLectures as
 select L.LectureID, L.Date
 from Lectures L inner join Enrollments E on E.LectureID = L.LectureID
@@ -105,8 +105,7 @@ from VW_All_FutureLectures A inner join Studies D on D.LectureID = A.LectureID
     inner join Internships I on I.StudiesID = D.StudiesID;
 go
 
--- Liczba osób zapisanych na przyszłe wydarzenia
--- czy to powinny być przyszłe wydarzenia, czy przyszłe spotkania?
+-- Liczba osób zapisanych na przyszłe wydarzenia -M-
 create view VW_All_FutureParticipants as
 select L.LectureID, L.Date, count(E.EnrollmentID) TotalFutureParticipants
 from Lectures L inner join Enrollments E on E.LectureID = L.LectureID
@@ -141,7 +140,7 @@ from VW_All_FutureParticipants A inner join Studies D on D.LectureID = A.Lecture
     inner join Internships I on I.StudiesID = D.StudiesID;
 go
 
--- Raport bilokacji - osoby zapisane na zajęcia kolidujące czasowo
+-- Raport bilokacji - osoby zapisane na zajęcia kolidujące czasowo -M-
 create view VW_All_FutureEnrollments as
 select S.StudentID, S.Name, S.Surname, L.LectureID, L.Date
 from Enrollments E inner join Lectures L on L.LectureID = E.LectureID
@@ -187,7 +186,7 @@ from students_allAttendable A inner join students_allAttendable B
     on A.StudentID = B.StudentID and B.StartDate < A.EndDate;
 go
 
--- Zestawienie przychodów dla każdego webinaru/kursu/studium
+-- Zestawienie przychodów dla każdego szkolenia -K-
 create view VW_FinancialReports as
 select
     l.LectureID,
@@ -207,9 +206,9 @@ inner join Enrollments e on l.LectureID = e.LectureID and e.status in ('Complete
 group by l.LectureID, w.WebinarID, c.CourseID, s.StudiesID;
 go
 
--- Lista dłużników
+-- Lista dłużników -K-
 create view VW_All_Loaners as
 select distinct s.StudentID, s.Name, s.Surname
 from Students s inner join Orders O on s.StudentID = O.StudentID
-inner join Loans L on O.OrderID = L.OrderID;
+inner join PostponedPayments P on O.OrderID = P.OrderID;
 go
