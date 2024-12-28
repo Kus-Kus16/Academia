@@ -65,13 +65,13 @@ go
 
 -- Lista przyszłych wydarzeń -K-
 create view VW_All_FutureLectures as
-select L.LectureID, L.Date
+select L.LectureID, L.LectureName ,L.Date
 from Lectures L inner join Enrollments E on E.LectureID = L.LectureID
     and E.Status = 'InProgress' and L.Date > getdate();
 go
 
 create view VW_Future_CourseModules as
-select C.CourseID, M.CourseModuleID, A.Date, case when O.CourseModuleID is not null then 'Online' else 'Stationary' end Type
+select C.CourseID, M.CourseModuleID, A.LectureName, A.Date, case when O.CourseModuleID is not null then 'Online' else 'Stationary' end Type
 from VW_All_FutureLectures A inner join Courses C on C.LectureID = A.LectureID
     inner join CourseModules M on M.CourseID = C.CourseID
     left outer join OnlineCourseModules O on O.CourseModuleID = M.CourseModuleID
@@ -79,12 +79,12 @@ from VW_All_FutureLectures A inner join Courses C on C.LectureID = A.LectureID
 go
 
 create view VW_Future_Webinars as
-select W.WebinarID, A.Date, 'Online' Type
+select W.WebinarID, A.LectureID, A.Date, 'Online' Type
 from VW_All_FutureLectures A inner join Webinars W on W.LectureID = A.LectureID;
 go
 
 create view VW_Future_Classes as
-select D.StudiesID, C.ClassID, A.Date, case when O.OnlineClassID is not null then 'Online' else 'Stationary' end Type
+select D.StudiesID, C.ClassID, A.LectureName, A.Date, case when O.OnlineClassID is not null then 'Online' else 'Stationary' end Type
 from VW_All_FutureLectures A inner join Studies D on D.LectureID = A.LectureID
     inner join Classes C on C.StudiesID = D.StudiesID
     left outer join OnlineClasses O on O.ClassID = C.ClassID
@@ -92,7 +92,7 @@ from VW_All_FutureLectures A inner join Studies D on D.LectureID = A.LectureID
 go
 
 create view VW_Future_Internships as
-select D.StudiesID, I.InternshipID, A.Date, 'Stationary' Type
+select D.StudiesID, I.InternshipID, A.LectureName, A.Date, 'Stationary' Type
 from VW_All_FutureLectures A inner join Studies D on D.LectureID = A.LectureID
     inner join Internships I on I.StudiesID = D.StudiesID;
 go
@@ -184,7 +184,7 @@ go
 create view VW_FinancialReports as
 select
     l.LectureID,
-    coalesce(w.WebinarID, c.CourseID, s.StudiesID) as EventID,
+    COALESCE(CAST(w.WebinarID AS NVARCHAR), CAST(c.CourseID AS NVARCHAR), CAST(s.StudiesID AS NVARCHAR)) AS EventID,
     case
         when w.WebinarID is not null then 'Webinar'
         when c.CourseID is not null then 'Course'
@@ -202,7 +202,10 @@ go
 
 -- Lista dłużników -K-
 create view VW_All_Loaners as
-select distinct s.StudentID, s.Name, s.Surname
-from Students s inner join Orders O on s.StudentID = O.StudentID
-inner join PostponedPayments P on O.OrderID = P.OrderID;
+select s.StudentID, s.Name, s.Surname, sum(TotalPrice) as TotalLoan
+from Students s
+inner join Orders O on s.StudentID = O.StudentID
+inner join PostponedPayments P on O.OrderID = P.OrderID
+inner join Enrollments E on O.OrderID = E.OrderID
+group by s.StudentID, s.Name, s.Surname
 go
