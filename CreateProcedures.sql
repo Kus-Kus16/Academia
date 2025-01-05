@@ -216,7 +216,7 @@ create procedure PR_Add_Translator
 @City nvarchar(50),
 @Country nvarchar(69),
 @BirthDate date,
-@HireDate date
+@HireDate date,
 @Language nvarchar(10)
 as
 begin
@@ -268,7 +268,7 @@ create procedure PR_Add_Student
 @Address nvarchar(255),
 @City nvarchar(50),
 @Country nvarchar(69),
-@BirthDate date,
+@BirthDate date
 as
 begin
 set nocount on;
@@ -347,5 +347,497 @@ if exists(select 1 from StudiesEnrollmentsUpdated where Status = 'InProgress')
     insert into StudySessionPayments (EnrollmentID, StudySessionID, Price, DueDate, PaidDate)
         select EnrollmentID, StudySessionID, Price, DueDate, PaidDate from StudySessionToBeInserted;
     end
+end
+go;
+
+--dodanie webinara -K-
+create procedure PR_Create_Webinar
+@TeacherID int,
+@Link nvarchar(100),
+@IsFree bit,
+@TranslatorID int = NULL,
+@LectureName nvarchar(100),
+@Description nvarchar(MAX),
+@AdvancePrice money = NULL,
+@TotalPrice money,
+@Date datetime,
+@Language nvarchar(10) = 'pl',
+@Available bit = 0,
+@WebinarID int output
+as
+begin
+    set nocount on;
+
+    declare @LectureID int;
+
+    --Wywołanie PR_Create_Lecture
+    exec PR_Create_Lecture
+        @TranslatorID = @TranslatorID,
+        @LectureName = @LectureName,
+        @Description = @Description,
+        @AdvancePrice = @AdvancePrice,
+        @TotalPrice = @TotalPrice,
+        @Date = @Date,
+        @Language = @Language,
+        @Available = @Available,
+        @LectureID = @LectureID output;
+
+    if @LectureID is null
+    begin
+        raiserror('Failed to create lecture', 16, 0);
+        return;
+    end
+
+    insert into Webinars (LectureID, TeacherID,Link,IsFree)
+        values (@LectureID, @TeacherID, @Link, @IsFree);
+
+    set @WebinarID = scope_identity();
+    print 'Webinar created successfully';
+end
+go;
+
+--dodanie kursu -K-
+create procedure PR_Create_Course
+@TranslatorID int = NULL,
+@LectureName nvarchar(100),
+@LectureDescription nvarchar(MAX),
+@AdvancePrice money = NULL,
+@TotalPrice money,
+@Date datetime,
+@Language nvarchar(10) = 'pl',
+@Available bit = 0,
+@CourseID int output
+as
+begin
+    set nocount on;
+
+    declare @LectureID int;
+
+    -- Wywołanie PR_Create_Lecture
+    exec PR_Create_Lecture
+        @TranslatorID = @TranslatorID,
+        @LectureName = @LectureName,
+        @Description = @LectureDescription,
+        @AdvancePrice = @AdvancePrice,
+        @TotalPrice = @TotalPrice,
+        @Date = @Date,
+        @Language = @Language,
+        @Available = @Available,
+        @LectureID = @LectureID output;
+
+    if @LectureID is null
+    begin
+        raiserror('Failed to create lecture', 16, 0);
+        return;
+    end
+
+    insert into Courses (LectureID)
+        values (@LectureID);
+
+    set @CourseID = scope_identity();
+    print 'Course created successfully';
+end
+go;
+
+--dodanie modułów kursów -K-
+create procedure PR_Create_CourseModule
+@TeacherID int,
+@CourseID int,
+@Name nvarchar(100),
+@Description nvarchar(100),
+@CourseModuleID int output
+as
+begin
+    set nocount on;
+
+    if not exists (select 1 from Courses where CourseID = @CourseID)
+    begin
+        raiserror('Course with given ID does not exist', 16, 0);
+        return;
+    end
+
+    insert into CourseModules (TeacherID,CourseID, Name, Description)
+        values (@TeacherID,@CourseID, @Name, @Description);
+
+    set @CourseModuleID = scope_identity();
+    print 'Course module created successfully';
+end
+go;
+
+--dodanie spotkań kursów -K-
+create procedure PR_Create_StationaryCourseModule
+@CourseModuleID int,
+@Classroom nvarchar(10),
+@SeatLimit int,
+@StartDate datetime,
+@EndDate datetime,
+@StationaryCourseID int output
+as
+begin
+    set nocount on;
+
+    if not exists (select 1 from CourseModules where CourseModuleID = @CourseModuleID)
+    begin
+        raiserror('CourseModule with given ID does not exist', 16, 0);
+        return;
+    end
+
+    -- Walidacja: sprawdzenie limitu miejsc
+    if @SeatLimit <= 0
+    begin
+        raiserror('SeatLimit must be greater than 0', 16, 0);
+        return;
+    end
+
+    declare @AttendableID int;
+    exec PR_Create_Attendable
+        @StartDate = @StartDate,
+        @EndDate = @EndDate,
+        @AttendableID = @AttendableID output;
+
+    if @AttendableID is null
+    begin
+        raiserror('Failed to create Attendable', 16, 0);
+        return;
+    end
+
+    insert into StationaryCourseModules (CourseModuleID, AttendableID, Classroom, SeatLimit)
+    values (@CourseModuleID, @AttendableID, @Classroom, @SeatLimit);
+
+    set @StationaryCourseID = scope_identity();
+    print 'StationaryCourseModule created successfully';
+end
+go;
+
+create procedure PR_Create_OnlineCourseModule
+@CourseModuleID int,
+@Link nvarchar(100),
+@IsLive bit,
+@StartDate datetime,
+@EndDate datetime,
+@OnlineCourseID int output
+as
+begin
+    set nocount on;
+
+    if not exists (select 1 from CourseModules where CourseModuleID = @CourseModuleID)
+    begin
+        raiserror('CourseModule with given ID does not exist', 16, 0);
+        return;
+    end
+
+    if @Link is null or len(@Link) = 0
+    begin
+        raiserror('Link cannot be null or empty', 16, 0);
+        return;
+    end
+
+    declare @AttendableID int;
+    exec PR_Create_Attendable
+        @StartDate = @StartDate,
+        @EndDate = @EndDate,
+        @AttendableID = @AttendableID output;
+
+    if @AttendableID is null
+    begin
+        raiserror('Failed to create Attendable', 16, 0);
+        return;
+    end
+
+    insert into OnlineCourseModules (CourseModuleID, AttendableID, Link, IsLive)
+    values (@CourseModuleID, @AttendableID, @Link, @IsLive);
+
+    set @OnlineCourseID = scope_identity();
+    print 'OnlineCourseModule created successfully';
+end
+go;
+
+--dodanie studiów -K-
+create procedure PR_Create_Studies
+@TranslatorID int = NULL,
+@LectureName nvarchar(100),
+@Description nvarchar(MAX),
+@AdvancePrice money = NULL,
+@TotalPrice money,
+@Date datetime,
+@Language nvarchar(10) = 'pl',
+@Available bit = 0,
+@Syllabus nvarchar(100),
+@CapacityLimit int,
+@StudyID int output
+as
+begin
+    set nocount on;
+
+    declare @LectureID int;
+
+    exec PR_Create_Lecture
+        @TranslatorID = @TranslatorID,
+        @LectureName = @LectureName,
+        @Description = @Description,
+        @AdvancePrice = @AdvancePrice,
+        @TotalPrice = @TotalPrice,
+        @Date = @Date,
+        @Language = @Language,
+        @Available = @Available,
+        @LectureID = @LectureID output;
+
+    if @LectureID is null
+    begin
+        raiserror('Failed to create lecture', 16, 0);
+        return;
+    end
+
+    insert into Studies (LectureID, Syllabus, CapacityLimit)
+        values (@LectureID, @Syllabus,@CapacityLimit);
+
+    set @StudyID = scope_identity();
+    print 'Study created successfully';
+end
+go;
+
+--dodanie zjazdów -K-
+create procedure PR_Create_StudySession
+@StudiesID int,
+@StartDate date,
+@EndDate date,
+@Price money,
+@StudySessionID int output
+as
+begin
+    set nocount on;
+
+    if not exists (select 1 from Studies where StudiesID = @StudiesID)
+    begin
+        raiserror('Studies with given ID does not exist', 16, 0);
+        return;
+    end
+
+    if @EndDate <= @StartDate
+    begin
+        raiserror('End date must be later than start date', 16, 0);
+        return;
+    end
+
+    if @EndDate < getdate()
+    begin
+    raiserror('Given date is from the past', 16, 3);
+    return;
+    end
+
+    if @Price < 0
+    begin
+        raiserror('Price must be greater than or equal to 0', 16, 0);
+        return;
+    end
+
+    insert into StudySessions (StudiesID, StartDate, EndDate, Price)
+    values (@StudiesID, @StartDate, @EndDate, @Price);
+
+    set @StudySessionID = scope_identity();
+    print 'Study session created successfully';
+end
+go;
+
+--dodanie zajęć do zjazdów -K-
+
+--------------------------------------------------
+
+
+--dodanie przedmiotów -K-
+create procedure PR_Create_Class
+@StudiesID nchar(5),
+@TeacherID int,
+@Name nvarchar(100),
+@Description nvarchar(MAX),
+@ClassID int output
+as
+begin
+    set nocount on;
+
+    if not exists (select 1 from Studies where StudiesID = @StudiesID)
+    begin
+        raiserror('Studies with given ID does not exist', 16, 0);
+        return;
+    end
+
+    if not exists (select 1 from Teachers where TeacherID = @TeacherID)
+    begin
+        raiserror('Teacher with given ID does not exist', 16, 0);
+        return;
+    end
+
+    insert into Classes (StudiesID, TeacherID, Name, Description)
+    values (@StudiesID, @TeacherID, @Name, @Description);
+
+    set @ClassID = scope_identity();
+    print 'Class created successfully';
+end
+go;
+
+
+--dodanie zajęć do przedmiotów -K-
+create procedure PR_Create_OnlineClass
+@ClassID int,
+@Link nvarchar(MAX),
+@IsLive bit,
+@StartDate datetime,
+@EndDate datetime,
+@LectureName nvarchar(100) = NULL,
+@Description nvarchar(MAX) = NULL,
+@AdvancePrice money = NULL,
+@TotalPrice money = NULL,
+@Date datetime = NULL,
+@Language nvarchar(10) = 'pl',
+@StudySessionID int = NULL,
+@OnlineClassID int output
+as
+begin
+    set nocount on;
+
+    if not exists (select 1 from Classes where ClassID = @ClassID)
+    begin
+        raiserror('Class with given ID does not exist', 16, 0);
+        return;
+    end
+
+    if @Link is null or len(@Link) = 0
+    begin
+        raiserror('Link cannot be null or empty', 16, 0);
+        return;
+    end
+
+    declare @AttendableID int;
+    exec PR_Create_Attendable
+        @StartDate = @StartDate,
+        @EndDate = @EndDate,
+        @AttendableID = @AttendableID output;
+
+    if @AttendableID is null
+    begin
+        raiserror('Failed to create Attendable', 16, 0);
+        return;
+    end
+
+    declare @LectureID int = NULL;
+    if @LectureName is not null and @Description is not null and @TotalPrice is not null and @Date is not null
+    begin
+        exec PR_Create_Lecture
+            @LectureName = @LectureName,
+            @Description = @Description,
+            @AdvancePrice = @AdvancePrice,
+            @TotalPrice = @TotalPrice,
+            @Date = @Date,
+            @Language = @Language,
+            @LectureID = @LectureID output;
+
+        if @LectureID is null
+        begin
+            raiserror('Failed to create Lecture', 16, 0);
+            return;
+        end
+    end
+
+    insert into OnlineClasses (ClassID,  LectureID, StudySessionID, AttendableID, Link, IsLive)
+    values (@ClassID,  @LectureID, @StudySessionID, @AttendableID,@Link, @IsLive);
+
+    set @OnlineClassID = scope_identity();
+    print 'OnlineClass created successfully';
+end
+go;
+
+
+create procedure PR_Create_StationaryClass
+@ClassID int,
+@Classroom int,
+@SeatLimit int,
+@StartDate datetime,
+@EndDate datetime,
+@LectureName nvarchar(100) = NULL,
+@Description nvarchar(MAX) = NULL,
+@AdvancePrice money = NULL,
+@TotalPrice money = NULL,
+@Date datetime = NULL,
+@Language nvarchar(10) = 'pl',
+@StudySessionID int = NULL,
+@OnlineClassID int output
+as
+begin
+    set nocount on;
+
+    if not exists (select 1 from Classes where ClassID = @ClassID)
+    begin
+        raiserror('Class with given ID does not exist', 16, 0);
+        return;
+    end
+
+    declare @AttendableID int;
+    exec PR_Create_Attendable
+        @StartDate = @StartDate,
+        @EndDate = @EndDate,
+        @AttendableID = @AttendableID output;
+
+    if @AttendableID is null
+    begin
+        raiserror('Failed to create Attendable', 16, 0);
+        return;
+    end
+
+    declare @LectureID int = NULL;
+    if @LectureName is not null and @Description is not null and @TotalPrice is not null and @Date is not null
+    begin
+        exec PR_Create_Lecture
+            @LectureName = @LectureName,
+            @Description = @Description,
+            @AdvancePrice = @AdvancePrice,
+            @TotalPrice = @TotalPrice,
+            @Date = @Date,
+            @Language = @Language,
+            @LectureID = @LectureID output;
+
+        if @LectureID is null
+        begin
+            raiserror('Failed to create Lecture', 16, 0);
+            return;
+        end
+    end
+
+    insert into StationaryClasses (ClassID,  AttendableID,LectureID, StudySessionID, Classroom,SeatLimit)
+    values (@ClassID,  @LectureID, @StudySessionID, @AttendableID,@Classroom, @SeatLimit);
+
+    set @OnlineClassID = scope_identity();
+    print 'OnlineClass created successfully';
+end
+go;
+
+--dodanie praktyki -K-
+create procedure PR_Create_Internship
+@AttendableID int,
+@StudiesID nchar(5),
+@Address nvarchar(255),
+@Name nvarchar(100),
+@Description nvarchar(MAX),
+@InternshipID int output
+as
+begin
+    set nocount on;
+
+    if not exists (select 1 from Attendable where AttendableID = @AttendableID)
+    begin
+        raiserror('Attendable with given ID does not exist', 16, 0);
+        return;
+    end
+
+    if not exists (select 1 from Studies where StudiesID = @StudiesID)
+    begin
+        raiserror('Studies with given ID does not exist', 16, 0);
+        return;
+    end
+
+    insert into Internships (AttendableID, StudiesID, Address, Name, Description)
+    values (@AttendableID, @StudiesID, @Address, @Name, @Description);
+
+    set @InternshipID = scope_identity();
+    print 'Internship created successfully';
 end
 go;
