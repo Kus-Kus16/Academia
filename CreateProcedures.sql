@@ -50,6 +50,7 @@ if @OrderID is null
 insert into Enrollments (OrderID, LectureID, AdvancePrice, TotalPrice, Status)
     values (@OrderID, @LectureID, @AdvancePrice, @TotalPrice, 'AwaitingPayment');
 print 'Lecture added to cart successfuly';
+
 end
 go;
 
@@ -76,6 +77,7 @@ if not exists (select 1 from Attendable A where A.AttendableID = @AttendableID)
 insert into Attendances (AttendableID, StudentID, Attendance)
     select @AttendableID, StudentID, Attendance from @AttendanceList;
 print 'Attendances saved successfuly';
+
 end
 go;
 
@@ -88,7 +90,8 @@ create procedure PR_Create_Lecture
 @TotalPrice money,
 @Date datetime,
 @Language nvarchar(10) = 'pl',
-@Available bit = 0
+@Available bit = 0,
+@LectureID int output
 as
 begin
 set nocount on;
@@ -118,14 +121,17 @@ if @Date < getdate()
 
 insert into Lectures (TranslatorID, LectureName, Description, AdvancePrice, TotalPrice, Date, Language, Available)
     values(@TranslatorID, @LectureName, @Description, @AdvancePrice, @TotalPrice, @Date, @Language, @Available);
+set @LectureID = scope_identity();
 print 'Lecture added successfuly';
+
 end
 go;
 
 -- Dodanie do Attendable -M-
 create procedure PR_Create_Attendable
 @StartDate datetime,
-@EndDate datetime
+@EndDate datetime,
+@AttendableID int output
 as
 begin
 set nocount on;
@@ -138,7 +144,10 @@ if @EndDate < @StartDate
 
 insert into Attendable (StartDate, EndDate)
     values(@StartDate, @EndDate);
+
+set @AttendableID = scope_identity();
 print 'Attendable added successfuly';
+
 end
 go;
 
