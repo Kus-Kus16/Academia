@@ -4,52 +4,52 @@ create procedure PR_Create_Cart
 @OrderID int output
 as
 begin
-set nocount on;
+    set nocount on;
 
-if not exists (select 1 from Students S where S.StudentID = @StudentID)
-    begin
-    raiserror('Student with given ID does not exist', 16, 0);
-    return;
+    if not exists (select 1 from Students S where S.StudentID = @StudentID)
+        begin
+        raiserror('Student with given ID does not exist', 16, 0);
+        return;
+        end
+
+    insert into Orders (StudentID, Status)
+        values (@StudentID, 'Cart');
+    set @OrderID = scope_identity();
+    print 'Cart created successfuly';
+
     end
+    go;
 
-insert into Orders (StudentID, Status)
-    values (@StudentID, 'Cart');
-set @OrderID = scope_identity();
-print 'Cart created successfuly';
-
-end
-go;
-
--- Dodanie szkolenia do koszyka -M-
-create procedure PR_Add_To_Cart
-@StudentID int,
-@LectureID int
-as
-begin
-declare @AdvancePrice money;
-declare @TotalPrice money;
-declare @OrderID int;
-set nocount on;
-
-if not exists (select 1 from Lectures L where L.LectureID = @LectureID)
+    -- Dodanie szkolenia do koszyka -M-
+    create procedure PR_Add_To_Cart
+    @StudentID int,
+    @LectureID int
+    as
     begin
-    raiserror('Lecture with given ID does not exist', 16, 0);
-    return;
-    end
+    declare @AdvancePrice money;
+    declare @TotalPrice money;
+    declare @OrderID int;
+    set nocount on;
 
-(select @AdvancePrice = L.AdvancePrice, @TotalPrice = L.TotalPrice from Lectures L where L.LectureID = @LectureID);
+    if not exists (select 1 from Lectures L where L.LectureID = @LectureID)
+        begin
+        raiserror('Lecture with given ID does not exist', 16, 0);
+        return;
+        end
 
-set @OrderID = (select O.OrderID from Orders O where O.StudentID = @StudentID and O.Status = 'Cart');
-if @OrderID is null
-    begin
-    exec PR_Create_Cart
-        @StudentID = @StudentID,
-        @OrderID = @OrderID output;
-    end
+    (select @AdvancePrice = L.AdvancePrice, @TotalPrice = L.TotalPrice from Lectures L where L.LectureID = @LectureID);
 
-insert into Enrollments (OrderID, LectureID, AdvancePrice, TotalPrice, Status)
-    values (@OrderID, @LectureID, @AdvancePrice, @TotalPrice, 'AwaitingPayment');
-print 'Lecture added to cart successfuly';
+    set @OrderID = (select O.OrderID from Orders O where O.StudentID = @StudentID and O.Status = 'Cart');
+    if @OrderID is null
+        begin
+        exec PR_Create_Cart
+            @StudentID = @StudentID,
+            @OrderID = @OrderID output;
+        end
+
+    insert into Enrollments (OrderID, LectureID, AdvancePrice, TotalPrice, Status)
+        values (@OrderID, @LectureID, @AdvancePrice, @TotalPrice, 'AwaitingPayment');
+    print 'Lecture added to cart successfuly';
 
 end
 go;
@@ -66,63 +66,63 @@ create procedure PR_Set_Attendances
 @AttendanceList AttendanceListTable readonly
 as
 begin
-set nocount on;
+    set nocount on;
 
-if not exists (select 1 from Attendable A where A.AttendableID = @AttendableID)
-    begin
-    raiserror('Attendable with given ID does not exist', 16, 0);
-    return;
+    if not exists (select 1 from Attendable A where A.AttendableID = @AttendableID)
+        begin
+        raiserror('Attendable with given ID does not exist', 16, 0);
+        return;
+        end
+
+    insert into Attendances (AttendableID, StudentID, Attendance)
+        select @AttendableID, StudentID, Attendance from @AttendanceList;
+    print 'Attendances saved successfuly';
+
     end
+    go;
 
-insert into Attendances (AttendableID, StudentID, Attendance)
-    select @AttendableID, StudentID, Attendance from @AttendanceList;
-print 'Attendances saved successfuly';
-
-end
-go;
-
--- Stworzenie nowego lecture -M-
-create procedure PR_Create_Lecture 
-@TranslatorID int = NULL,
-@LectureName nvarchar(100),
-@Description nvarchar(MAX),
-@AdvancePrice money = NULL,
-@TotalPrice money,
-@Date datetime,
-@Language nvarchar(10) = 'pl',
-@Available bit = 0,
-@LectureID int output
-as
-begin
-set nocount on;
-
-if @TranslatorID is not null and not exists (select 1 from Translators T where T.TranslatorID = @TranslatorID)
+    -- Stworzenie nowego lecture -M-
+    create procedure PR_Create_Lecture 
+    @TranslatorID int = NULL,
+    @LectureName nvarchar(100),
+    @Description nvarchar(MAX),
+    @AdvancePrice money = NULL,
+    @TotalPrice money,
+    @Date datetime,
+    @Language nvarchar(10) = 'pl',
+    @Available bit = 0,
+    @LectureID int output
+    as
     begin
-    raiserror('Translator with given ID does not exist', 16, 0);
-    return;
-    end
+    set nocount on;
 
-if @TranslatorID is not null and not exists (select 1 from Translators T where T.TranslatorID = @TranslatorID and T.Language = @Language)
-    begin
-    raiserror('Translator with given ID cannot translate from given language', 16, 1);
-    return;
-    end
+    if @TranslatorID is not null and not exists (select 1 from Translators T where T.TranslatorID = @TranslatorID)
+        begin
+        raiserror('Translator with given ID does not exist', 16, 0);
+        return;
+        end
 
-if @TranslatorID is null and @Language <> 'pl'
-    begin
-    print 'Inserting lecture without polish translation';
-    end   
+    if @TranslatorID is not null and not exists (select 1 from Translators T where T.TranslatorID = @TranslatorID and T.Language = @Language)
+        begin
+        raiserror('Translator with given ID cannot translate from given language', 16, 1);
+        return;
+        end
 
-if @Date < getdate()
-    begin
-    raiserror('Given date is from the past', 16, 3);
-    return;
-    end
+    if @TranslatorID is null and @Language <> 'pl'
+        begin
+        print 'Inserting lecture without polish translation';
+        end   
 
-insert into Lectures (TranslatorID, LectureName, Description, AdvancePrice, TotalPrice, Date, Language, Available)
-    values(@TranslatorID, @LectureName, @Description, @AdvancePrice, @TotalPrice, @Date, @Language, @Available);
-set @LectureID = scope_identity();
-print 'Lecture added successfuly';
+    if @Date < getdate()
+        begin
+        raiserror('Given date is from the past', 16, 3);
+        return;
+        end
+
+    insert into Lectures (TranslatorID, LectureName, Description, AdvancePrice, TotalPrice, Date, Language, Available)
+        values(@TranslatorID, @LectureName, @Description, @AdvancePrice, @TotalPrice, @Date, @Language, @Available);
+    set @LectureID = scope_identity();
+    print 'Lecture added successfuly';
 
 end
 go;
@@ -134,22 +134,22 @@ create procedure PR_Create_Attendable
 @AttendableID int output
 as
 begin
-set nocount on;
+    set nocount on;
 
-if @EndDate < @StartDate
-    begin
-    raiserror('Given dates are mismatched', 16, 0);
-    return;
+    if @EndDate < @StartDate
+        begin
+        raiserror('Given dates are mismatched', 16, 0);
+        return;
+        end
+
+    insert into Attendable (StartDate, EndDate)
+        values(@StartDate, @EndDate);
+
+    set @AttendableID = scope_identity();
+    print 'Attendable added successfuly';
+
     end
-
-insert into Attendable (StartDate, EndDate)
-    values(@StartDate, @EndDate);
-
-set @AttendableID = scope_identity();
-print 'Attendable added successfuly';
-
-end
-go;
+    go;
 
 -- Dodanie nauczyciela -Ł-
 create procedure PR_Add_Teacher
@@ -198,6 +198,8 @@ begin
             return;
         end
 
+    insert into Teachers (Name, Surname, Email, Phone, Address, City, Country, BirthDate, HireDate, TitleOfCourtesy)
+        values(@Name, @Surname, @Email, @Phone, @Address, @City, @Country, @BirthDate, @HireDate, @TitleOfCourtesy);
     insert into Teachers (Name, Surname, Email, Phone, Address, City, Country, BirthDate, HireDate, TitleOfCourtesy)
         values(@Name, @Surname, @Email, @Phone, @Address, @City, @Country, @BirthDate, @HireDate, @TitleOfCourtesy);
 
@@ -300,54 +302,6 @@ begin
 
     set @StudentID = scope_identity();
     print 'Student added successfuly';
-end
-go;
-
---Zmiana statusów płatności -Ł-
-create trigger TR_PaymentStatusChange
-on Orders
-after update
-as
-begin
-    set nocount on;
-
-    if exists (select 1 from inserted where Status = 'Paid')
-        begin
-            update Enrollments
-                set Status = 'InProgress'
-                where OrderID in (select OrderID from inserted where Status = 'Paid');
-        end
-end
-go;
-
---dodanie StudySessionPayment po opłaceniu całości zamównienia -Ł-
-create trigger TR_AddStudySessionPayment
-on Enrollments
-after update
-as
-begin
-    set nocount on;
-
-    if exists(select 1 from inserted where Status = 'InProgress')
-        begin
-            with StudiesEnrollmentsUpdated as (
-                select I.EnrollmentID, I.Status
-                from inserted as I
-                         join Enrollments as E on I.EnrollmentID = E.EnrollmentID
-                         join Lectures as L on E.LectureID = L.LectureID
-                         join Studies as S on L.LectureID = S.LectureID
-            ), StudySessionToBeInserted as (
-                select E.EnrollmentID, SS.StudySessionID, SS.Price, DATEADD(day, -3, SS.StartDate) as DueDate, NULL as PaidDate
-                from StudySessions as SS
-                         join Studies as S on SS.StudiesID = S.StudiesID
-                         join Lectures as L on S.LectureID = L.LectureID
-                         join Enrollments as E on L.LectureID = E.LectureID
-                where E.EnrollmentID in (select EnrollmentID from StudiesEnrollmentsUpdated where Status = 'InProgress')
-            )
-
-            insert into StudySessionPayments (EnrollmentID, StudySessionID, Price, DueDate, PaidDate)
-            select EnrollmentID, StudySessionID, Price, DueDate, PaidDate from StudySessionToBeInserted;
-        end
 end
 go;
 
