@@ -161,47 +161,48 @@ create procedure PR_Add_Teacher
 @City nvarchar(50),
 @Country nvarchar(69),
 @BirthDate date,
-@HireDate date
-@TitleOfCourtesy nvarchar(20)
+@HireDate date,
+@TitleOfCourtesy nvarchar(20),
+@TeacherID int output
 as
 begin
-set nocount on;
+    set nocount on;
 
-if exists 1 (select 1 from Teachers T where T.Email = @Email)
-    begin
-    raiserror('Teacher with given email already exists', 16, 0);
-    return;
-    end
+    if exists (select 1 from Teachers T where T.Email = @Email)
+        begin
+            raiserror('Teacher with given email already exists', 16, 0);
+            return;
+        end
 
-if exists 1 (select 1 from Teachers T where T.Phone = @Phone)
-    begin
-    raiserror('Teacher with given phone number already exists', 16, 0);
-    return;
-    end
+    if exists (select 1 from Teachers T where T.Phone = @Phone)
+        begin
+            raiserror('Teacher with given phone number already exists', 16, 0);
+            return;
+        end
 
-if @BirthDate > getdate()
-    begin
-    raiserror('Birth date cannot be in the future', 16, 0);
-    return;
-    end
+    if @BirthDate > getdate()
+        begin
+            raiserror('Birth date cannot be in the future', 16, 0);
+            return;
+        end
 
-if @BirthDate > @HireDate
-    begin
-    raiserror('Hire date cannot be before birth date', 16, 0);
-    return;
-    end
+    if @BirthDate > @HireDate
+        begin
+            raiserror('Hire date cannot be before birth date', 16, 0);
+            return;
+        end
 
-if @HireDate > getdate()
-    begin
-    raiserror('Hire date cannot be in the future', 16, 0);
-    return;
-    end
+    if @HireDate > getdate()
+        begin
+            raiserror('Hire date cannot be in the future', 16, 0);
+            return;
+        end
 
-insert into Teachers (Name, Surname, Email, Phone, Address, City, Country, BirthDate, HireDate, TitleOfCourtesy)
-    values(@Name, @Surname, @Email, @Phone, @Address, @City, @Country, @BirthDate, @HireDate, @TitleOfCourtesy);
+    insert into Teachers (Name, Surname, Email, Phone, Address, City, Country, BirthDate, HireDate, TitleOfCourtesy)
+        values(@Name, @Surname, @Email, @Phone, @Address, @City, @Country, @BirthDate, @HireDate, @TitleOfCourtesy);
 
-
-print 'Teacher added successfully';
+    set @TeacherID = scope_identity();
+    print 'Teacher added successfully';
 end
 go;
 
@@ -217,45 +218,47 @@ create procedure PR_Add_Translator
 @Country nvarchar(69),
 @BirthDate date,
 @HireDate date,
-@Language nvarchar(10)
+@Language nvarchar(10),
+@TranslatorID int output
 as
 begin
-set nocount on;
+    set nocount on;
 
-if exists 1 (select 1 from Translators T where T.Email = @Email)
-    begin
-    raiserror('Translator with given email already exists', 16, 0);
-    return;
-    end
+    if exists (select 1 from Translators T where T.Email = @Email)
+        begin
+            raiserror('Translator with given email already exists', 16, 0);
+            return;
+        end
 
-if exists 1 (select 1 from Translators T where T.Phone = @Phone)
-    begin
-    raiserror('Translator with given phone number already exists', 16, 0);
-    return;
-    end
+    if exists (select 1 from Translators T where T.Phone = @Phone)
+        begin
+            raiserror('Translator with given phone number already exists', 16, 0);
+            return;
+        end
 
-if @BirthDate > getdate()
-    begin
-    raiserror('Birth date cannot be in the future', 16, 0);
-    return;
-    end
+    if @BirthDate > getdate()
+        begin
+            raiserror('Birth date cannot be in the future', 16, 0);
+            return;
+        end
 
-if @BirthDate > @HireDate
-    begin
-    raiserror('Hire date cannot be before birth date', 16, 0);
-    return;
-    end
+    if @BirthDate > @HireDate
+        begin
+            raiserror('Hire date cannot be before birth date', 16, 0);
+            return;
+        end
 
-if @HireDate > getdate()
-    begin
-    raiserror('Hire date cannot be in the future', 16, 0);
-    return;
-    end
+    if @HireDate > getdate()
+        begin
+            raiserror('Hire date cannot be in the future', 16, 0);
+            return;
+        end
 
-insert into Translators (Name, Surname, Email, Phone, Address, City, Country, BirthDate, HireDate, Language)
-    values(@Name, @Surname, @Email, @Phone, @Address, @City, @Country, @BirthDate, @HireDate, @Language);
+    insert into Translators (Name, Surname, Email, Phone, Address, City, Country, BirthDate, HireDate, Language)
+        values(@Name, @Surname, @Email, @Phone, @Address, @City, @Country, @BirthDate, @HireDate, @Language);
 
-print 'Translator added successfully';
+    set @TranslatorID = scope_identity();
+    print 'Translator added successfully';
 end
 go;
 
@@ -268,33 +271,35 @@ create procedure PR_Add_Student
 @Address nvarchar(255),
 @City nvarchar(50),
 @Country nvarchar(69),
-@BirthDate date
+@BirthDate date,
+@StudentID int output
 as
 begin
-set nocount on;
+    set nocount on;
 
-if exists 1 (select 1 from Students S where S.Email = @Email)
-    begin
-    raiserror('Student with given email already exists', 16, 0);
-    return;
-    end
+    if exists (select 1 from Students S where S.Email = @Email)
+        begin
+            raiserror('Student with given email already exists', 16, 0);
+            return;
+        end
 
-if exists 1 (select 1 from Students S where S.Phone = @Phone)
-    begin
-    raiserror('Student with given phone number already exists', 16, 0);
-    return;
-    end
+    if exists (select 1 from Students S where S.Phone = @Phone)
+        begin
+            raiserror('Student with given phone number already exists', 16, 0);
+            return;
+        end
 
-if @BirthDate > getdate()
-    begin
-    raiserror('Birth date cannot be in the future', 16, 0);
-    return;
-    end
+    if @BirthDate > getdate()
+        begin
+            raiserror('Birth date cannot be in the future', 16, 0);
+            return;
+        end
 
-insert into Students (Name, Surname, Email, Phone, Address, City, Country, BirthDate)
-    values(@Name, @Surname, @Email, @Phone, @Address, @City, @Country, @BirthDate);
+    insert into Students (Name, Surname, Email, Phone, Address, City, Country, BirthDate)
+        values(@Name, @Surname, @Email, @Phone, @Address, @City, @Country, @BirthDate);
 
-print 'Student added successfuly';
+    set @StudentID = scope_identity();
+    print 'Student added successfuly';
 end
 go;
 
@@ -304,49 +309,45 @@ on Orders
 after update
 as
 begin
-set nocount on;
+    set nocount on;
 
-if exists (select 1 from inserted where Status = 'Paid')
-    begin
-    update Enrollments
-        set Status = 'InProgress'
-        where OrderID in (select OrderID from inserted where Status = 'Paid');
-    end
-
+    if exists (select 1 from inserted where Status = 'Paid')
+        begin
+            update Enrollments
+                set Status = 'InProgress'
+                where OrderID in (select OrderID from inserted where Status = 'Paid');
+        end
 end
 go;
 
 --dodanie StudySessionPayment po opłaceniu całości zamównienia -Ł-
 create trigger TR_AddStudySessionPayment
-on Enrollments 
+on Enrollments
 after update
 as
 begin
-set nocount on;
+    set nocount on;
 
-with StudiesEnrollmentsUpdated (EnrollmentID, Status) as (
-    select E.EnrollmentID, E.Status
-    from Studies as S 
-    join Lectures as L on L.LectureID = S.LectureID
-    join inserted as I on I.EnrollmentID = L.EnrollmentID
-), StudySessionToBeInserted (EnrollmentID, StudySessionID, Price, DueDate, PaidDate) as (
-    select  E.EnrollmentID, 
-            SS.StudySessionID, 
-            SS.Price, 
-            DATEADD(day, -3, SS.DueDate), 
-            NULL 
-        from StudySessions as SS
-        join Studies as S on S.StudiesID = SS.StudiesID
-        join Lectures as L on L.LectureID = S.LectureID
-        join Enrollments as E on E.LectureID = L.LectureID
-    where E.EnrollmentID in (select EnrollmentID from StudiesEnrollmentsUpdated where Status = 'InProgress');
-)
+    if exists(select 1 from inserted where Status = 'InProgress')
+        begin
+            with StudiesEnrollmentsUpdated as (
+                select I.EnrollmentID, I.Status
+                from inserted as I
+                         join Enrollments as E on I.EnrollmentID = E.EnrollmentID
+                         join Lectures as L on E.LectureID = L.LectureID
+                         join Studies as S on L.LectureID = S.LectureID
+            ), StudySessionToBeInserted as (
+                select E.EnrollmentID, SS.StudySessionID, SS.Price, DATEADD(day, -3, SS.StartDate) as DueDate, NULL as PaidDate
+                from StudySessions as SS
+                         join Studies as S on SS.StudiesID = S.StudiesID
+                         join Lectures as L on S.LectureID = L.LectureID
+                         join Enrollments as E on L.LectureID = E.LectureID
+                where E.EnrollmentID in (select EnrollmentID from StudiesEnrollmentsUpdated where Status = 'InProgress')
+            )
 
-if exists(select 1 from StudiesEnrollmentsUpdated where Status = 'InProgress')
-    begin
-    insert into StudySessionPayments (EnrollmentID, StudySessionID, Price, DueDate, PaidDate)
-        select EnrollmentID, StudySessionID, Price, DueDate, PaidDate from StudySessionToBeInserted;
-    end
+            insert into StudySessionPayments (EnrollmentID, StudySessionID, Price, DueDate, PaidDate)
+            select EnrollmentID, StudySessionID, Price, DueDate, PaidDate from StudySessionToBeInserted;
+        end
 end
 go;
 

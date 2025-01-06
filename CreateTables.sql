@@ -128,21 +128,6 @@ CREATE TABLE Enrollments (
     CONSTRAINT CHK_Enrollments_Status CHECK (Status IN ('Completed', 'Failed', 'InProgress', 'Resigned', 'AwaitingPayment', 'NotPaidOnTime'))
 );
 
-CREATE TABLE StudySessionPayments (
-    PaymentID int  NOT NULL IDENTITY(1,1),
-    EnrollmentID int  NOT NULL,
-    StudySessionID int  NOT NULL,  
-    Price money  NOT NULL,
-    DueDate date  NOT NULL,
-    PaidDate date  NULL DEFAULT NULL,
-
-    CONSTRAINT StudySessionPayments_pk PRIMARY KEY (PaymentID),
-    CONSTRAINT StudySessionPayments_Enrollments FOREIGN KEY (EnrollmentID) REFERENCES Enrollments (EnrollmentID),
-    CONSTRAINT StudySessionPayments_StudySession FOREIGN KEY (StudySessionID) REFERENCES StudySessions (StudySessionID),
-
-    CONSTRAINT CHK_StudySessionPayments_DueDate CHECK (DueDate > GETDATE())
-);
-
 CREATE TABLE Attendances (
     AttendableID int  NOT NULL,
     StudentID int  NOT NULL,
@@ -251,6 +236,21 @@ CREATE TABLE StudySessions (
 
     CONSTRAINT CHK_StudySessions_Date CHECK (StartDate < EndDate),
     CONSTRAINT CHK_StudySessions_Price CHECK (Price >= 0),
+);
+
+CREATE TABLE StudySessionPayments (
+    PaymentID int  NOT NULL IDENTITY(1,1),
+    EnrollmentID int  NOT NULL,
+    StudySessionID int  NOT NULL,
+    Price money  NOT NULL,
+    DueDate date  NOT NULL,
+    PaidDate date  NULL DEFAULT NULL,
+
+    CONSTRAINT StudySessionPayments_pk PRIMARY KEY (PaymentID),
+    CONSTRAINT StudySessionPayments_Enrollments FOREIGN KEY (EnrollmentID) REFERENCES Enrollments (EnrollmentID),
+    CONSTRAINT StudySessionPayments_StudySession FOREIGN KEY (StudySessionID) REFERENCES StudySessions (StudySessionID),
+
+    CONSTRAINT CHK_StudySessionPayments_DueDate CHECK (DueDate > GETDATE())
 );
 
 CREATE TABLE Classes (
