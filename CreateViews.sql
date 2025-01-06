@@ -44,15 +44,17 @@ group by A.AttendableID, A.StartDate, A.EndDate
 go
 
 create view VW_OnlineCourseModules_Attendance_Summary as
-select A.attendableid, totalstudents, presentstudents, attendancerate, OCM.OnlineCourseID, CourseModuleID, Link, IsLive
-from VW_All_Attendance_Summary A
-             inner join OnlineCourseModules OCM on A.attendableid = OCM.AttendableID;
+select A.attendableid, totalstudents, presentstudents, attendancerate, OCM.OnlineCourseID, CM.CourseModuleID, CourseID, Link, IsLive, TeacherID, Name, Description
+    from VW_All_Attendance_Summary A
+             inner join OnlineCourseModules OCM on A.attendableid = OCM.AttendableID
+             inner join dbo.CourseModules CM on OCM.CourseModuleID = CM.CourseModuleID;
 go
 
 create view VW_StationaryCourseModules_Attendance_Summary as
-select A.attendableid, totalstudents, presentstudents, attendancerate, SCM.StationaryCourseID, CourseModuleID, Classroom, SeatLimit
+select A.attendableid, totalstudents, presentstudents, attendancerate, SCM.StationaryCourseID, CourseID, CM.CourseModuleID, Classroom, SeatLimit,  TeacherID, CourseID, Name, Description
 from VW_All_Attendance_Summary A
-             inner join StationaryCourseModules SCM on A.attendableid = SCM.AttendableID;
+             inner join StationaryCourseModules SCM on A.attendableid = SCM.AttendableID
+inner join dbo.CourseModules CM on SCM.CourseModuleID = CM.CourseModuleID
 go
 
 create view VW_OnlineClasses_Attendance_Summary as
