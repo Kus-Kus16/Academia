@@ -14,7 +14,7 @@ begin
                 where OrderID in (select OrderID from inserted where Status = 'Paid');
         end
 end
-go;
+go
 
 --dodanie StudySessionPayment po opłaceniu całości zamównienia -Ł-
 create trigger TR_AddStudySessionPayment
@@ -45,4 +45,4 @@ begin
             select EnrollmentID, StudySessionID, Price, DueDate, PaidDate from StudySessionToBeInserted;
         end
 end
-go;
+go
