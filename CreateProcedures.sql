@@ -21,11 +21,11 @@ begin
     go;
 
     -- Dodanie szkolenia do koszyka -M-
-    create procedure PR_Add_To_Cart
-    @StudentID int,
-    @LectureID int
-    as
-    begin
+create procedure PR_Add_To_Cart
+@StudentID int,
+@LectureID int
+as
+begin
     declare @AdvancePrice money;
     declare @TotalPrice money;
     declare @OrderID int;
@@ -52,14 +52,14 @@ begin
     print 'Lecture added to cart successfuly';
 
 end
-go;
+go
 
 -- Dodanie obecności na zajęciach dla studentów -M-
 create type AttendanceListTable as table (
     StudentID int,
     Attendance bit
 )
-go;
+go
 
 create procedure PR_Set_Attendances
 @AttendableID int,
@@ -78,22 +78,22 @@ begin
         select @AttendableID, StudentID, Attendance from @AttendanceList;
     print 'Attendances saved successfuly';
 
-    end
-    go;
+end
+go
 
-    -- Stworzenie nowego lecture -M-
-    create procedure PR_Create_Lecture 
-    @TranslatorID int = NULL,
-    @LectureName nvarchar(100),
-    @Description nvarchar(MAX),
-    @AdvancePrice money = NULL,
-    @TotalPrice money,
-    @Date datetime,
-    @Language nvarchar(10) = 'pl',
-    @Available bit = 0,
-    @LectureID int output
-    as
-    begin
+-- Stworzenie nowego lecture -M-
+create procedure PR_Create_Lecture 
+@TranslatorID int = NULL,
+@LectureName nvarchar(100),
+@Description nvarchar(MAX),
+@AdvancePrice money = NULL,
+@TotalPrice money,
+@Date datetime,
+@Language nvarchar(10) = 'pl',
+@Available bit = 0,
+@LectureID int output
+as
+begin
     set nocount on;
 
     if @TranslatorID is not null and not exists (select 1 from Translators T where T.TranslatorID = @TranslatorID)
@@ -125,7 +125,7 @@ begin
     print 'Lecture added successfuly';
 
 end
-go;
+go
 
 -- Dodanie do Attendable -M-
 create procedure PR_Create_Attendable
@@ -148,8 +148,8 @@ begin
     set @AttendableID = scope_identity();
     print 'Attendable added successfuly';
 
-    end
-    go;
+end
+go
 
 -- Dodanie nauczyciela -Ł-
 create procedure PR_Add_Teacher
@@ -206,7 +206,7 @@ begin
     set @TeacherID = scope_identity();
     print 'Teacher added successfully';
 end
-go;
+go
 
 
 -- Dodanie tłumacza -Ł-
@@ -262,7 +262,7 @@ begin
     set @TranslatorID = scope_identity();
     print 'Translator added successfully';
 end
-go;
+go
 
 -- Dodanie studenta -Ł-
 create procedure PR_Add_Student
@@ -303,7 +303,7 @@ begin
     set @StudentID = scope_identity();
     print 'Student added successfuly';
 end
-go;
+go
 
 --dodanie webinara -K-
 create procedure PR_Create_Webinar
@@ -349,7 +349,7 @@ begin
     set @WebinarID = scope_identity();
     print 'Webinar created successfully';
 end
-go;
+go
 
 --dodanie kursu -K-
 create procedure PR_Create_Course
@@ -392,7 +392,7 @@ begin
     set @CourseID = scope_identity();
     print 'Course created successfully';
 end
-go;
+go
 
 --dodanie modułów kursów -K-
 create procedure PR_Create_CourseModule
@@ -417,7 +417,7 @@ begin
     set @CourseModuleID = scope_identity();
     print 'Course module created successfully';
 end
-go;
+go
 
 --dodanie spotkań kursów -K-
 create procedure PR_Create_StationaryCourseModule
@@ -462,7 +462,7 @@ begin
     set @StationaryCourseID = scope_identity();
     print 'StationaryCourseModule created successfully';
 end
-go;
+go
 
 create procedure PR_Create_OnlineCourseModule
 @CourseModuleID int,
@@ -549,7 +549,7 @@ begin
     set @StudyID = scope_identity();
     print 'Study created successfully';
 end
-go;
+go
 
 --dodanie zjazdów -K-
 create procedure PR_Create_StudySession
@@ -592,7 +592,7 @@ begin
     set @StudySessionID = scope_identity();
     print 'Study session created successfully';
 end
-go;
+go
 
 --dodanie zajęć do zjazdów -K-
 
@@ -628,7 +628,7 @@ begin
     set @ClassID = scope_identity();
     print 'Class created successfully';
 end
-go;
+go
 
 
 --dodanie zajęć do przedmiotów -K-
@@ -699,7 +699,7 @@ begin
     set @OnlineClassID = scope_identity();
     print 'OnlineClass created successfully';
 end
-go;
+go
 
 
 create procedure PR_Create_StationaryClass
@@ -763,7 +763,7 @@ begin
     set @OnlineClassID = scope_identity();
     print 'OnlineClass created successfully';
 end
-go;
+go
 
 --dodanie praktyki -K-
 create procedure PR_Create_Internship
@@ -795,4 +795,4 @@ begin
     set @InternshipID = scope_identity();
     print 'Internship created successfully';
 end
-go;
+go
