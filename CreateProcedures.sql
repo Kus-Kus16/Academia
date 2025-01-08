@@ -519,7 +519,7 @@ create procedure PR_Create_Studies
 @Available bit = 0,
 @Syllabus nvarchar(100),
 @CapacityLimit int,
-@StudyID int output
+@StudyID nchar(5)
 as
 begin
     set nocount on;
@@ -543,10 +543,9 @@ begin
         return;
     end
 
-    insert into Studies (LectureID, Syllabus, CapacityLimit)
-        values (@LectureID, @Syllabus,@CapacityLimit);
+    insert into Studies (StudiesID,LectureID, Syllabus, CapacityLimit)
+        values (@StudyID,@LectureID, @Syllabus,@CapacityLimit);
 
-    set @StudyID = scope_identity();
     print 'Study created successfully';
 end
 go
