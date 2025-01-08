@@ -7,14 +7,16 @@ as
 begin
     set nocount on;
 
-    if exists (select 1 from inserted where Status = 'Paid')
+    if exists (select 1 from inserted where Status = 'Completed' or AdvancePaidDate is not null)
         begin
             update Enrollments
                 set Status = 'InProgress'
-                where OrderID in (select OrderID from inserted where Status = 'Paid');
+                where OrderID in (select OrderID from inserted where Status = 'Completed');
         end
 end
 go
+
+Drop trigger TR_PaymentStatusChange
 
 --dodanie StudySessionPayment po opłaceniu całości zamównienia -Ł-
 create trigger TR_AddStudySessionPayment
