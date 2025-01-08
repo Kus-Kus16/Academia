@@ -17,10 +17,10 @@ begin
     set @OrderID = scope_identity();
     print 'Cart created successfuly';
 
-    end
-    go;
+end
+go;
 
-    -- Dodanie szkolenia do koszyka -M-
+-- Dodanie szkolenia do koszyka -M-
 create procedure PR_Add_To_Cart
 @StudentID int,
 @LectureID int
@@ -591,11 +591,6 @@ begin
 end
 go
 
---dodanie zajęć do zjazdów -K-
-
---------------------------------------------------
-
-
 --dodanie przedmiotów -K-
 create procedure PR_Create_Class
 @StudiesID nchar(5),
@@ -791,5 +786,74 @@ begin
 
     set @InternshipID = scope_identity();
     print 'Internship created successfully';
+end
+go
+
+-- złożenie zamówienia -M-
+create procedure PR_Place_Order
+@OrderID int
+as
+begin
+    set nocount on;
+
+    if not exists (select 1 from Orders O where O.OrderID = @OrderID)
+        begin
+        raiserror('Cart with given ID does not exist', 16, 0);
+        return;
+        end
+
+    begin
+        update Orders
+            set OrderDate = getdate(), Status = 'Pending'
+            where OrderID = @OrderID;
+    end
+    print 'Order placed successfuly';
+
+end
+go
+
+-- opłacenie zaliczki zamówienia -M-
+create procedure PR_AdvancePayment_Paid
+@OrderID int
+as
+begin
+    set nocount on;
+
+    if not exists (select 1 from Orders O where O.OrderID = @OrderID)
+        begin
+        raiserror('Cart with given ID does not exist', 16, 0);
+        return;
+        end
+
+    begin
+        update Orders
+            set AdvancePaidDate = getdate()
+            where OrderID = @OrderID;
+    end
+    print 'AdvancePayment date saved successfuly';
+
+end
+go
+
+-- opłacenie całości zamówienia -M-
+create procedure PR_TotalPayment_Paid
+@OrderID int
+as
+begin
+    set nocount on;
+
+    if not exists (select 1 from Orders O where O.OrderID = @OrderID)
+        begin
+        raiserror('Cart with given ID does not exist', 16, 0);
+        return;
+        end
+
+    begin
+        update Orders
+            set TotalPaidDate = getdate(), Status = 'Completed'
+            where OrderID = @OrderID;
+    end
+    print 'TotalPaid date saved successfuly';
+
 end
 go
