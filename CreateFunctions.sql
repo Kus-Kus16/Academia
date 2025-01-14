@@ -1,5 +1,4 @@
---K
--- Harmonogram kierunku studiów
+-- Harmonogram kierunku studiów -K-
 create function FN_ScheduleForStudies(@studiesID nchar(5))
 returns table
 as
@@ -38,7 +37,7 @@ return (
 )
 go
 
--- Harmonogram kursu
+-- Harmonogram kursu -K-
 create function FN_ScheduleForCourse(@courseID INT)
 returns table
 as
@@ -77,7 +76,7 @@ return (
 )
 go
 
---Harmonogram studenta
+--Harmonogram studenta -K-
 create function FN_ScheduleForStudent(@studentid int)
 returns table
 as
@@ -211,8 +210,6 @@ return (
         where s.StudentID = @studentid
     );
 go
-
-
 
 -- Sprawdzenie czy student należy do danego Attendable -M-
 create function FN_Check_StudentAttendable(@StudentID int, @AttendableID int)
