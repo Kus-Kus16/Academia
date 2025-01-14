@@ -7,9 +7,8 @@ begin
     set nocount on;
 
     if not exists (select 1 from Students S where S.StudentID = @StudentID)
-        begin
-        raiserror('Student with given ID does not exist', 16, 0);
-        return;
+        begin;
+            throw 600026,'Student with given ID does not exist', 1;
         end
 
     insert into Orders (StudentID, Status)
@@ -32,10 +31,17 @@ begin
     set nocount on;
 
     if not exists (select 1 from Lectures L where L.LectureID = @LectureID)
-        begin
-        raiserror('Lecture with given ID does not exist', 16, 0);
-        return;
+        begin;
+            throw 600027,'Lecture with given ID does not exist', 1;
         end
+
+    if not exists (select 1 from Students S where S.StudentID = @StudentID)
+        begin;
+            throw 600026,'Student with given ID does not exist', 1;
+        end
+
+    exec PR_Check_Availability
+        @LectureID = @LectureID;
 
     (select @AdvancePrice = L.AdvancePrice, @TotalPrice = L.TotalPrice from Lectures L where L.LectureID = @LectureID);
 
@@ -69,10 +75,29 @@ begin
     set nocount on;
 
     if not exists (select 1 from Attendable A where A.AttendableID = @AttendableID)
-        begin
-        raiserror('Attendable with given ID does not exist', 16, 0);
-        return;
+        begin;
+            throw 600031,'Attendable with given ID does not exist', 1;
         end
+
+    declare @StudentID int;
+    declare cur cursor for
+    select StudentID from @AttendanceList
+
+    open cur  
+    fetch next from cur into @StudentID
+    
+    while @@fetch_status = 0
+    begin
+        if FN_Check_StudentAttendable(@StudentID, @AttendableID) = 0
+            begin;
+                throw 600032,'Student is not enrolled to given attendable', 1;
+            end
+
+        fetch next from cur into @StudentID
+    end
+
+    close cur
+    deallocate cur
 
     insert into Attendances (AttendableID, StudentID, Attendance)
         select @AttendableID, StudentID, Attendance from @AttendanceList;
@@ -97,26 +122,24 @@ begin
     set nocount on;
 
     if @TranslatorID is not null and not exists (select 1 from Translators T where T.TranslatorID = @TranslatorID)
-        begin
-        raiserror('Translator with given ID does not exist', 16, 0);
+        begin;
+            throw 600033,'Translator with given ID does not exist', 1;
         return;
         end
 
     if @TranslatorID is not null and not exists (select 1 from Translators T where T.TranslatorID = @TranslatorID and T.Language = @Language)
-        begin
-        raiserror('Translator with given ID cannot translate from given language', 16, 1);
-        return;
+        begin;
+            throw 600034,'Translator with given ID cannot translate from given language', 1;
         end
 
     if @TranslatorID is null and @Language <> 'pl'
         begin
-        print 'Inserting lecture without polish translation';
+            raiserror('Inserting lecture without polish translations', 10, 1) with nowait;
         end   
 
     if @Date < getdate()
-        begin
-        raiserror('Given date is from the past', 16, 3);
-        return;
+        begin;
+            throw 600035,'Given date is from the past', 1;
         end
 
     insert into Lectures (TranslatorID, LectureName, Description, AdvancePrice, TotalPrice, Date, Language, Available)
@@ -137,9 +160,8 @@ begin
     set nocount on;
 
     if @EndDate < @StartDate
-        begin
-        raiserror('Given dates are mismatched', 16, 0);
-        return;
+        begin;
+            throw 600036,'Given dates are mismatched', 1;
         end
 
     insert into Attendable (StartDate, EndDate)
@@ -169,33 +191,28 @@ begin
     set nocount on;
 
     if exists (select 1 from Teachers T where T.Email = @Email)
-        begin
-            raiserror('Teacher with given email already exists', 16, 0);
-            return;
+        begin;
+            throw 600037,'Teacher with given email already exists', 1;
         end
 
     if exists (select 1 from Teachers T where T.Phone = @Phone)
-        begin
-            raiserror('Teacher with given phone number already exists', 16, 0);
-            return;
+        begin;
+            throw 600038,'Teacher with given phone number already exists', 1;
         end
 
     if @BirthDate > getdate()
-        begin
-            raiserror('Birth date cannot be in the future', 16, 0);
-            return;
+        begin;
+            throw 600039,'Birth date cannot be in the future', 1;
         end
 
     if @BirthDate > @HireDate
-        begin
-            raiserror('Hire date cannot be before birth date', 16, 0);
-            return;
+        begin;
+            throw 600040,'Hire date cannot be before birth date', 1;
         end
 
     if @HireDate > getdate()
-        begin
-            raiserror('Hire date cannot be in the future', 16, 0);
-            return;
+        begin;
+            throw 600041,'Hire date cannot be in the future', 1;
         end
 
     insert into Teachers (Name, Surname, Email, Phone, Address, City, Country, BirthDate, HireDate, TitleOfCourtesy)
@@ -225,33 +242,29 @@ begin
     set nocount on;
 
     if exists (select 1 from Translators T where T.Email = @Email)
-        begin
-            raiserror('Translator with given email already exists', 16, 0);
-            return;
+        begin;
+            throw 600042,'Translator with given email already exists', 1;
         end
 
+
     if exists (select 1 from Translators T where T.Phone = @Phone)
-        begin
-            raiserror('Translator with given phone number already exists', 16, 0);
-            return;
+        begin;
+            throw 600043,'Translator with given phone number already exists', 1;
         end
 
     if @BirthDate > getdate()
-        begin
-            raiserror('Birth date cannot be in the future', 16, 0);
-            return;
+        begin;
+            throw 600044,'Birth date cannot be in the future', 1;
         end
 
     if @BirthDate > @HireDate
-        begin
-            raiserror('Hire date cannot be before birth date', 16, 0);
-            return;
+        begin;
+            throw 600045,'Hire date cannot be before birth date', 1;
         end
 
     if @HireDate > getdate()
-        begin
-            raiserror('Hire date cannot be in the future', 16, 0);
-            return;
+        begin;
+            throw 600046,'Hire date cannot be in the future', 1;
         end
 
     insert into Translators (Name, Surname, Email, Phone, Address, City, Country, BirthDate, HireDate, Language)
@@ -278,21 +291,18 @@ begin
     set nocount on;
 
     if exists (select 1 from Students S where S.Email = @Email)
-        begin
-            raiserror('Student with given email already exists', 16, 0);
-            return;
+        begin;
+            throw 600047,'Student with given email already exists', 1;
         end
 
     if exists (select 1 from Students S where S.Phone = @Phone)
-        begin
-            raiserror('Student with given phone number already exists', 16, 0);
-            return;
+        begin;
+            throw 600048,'Student with given phone number already exists', 1;
         end
 
     if @BirthDate > getdate()
-        begin
-            raiserror('Birth date cannot be in the future', 16, 0);
-            return;
+        begin;
+            throw 600049,'Birth date cannot be in the future', 1;
         end
 
     insert into Students (Name, Surname, Email, Phone, Address, City, Country, BirthDate)
@@ -336,8 +346,8 @@ begin
         @LectureID = @LectureID output;
 
     if @LectureID is null
-    begin
-        Throw 60000, 'Failed to create lecture', 1;
+    begin;
+        throw 60000, 'Failed to create lecture', 1;
     end
 
     insert into Webinars (LectureID, TeacherID,Link,IsFree)
@@ -378,7 +388,7 @@ begin
         @LectureID = @LectureID output;
 
     if @LectureID is null
-    begin
+    begin;
         throw 60001,'Failed to create lecture', 1;
     end
 
@@ -402,7 +412,7 @@ begin
     set nocount on;
 
     if not exists (select 1 from Courses where CourseID = @CourseID)
-    begin
+    begin;
         throw 60002,'Course with given ID does not exist',1;
     end
 
@@ -427,13 +437,13 @@ begin
     set nocount on;
 
     if not exists (select 1 from CourseModules where CourseModuleID = @CourseModuleID)
-    begin
+    begin;
         throw 60003,'CourseModule with given ID does not exist', 1;
     end
 
     -- Walidacja: sprawdzenie limitu miejsc
     if @SeatLimit <= 0
-    begin
+    begin;
         throw 60004,'SeatLimit must be greater than 0', 1;
     end
 
@@ -444,7 +454,7 @@ begin
         @AttendableID = @AttendableID output;
 
     if @AttendableID is null
-    begin
+    begin;
         throw 60004, 'Failed to create Attendable',1;
     end
 
@@ -468,12 +478,12 @@ begin
     set nocount on;
 
     if not exists (select 1 from CourseModules where CourseModuleID = @CourseModuleID)
-    begin
+    begin;
         throw 60005,'CourseModule with given ID does not exist',1;
     end
 
     if @Link is null or len(@Link) = 0
-    begin
+    begin;
         throw 60006,'Link cannot be null or empty',1;
     end
 
@@ -484,7 +494,7 @@ begin
         @AttendableID = @AttendableID output;
 
     if @AttendableID is null
-    begin
+    begin;
         throw 60007,'Failed to create Attendable', 1;
     end
 
@@ -527,7 +537,7 @@ begin
         @LectureID = @LectureID output;
 
     if @LectureID is null
-    begin
+    begin;
         throw 60008,'Failed to create lecture', 1;
     end
 
@@ -550,22 +560,22 @@ begin
     set nocount on;
 
     if not exists (select 1 from Studies where StudiesID = @StudiesID)
-    begin
+    begin;
+        throw 6009,'Studies with given ID do not exist', 1;    
     end
 
     if @EndDate <= @StartDate
-    begin
+    begin;
         throw 60010,'End date must be later than start date', 1;
     end
 
     if @EndDate < getdate()
-    begin
-    throw 60011,'Given date is from the past',1;
-    return;
+    begin;
+        throw 60011,'Given date is from the past',1;
     end
 
     if @Price < 0
-    begin
+    begin;
         throw 60012,'Price must be greater than or equal to 0',1;
     end
 
@@ -589,12 +599,12 @@ begin
     set nocount on;
 
     if not exists (select 1 from Studies where StudiesID = @StudiesID)
-    begin
+    begin;
         throw 60013,'Studies with given ID does not exist',1;
     end
 
     if not exists (select 1 from Teachers where TeacherID = @TeacherID)
-    begin
+    begin;
         throw 60014,'Teacher with given ID does not exist',1;
     end
 
@@ -605,7 +615,6 @@ begin
     print 'Class created successfully';
 end
 go
-
 
 --dodanie zajęć do przedmiotów -K-
 create procedure PR_Create_OnlineClass
@@ -627,12 +636,12 @@ begin
     set nocount on;
 
     if not exists (select 1 from Classes where ClassID = @ClassID)
-    begin
+    begin;
         throw 60015,'Class with given ID does not exist',1;
     end
 
     if @Link is null or len(@Link) = 0
-    begin
+    begin;
         throw 60016,'Link cannot be null or empty', 1;
     end
 
@@ -643,7 +652,7 @@ begin
         @AttendableID = @AttendableID output;
 
     if @AttendableID is null
-    begin
+    begin;
         throw 60017,'Failed to create Attendable',1;
     end
 
@@ -660,7 +669,7 @@ begin
             @LectureID = @LectureID output;
 
         if @LectureID is null
-        begin
+        begin;
             throw 60018,'Failed to create Lecture',1;
         end
     end
@@ -673,7 +682,7 @@ begin
 end
 go
 
-
+--dodanie zajęć stacjonarnych -K-
 create procedure PR_Create_StationaryClass
 @ClassID int,
 @Classroom int,
@@ -693,7 +702,7 @@ begin
     set nocount on;
 
     if not exists (select 1 from Classes where ClassID = @ClassID)
-    begin
+    begin;
         throw 60019,'Class with given ID does not exist', 1;
     end
 
@@ -705,12 +714,12 @@ begin
     where c.ClassID = @ClassID;
 
     if @CapacityLimit IS NULL
-    begin
+    begin;
         throw 60020,'CapacityLimit not found for the given ClassID in Studies',1;
     end
 
     if @SeatLimit < @CapacityLimit
-    begin
+    begin;
         throw 60021,'SeatLimit must be greater than or equal to CapacityLimit', 1;
     end
 
@@ -721,7 +730,7 @@ begin
         @AttendableID = @AttendableID output;
 
     if @AttendableID is null
-    begin
+    begin;
         throw 60022,'Failed to create Attendable', 1;
     end
 
@@ -738,7 +747,7 @@ begin
             @LectureID = @LectureID output;
 
         if @LectureID is null
-        begin
+        begin;
             throw 60023,'Failed to create Lecture', 1;
         end
     end
@@ -764,12 +773,12 @@ begin
     set nocount on;
 
     if not exists (select 1 from Attendable where AttendableID = @AttendableID)
-    begin
+    begin;
         throw 60024,'Attendable with given ID does not exist', 1;
     end
 
     if not exists (select 1 from Studies where StudiesID = @StudiesID)
-    begin
+    begin;
        throw 60025,'Studies with given ID does not exist', 1;
     end
 
@@ -789,10 +798,27 @@ begin
     set nocount on;
 
     if not exists (select 1 from Orders O where O.OrderID = @OrderID)
-        begin
-        raiserror('Cart with given ID does not exist', 16, 0);
-        return;
+        begin;
+            throw 600050,'Cart with given ID does not exist', 1;
         end
+
+    declare @LectureID int;
+    declare cur cursor for
+    select LectureID from Enrollments where OrderID = @OrderID
+
+    open cur  
+    fetch next from cur into @LectureID
+    
+    while @@fetch_status = 0
+    begin
+        exec PR_Check_Availability
+            @LectureID = @LectureID;
+
+        fetch next from cur into @LectureID
+    end
+
+    close cur
+    deallocate cur
 
     begin
         update Orders
@@ -812,9 +838,8 @@ begin
     set nocount on;
 
     if not exists (select 1 from Orders O where O.OrderID = @OrderID)
-        begin
-        raiserror('Cart with given ID does not exist', 16, 0);
-        return;
+        begin;
+            throw 600051,'Order with given ID does not exist', 1;
         end
 
     begin
@@ -835,9 +860,8 @@ begin
     set nocount on;
 
     if not exists (select 1 from Orders O where O.OrderID = @OrderID)
-        begin
-        raiserror('Cart with given ID does not exist', 16, 0);
-        return;
+        begin;
+            throw 600051,'Order with given ID does not exist', 1;
         end
 
     begin
@@ -847,5 +871,35 @@ begin
     end
     print 'TotalPaid date saved successfuly';
 
+end
+go
+
+-- sprawdzenie dostępności lecture -M-
+create procedure PR_Check_Availability
+@LectureID int
+as
+begin
+    if exists (select 1 from Lectures L where L.LectureID = @LectureID and L.Available = 0)
+        begin;
+            throw 600052,'Given lecture is not available for purchase', 1;
+        end
+
+    if exists (select 1 from Studies S where S.LectureID = @LectureID) 
+        and FN_Remaining_Studies_Limit((select S.StudiesID from Studies S where S.LectureID = @LectureID)) = 0
+        begin;
+            throw 600028,'No more free places at given studies', 1;
+        end
+
+    if exists (select 1 from Courses C where C.LectureID = @LectureID) 
+        and FN_Remaining_Course_Limit((select C.CourseID from Courses C where C.LectureID = @LectureID)) = 0
+        begin;
+            throw 600029,'No more free places at given course', 1;
+        end
+
+    if exists (select 1 from StationaryClasses C where C.LectureID = @LectureID) 
+        and FN_Remaining_StationaryClass_Limit((select C.StationaryClassID from StationaryClasses C where C.LectureID = @LectureID)) = 0
+        begin;
+            throw 600030,'No more free places at given class', 1;
+        end
 end
 go
