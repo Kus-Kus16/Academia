@@ -37,6 +37,33 @@ begin
         return;
         end
 
+    if not exists (select 1 from Students S where S.StudentID = @StudentID)
+        begin
+        raiserror('Student with given ID does not exist', 16, 0);
+        return;
+        end
+
+    if exists (select 1 from Studies S where S.LectureID = @LectureID) 
+        and FN_Remaining_Studies_Limit((select S.StudiesID from Studies S where S.LectureID = @LectureID)) = 0
+        begin
+        raiserror('No more free places at given studies', 16, 1);
+        return;
+        end
+
+    if exists (select 1 from Courses C where C.LectureID = @LectureID) 
+        and FN_Remaining_Course_Limit((select C.CourseID from Courses C where C.LectureID = @LectureID)) = 0
+        begin
+        raiserror('No more free places at given course', 16, 1);
+        return;
+        end
+
+    if exists (select 1 from StationaryClasses C where C.LectureID = @LectureID) 
+        and FN_Remaining_StationaryClass_Limit((select C.StationaryClassID from StationaryClasses C where C.LectureID = @LectureID)) = 0
+        begin
+        raiserror('No more free places at given class', 16, 1);
+        return;
+        end
+
     (select @AdvancePrice = L.AdvancePrice, @TotalPrice = L.TotalPrice from Lectures L where L.LectureID = @LectureID);
 
     set @OrderID = (select O.OrderID from Orders O where O.StudentID = @StudentID and O.Status = 'Cart');
@@ -73,6 +100,28 @@ begin
         raiserror('Attendable with given ID does not exist', 16, 0);
         return;
         end
+
+    declare @StudentID int;
+    declare @Attendance bit;
+    declare cur cursor for
+    select StudentID from @AttendanceList
+
+    open cur  
+    fetch next from cur into @StudentID, @Attendance
+    
+    while @@fetch_status = 0
+    begin
+        if not FN_Check_StudentAttendable(@StudentID, @AttendableID)
+            begin
+            raiserror('Student is not enrolled to given Attendable', 16, 0);
+            return;
+            end
+
+        fetch next from cur into @StudentID, @Attendance
+    end
+
+    close cur
+    deallocate cur
 
     insert into Attendances (AttendableID, StudentID, Attendance)
         select @AttendableID, StudentID, Attendance from @AttendanceList;

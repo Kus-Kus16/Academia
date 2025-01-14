@@ -156,6 +156,7 @@ CREATE TABLE Webinars (
 CREATE TABLE Courses (
     CourseID int  NOT NULL IDENTITY(1,1),
     LectureID int  NOT NULL,
+    CapacityLimit int NOT NULL,
 
     CONSTRAINT Courses_pk PRIMARY KEY (CourseID),
     CONSTRAINT Courses_Lectures FOREIGN KEY (LectureID) REFERENCES Lectures (LectureID),

@@ -297,7 +297,7 @@ begin
     declare @Reserved int = 0;
     declare @All int = 0;
 
-    select @Reserved = V.TotalFutureParticipants, @All = S.CapacityLimit
+    select @Reserved = V.TotalFutureParticipants, @All = C.CapacityLimit
     from VW_All_FutureParticipants V 
         inner join Courses C on C.LectureID = V.LectureID and C.CourseID = @CourseID;
 
@@ -307,7 +307,7 @@ begin
 end
 go
 
--- Wyliczenie pozostałych wolnych w stacjonarnej klasie -M-
+-- Wyliczenie pozostałych wolnych miejsc w stacjonarnej klasie -M-
 create function FN_Remaining_StationaryClass_Limit(@StationaryClassID int)
 returns int
 as
@@ -323,7 +323,7 @@ begin
 
     select @StudiesReserved = D.CapacityLimit
     from StationaryClasses C 
-        inner join Classes S on S.ClassID = C.ClassID and S.StationaryClassID = @StationaryClassID
+        inner join Classes S on S.ClassID = C.ClassID and C.StationaryClassID = @StationaryClassID
         inner join Studies D on D.StudiesID = S.StudiesID;
 
     set @Result = @All - @StudiesReserved - @Reserved
