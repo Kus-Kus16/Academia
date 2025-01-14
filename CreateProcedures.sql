@@ -337,8 +337,7 @@ begin
 
     if @LectureID is null
     begin
-        raiserror('Failed to create lecture', 16, 0);
-        return;
+        Throw 60000, 'Failed to create lecture', 1;
     end
 
     insert into Webinars (LectureID, TeacherID,Link,IsFree)
@@ -380,8 +379,7 @@ begin
 
     if @LectureID is null
     begin
-        raiserror('Failed to create lecture', 16, 0);
-        return;
+        throw 60001,'Failed to create lecture', 1;
     end
 
     insert into Courses (LectureID)
@@ -405,8 +403,7 @@ begin
 
     if not exists (select 1 from Courses where CourseID = @CourseID)
     begin
-        raiserror('Course with given ID does not exist', 16, 0);
-        return;
+        throw 60002,'Course with given ID does not exist',1;
     end
 
     insert into CourseModules (TeacherID,CourseID, Name, Description)
@@ -431,15 +428,13 @@ begin
 
     if not exists (select 1 from CourseModules where CourseModuleID = @CourseModuleID)
     begin
-        raiserror('CourseModule with given ID does not exist', 16, 0);
-        return;
+        throw 60003,'CourseModule with given ID does not exist', 1;
     end
 
     -- Walidacja: sprawdzenie limitu miejsc
     if @SeatLimit <= 0
     begin
-        raiserror('SeatLimit must be greater than 0', 16, 0);
-        return;
+        throw 60004,'SeatLimit must be greater than 0', 1;
     end
 
     declare @AttendableID int;
@@ -450,8 +445,7 @@ begin
 
     if @AttendableID is null
     begin
-        raiserror('Failed to create Attendable', 16, 0);
-        return;
+        throw 60004, 'Failed to create Attendable',1;
     end
 
     insert into StationaryCourseModules (CourseModuleID, AttendableID, Classroom, SeatLimit)
@@ -475,14 +469,12 @@ begin
 
     if not exists (select 1 from CourseModules where CourseModuleID = @CourseModuleID)
     begin
-        raiserror('CourseModule with given ID does not exist', 16, 0);
-        return;
+        throw 60005,'CourseModule with given ID does not exist',1;
     end
 
     if @Link is null or len(@Link) = 0
     begin
-        raiserror('Link cannot be null or empty', 16, 0);
-        return;
+        throw 60006,'Link cannot be null or empty',1;
     end
 
     declare @AttendableID int;
@@ -493,8 +485,7 @@ begin
 
     if @AttendableID is null
     begin
-        raiserror('Failed to create Attendable', 16, 0);
-        return;
+        throw 60007,'Failed to create Attendable', 1;
     end
 
     insert into OnlineCourseModules (CourseModuleID, AttendableID, Link, IsLive)
@@ -503,7 +494,7 @@ begin
     set @OnlineCourseID = scope_identity();
     print 'OnlineCourseModule created successfully';
 end
-go;
+go
 
 --dodanie studiów -K-
 create procedure PR_Create_Studies
@@ -537,8 +528,7 @@ begin
 
     if @LectureID is null
     begin
-        raiserror('Failed to create lecture', 16, 0);
-        return;
+        throw 60008,'Failed to create lecture', 1;
     end
 
     insert into Studies (StudiesID,LectureID, Syllabus, CapacityLimit)
@@ -561,26 +551,22 @@ begin
 
     if not exists (select 1 from Studies where StudiesID = @StudiesID)
     begin
-        raiserror('Studies with given ID does not exist', 16, 0);
-        return;
     end
 
     if @EndDate <= @StartDate
     begin
-        raiserror('End date must be later than start date', 16, 0);
-        return;
+        throw 60010,'End date must be later than start date', 1;
     end
 
     if @EndDate < getdate()
     begin
-    raiserror('Given date is from the past', 16, 3);
+    throw 60011,'Given date is from the past',1;
     return;
     end
 
     if @Price < 0
     begin
-        raiserror('Price must be greater than or equal to 0', 16, 0);
-        return;
+        throw 60012,'Price must be greater than or equal to 0',1;
     end
 
     insert into StudySessions (StudiesID, StartDate, EndDate, Price)
@@ -604,14 +590,12 @@ begin
 
     if not exists (select 1 from Studies where StudiesID = @StudiesID)
     begin
-        raiserror('Studies with given ID does not exist', 16, 0);
-        return;
+        throw 60013,'Studies with given ID does not exist',1;
     end
 
     if not exists (select 1 from Teachers where TeacherID = @TeacherID)
     begin
-        raiserror('Teacher with given ID does not exist', 16, 0);
-        return;
+        throw 60014,'Teacher with given ID does not exist',1;
     end
 
     insert into Classes (StudiesID, TeacherID, Name, Description)
@@ -644,14 +628,12 @@ begin
 
     if not exists (select 1 from Classes where ClassID = @ClassID)
     begin
-        raiserror('Class with given ID does not exist', 16, 0);
-        return;
+        throw 60015,'Class with given ID does not exist',1;
     end
 
     if @Link is null or len(@Link) = 0
     begin
-        raiserror('Link cannot be null or empty', 16, 0);
-        return;
+        throw 60016,'Link cannot be null or empty', 1;
     end
 
     declare @AttendableID int;
@@ -662,8 +644,7 @@ begin
 
     if @AttendableID is null
     begin
-        raiserror('Failed to create Attendable', 16, 0);
-        return;
+        throw 60017,'Failed to create Attendable',1;
     end
 
     declare @LectureID int = NULL;
@@ -680,8 +661,7 @@ begin
 
         if @LectureID is null
         begin
-            raiserror('Failed to create Lecture', 16, 0);
-            return;
+            throw 60018,'Failed to create Lecture',1;
         end
     end
 
@@ -714,8 +694,24 @@ begin
 
     if not exists (select 1 from Classes where ClassID = @ClassID)
     begin
-        raiserror('Class with given ID does not exist', 16, 0);
-        return;
+        throw 60019,'Class with given ID does not exist', 1;
+    end
+
+    -- Sprawdzenie, czy SeatLimit jest >= CapacityLimit w Studies
+    declare @CapacityLimit int;
+    select @CapacityLimit = s.CapacityLimit
+    from Classes c
+    inner join Studies s on c.StudiesID = s.StudiesID
+    where c.ClassID = @ClassID;
+
+    if @CapacityLimit IS NULL
+    begin
+        throw 60020,'CapacityLimit not found for the given ClassID in Studies',1;
+    end
+
+    if @SeatLimit < @CapacityLimit
+    begin
+        throw 60021,'SeatLimit must be greater than or equal to CapacityLimit', 1;
     end
 
     declare @AttendableID int;
@@ -726,8 +722,7 @@ begin
 
     if @AttendableID is null
     begin
-        raiserror('Failed to create Attendable', 16, 0);
-        return;
+        throw 60022,'Failed to create Attendable', 1;
     end
 
     declare @LectureID int = NULL;
@@ -744,8 +739,7 @@ begin
 
         if @LectureID is null
         begin
-            raiserror('Failed to create Lecture', 16, 0);
-            return;
+            throw 60023,'Failed to create Lecture', 1;
         end
     end
 
@@ -771,14 +765,12 @@ begin
 
     if not exists (select 1 from Attendable where AttendableID = @AttendableID)
     begin
-        raiserror('Attendable with given ID does not exist', 16, 0);
-        return;
+        throw 60024,'Attendable with given ID does not exist', 1;
     end
 
     if not exists (select 1 from Studies where StudiesID = @StudiesID)
     begin
-        raiserror('Studies with given ID does not exist', 16, 0);
-        return;
+       throw 60025,'Studies with given ID does not exist', 1;
     end
 
     insert into Internships (AttendableID, StudiesID, Address, Name, Description)
