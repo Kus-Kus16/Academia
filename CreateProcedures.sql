@@ -606,7 +606,6 @@ begin
 end
 go
 
-
 --dodanie zajęć do przedmiotów -K-
 create procedure PR_Create_OnlineClass
 @ClassID int,
@@ -673,7 +672,7 @@ begin
 end
 go
 
-
+--dodanie zajęć stacjonarnych -K-
 create procedure PR_Create_StationaryClass
 @ClassID int,
 @Classroom int,

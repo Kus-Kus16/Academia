@@ -158,7 +158,9 @@ CREATE TABLE Courses (
     LectureID int  NOT NULL,
 
     CONSTRAINT Courses_pk PRIMARY KEY (CourseID),
-    CONSTRAINT Courses_Lectures FOREIGN KEY (LectureID) REFERENCES Lectures (LectureID)
+    CONSTRAINT Courses_Lectures FOREIGN KEY (LectureID) REFERENCES Lectures (LectureID),
+
+    CONSTRAINT CHK_Courses_CapacityLimit CHECK (CapacityLimit > 0)
 );
 
 CREATE TABLE CourseModules (

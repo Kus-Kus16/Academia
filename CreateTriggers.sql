@@ -1,4 +1,3 @@
-
 --Zmiana statusów płatności -Ł-
 create trigger TR_PaymentStatusChange
 on Orders
@@ -15,8 +14,6 @@ begin
         end
 end
 go
-
-Drop trigger TR_PaymentStatusChange
 
 --dodanie StudySessionPayment po opłaceniu całości zamównienia -Ł-
 create trigger TR_AddStudySessionPayment
