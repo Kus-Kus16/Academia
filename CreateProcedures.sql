@@ -17,7 +17,7 @@ begin
     print 'Cart created successfuly';
 
 end
-go;
+go
 
 -- Dodanie szkolenia do koszyka -M-
 create procedure PR_Add_To_Cart
@@ -88,7 +88,7 @@ begin
     
     while @@fetch_status = 0
     begin
-        if FN_Check_StudentAttendable(@StudentID, @AttendableID) = 0
+        if dbo.FN_Check_StudentAttendable(@StudentID, @AttendableID) = 0
             begin;
                 throw 600032,'Student is not enrolled to given attendable', 1;
             end
@@ -826,7 +826,6 @@ begin
             where OrderID = @OrderID;
     end
     print 'Order placed successfuly';
-
 end
 go
 
@@ -885,19 +884,19 @@ begin
         end
 
     if exists (select 1 from Studies S where S.LectureID = @LectureID) 
-        and FN_Remaining_Studies_Limit((select S.StudiesID from Studies S where S.LectureID = @LectureID)) = 0
+        and dbo.FN_Remaining_Studies_Limit((select S.StudiesID from Studies S where S.LectureID = @LectureID)) = 0
         begin;
             throw 600028,'No more free places at given studies', 1;
         end
 
     if exists (select 1 from Courses C where C.LectureID = @LectureID) 
-        and FN_Remaining_Course_Limit((select C.CourseID from Courses C where C.LectureID = @LectureID)) = 0
+        and dbo.FN_Remaining_Course_Limit((select C.CourseID from Courses C where C.LectureID = @LectureID)) = 0
         begin;
             throw 600029,'No more free places at given course', 1;
         end
 
     if exists (select 1 from StationaryClasses C where C.LectureID = @LectureID) 
-        and FN_Remaining_StationaryClass_Limit((select C.StationaryClassID from StationaryClasses C where C.LectureID = @LectureID)) = 0
+        and dbo.FN_Remaining_StationaryClass_Limit((select C.StationaryClassID from StationaryClasses C where C.LectureID = @LectureID)) = 0
         begin;
             throw 600030,'No more free places at given class', 1;
         end
