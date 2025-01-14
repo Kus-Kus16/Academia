@@ -1,227 +1,214 @@
 --K
---Harmonogram kierunku studiów
-CREATE FUNCTION GetScheduleForStudies(studiesID NCHAR(5))
-RETURNS TABLE (
-    MeetingID INT,
-    MeetingType NVARCHAR(50),
-    ClassName NVARCHAR(255),
-    TeacherName NVARCHAR(255),
-    StartDate DATETIME,
-    EndDate DATETIME,
-    Location NVARCHAR(255),
-    Link NVARCHAR(255)
+-- Harmonogram kierunku studiów
+create function FN_ScheduleForStudies(@studiesID nchar(5))
+returns table
+as
+return (
+    select
+        sc.StationaryClassID as MeetingID,
+        'Stationary' as MeetingType,
+        c.Name as ClassName,
+        concat(t.Name, ' ', t.Surname) as TeacherName,
+        a.StartDate,
+        a.EndDate,
+        sc.Classroom as Location,
+        null as Link
+    from StationaryClasses sc
+    inner join Classes c on sc.ClassID = c.ClassID
+    inner join Attendable a on sc.AttendableID = a.AttendableID
+    inner join Teachers t on c.TeacherID = t.TeacherID
+    where c.StudiesID = @studiesID
+
+    union all
+
+    select
+        oc.OnlineClassID as MeetingID,
+        'Online' as MeetingType,
+        c.Name as ClassName,
+        concat(t.Name, ' ', t.Surname) as TeacherName,
+        a.StartDate,
+        a.EndDate,
+        null as Location,
+        oc.Link as Link
+    from OnlineClasses oc
+    inner join Classes c on oc.ClassID = c.ClassID
+    inner join Attendable a on oc.AttendableID = a.AttendableID
+    inner join Teachers t on c.TeacherID = t.TeacherID
+    where c.StudiesID = @studiesID
 )
-BEGIN
-    RETURN (
-        SELECT
-            sc.StationaryClassID AS MeetingID,
-            'Stationary' AS MeetingType,
-            c.Name AS ClassName,
-            CONCAT(t.Name, ' ', t.Surname) AS TeacherName,
-            a.StartDate,
-            a.EndDate,
-            sc.Classroom AS Location,
-            NULL AS Link
-        FROM StationaryClasses sc
-        INNER JOIN Classes c ON sc.ClassID = c.ClassID
-        INNER JOIN Attendable a ON sc.AttendableID = a.AttendableID
-        INNER JOIN Teachers t ON c.TeacherID = t.TeacherID
-        WHERE c.StudiesID = studiesID
+go
 
-        UNION ALL
+-- Harmonogram kursu
+create function FN_ScheduleForCourse(@courseID INT)
+returns table
+as
+return (
+    select
+        scm.StationaryCourseID as MeetingID,
+        'Stationary' as MeetingType,
+        cm.Name as ModuleName,
+        concat(t.Name, ' ', t.Surname) as TeacherName,
+        a.StartDate,
+        a.EndDate,
+        scm.Classroom as Location,
+        null as Link
+    from StationaryCourseModules scm
+    inner join CourseModules cm on scm.CourseModuleID = cm.CourseModuleID
+    inner join Attendable a on scm.AttendableID = a.AttendableID
+    inner join Teachers t on cm.TeacherID = t.TeacherID
+    where cm.CourseID = @courseID
 
-        SELECT
-            oc.OnlineClassID AS MeetingID,
-            'Online' AS MeetingType,
-            c.Name AS ClassName,
-            CONCAT(t.Name, ' ', t.Surname) AS TeacherName,
-            a.StartDate,
-            a.EndDate,
-            NULL AS Location,
-            oc.Link AS Link
-        FROM OnlineClasses oc
-        INNER JOIN Classes c ON oc.ClassID = c.ClassID
-        INNER JOIN Attendable a ON oc.AttendableID = a.AttendableID
-        INNER JOIN Teachers t ON c.TeacherID = t.TeacherID
-        WHERE c.StudiesID = studiesID
-        ORDER BY StartDate
-    );
-END;
+    union all
 
---Harmonogram kursu
-CREATE FUNCTION GetScheduleForCourse(courseID INT)
-RETURNS TABLE (
-    MeetingID INT,
-    MeetingType NVARCHAR(50),
-    ModuleName NVARCHAR(255),
-    TeacherName NVARCHAR(255),
-    StartDate DATETIME,
-    EndDate DATETIME,
-    Location NVARCHAR(255),
-    Link NVARCHAR(255)
+    select
+        ocm.OnlineCourseID as MeetingID,
+        'Online' as MeetingType,
+        cm.Name as ModuleName,
+        concat(t.Name, ' ', t.Surname) as TeacherName,
+        a.StartDate,
+        a.EndDate,
+        null as Location,
+        ocm.Link as Link
+    from OnlineCourseModules ocm
+    inner join CourseModules cm on ocm.CourseModuleID = cm.CourseModuleID
+    inner join Attendable a on ocm.AttendableID = a.AttendableID
+    inner join Teachers t on cm.TeacherID = t.TeacherID
+    where cm.CourseID = @courseID
 )
-BEGIN
-    RETURN (
-        SELECT
-            scm.StationaryCourseID AS MeetingID,
-            'Stationary' AS MeetingType,
-            cm.Name AS ModuleName,
-            CONCAT(t.Name, ' ', t.Surname) AS TeacherName,
-            a.StartDate,
-            a.EndDate,
-            scm.Classroom AS Location,
-            NULL AS Link
-        FROM StationaryCourseModules scm
-        INNER JOIN CourseModules cm ON scm.CourseModuleID = cm.CourseModuleID
-        INNER JOIN Attendable a ON scm.AttendableID = a.AttendableID
-        INNER JOIN Teachers t ON cm.TeacherID = t.TeacherID
-        WHERE cm.CourseID = courseID
-
-        UNION ALL
-
-        SELECT
-            ocm.OnlineCourseID AS MeetingID,
-            'Online' AS MeetingType,
-            cm.Name AS ModuleName,
-            CONCAT(t.Name, ' ', t.Surname) AS TeacherName,
-            a.StartDate,
-            a.EndDate,
-            NULL AS Location,
-            ocm.Link AS Link
-        FROM OnlineCourseModules ocm
-        INNER JOIN CourseModules cm ON ocm.CourseModuleID = cm.CourseModuleID
-        INNER JOIN Attendable a ON ocm.AttendableID = a.AttendableID
-        INNER JOIN Teachers t ON cm.TeacherID = t.TeacherID
-        WHERE cm.CourseID = courseID
-        ORDER BY StartDate
-    );
-END;
+go
 
 --Harmonogram studenta
-CREATE FUNCTION GetScheduleForStudent(@studentID INT)
-RETURNS TABLE (
-    LectureID INT,
-    LectureType NVARCHAR(50),
-    CourseName NVARCHAR(255),
-    ModuleName NVARCHAR(255),
-    StartDate DATETIME,
-    EndDate DATETIME,
-    Location NVARCHAR(255),
-    Link NVARCHAR(255),
-    TeacherName NVARCHAR(255)
-)
-BEGIN
-    RETURN (
+create function FN_ScheduleForStudent(@studentid int)
+returns table
+as
+return (
         -- Spotkania online kursu
-        SELECT
-            'Online Course Module' AS EventType,
-            ocm.Link AS EventLink,
-            a.StartDate AS EventStartDate,
-            a.EndDate AS EventEndDate,
-        NULL AS EventLocation
-        FROM Students s
-        INNER JOIN Orders o ON s.StudentID = o.StudentID
-        INNER JOIN Enrollments e ON o.OrderID = e.OrderID
-        INNER JOIN Courses c ON e.LectureID = c.LectureID
-        INNER JOIN CourseModules cm ON c.CourseID = cm.CourseID
-        INNER JOIN OnlineCourseModules ocm ON cm.CourseModuleID = ocm.CourseModuleID
-        INNER JOIN Attendable a ON ocm.AttendableID = a.AttendableID
-        WHERE s.StudentID = @studentID
+        select
+            'Online Course Module' as EventType,
+            ocm.Link as EventLink,
+            a.StartDate as EventStartDate,
+            a.EndDate as EventEndDate,
+        null as EventLocation
+        from Students s
+        inner join Orders o on s.StudentID = o.StudentID
+        inner join Enrollments e on o.OrderID = e.OrderID
+        inner join Courses c on e.LectureID = c.LectureID
+        inner join CourseModules cm on c.CourseID = cm.CourseID
+        inner join OnlineCourseModules ocm on cm.CourseModuleID = ocm.CourseModuleID
+        inner join Attendable a on ocm.AttendableID = a.AttendableID
+        where s.StudentID = @studentid
 
-        UNION ALL
+        union all
         -- Spotkania stacjonarne kursu
-        SELECT
-            'Stationary Course Module' AS EventType,
-            NULL AS EventLink,
-            a.StartDate AS EventStartDate,
-            a.EndDate AS EventEndDate,
-            scm.Classroom AS EventLocation
-        FROM Students s
-        INNER JOIN Orders o ON s.StudentID = o.StudentID
-        INNER JOIN Enrollments e ON o.OrderID = e.OrderID
-        INNER JOIN Courses c ON e.LectureID = c.LectureID
-        INNER JOIN CourseModules cm ON c.CourseID = cm.CourseID
-        INNER JOIN StationaryCourseModules scm ON cm.CourseModuleID = scm.CourseModuleID
-        INNER JOIN Attendable a ON scm.AttendableID = a.AttendableID
-        WHERE s.StudentID = @StudentID
+        select
+            'Stationary Course Module' as EventType,
+            null as EventLink,
+            a.StartDate as EventStartDate,
+            a.EndDate as EventEndDate,
+            scm.Classroom as EventLocation
+        from Students s
+        inner join Orders o on s.StudentID = o.StudentID
+        inner join Enrollments e on o.OrderID = e.OrderID
+        inner join Courses c on e.LectureID = c.LectureID
+        inner join CourseModules cm on c.CourseID = cm.CourseID
+        inner join StationaryCourseModules scm on cm.CourseModuleID = scm.CourseModuleID
+        inner join Attendable a on scm.AttendableID = a.AttendableID
+        where s.StudentID = @studentid
 
-        UNION ALL
+        union all
         -- Webinary
-        SELECT
-            'Webinar' AS EventType,
-            w.Link AS EventLink,
-            l.Date AS EventStartDate,
-            l.Date AS EventEndDate,
-            NULL AS EventLocation
-        FROM Students s
-        INNER JOIN Orders o ON s.StudentID = o.StudentID
-        INNER JOIN Enrollments e ON o.OrderID = e.OrderID
-        INNER JOIN Lectures l ON e.LectureID = l.LectureID
-        INNER JOIN Webinars w ON l.LectureID = w.LectureID
-        WHERE s.StudentID = @StudentID
+        select
+            'Webinar' as EventType,
+            w.Link as EventLink,
+            l.Date as EventStartDate,
+            l.Date as EventEndDate,
+            null as EventLocation
+        from Students s
+        inner join Orders o on s.StudentID = o.StudentID
+        inner join Enrollments e on o.OrderID = e.OrderID
+        inner join Lectures l on e.LectureID = l.LectureID
+        inner join Webinars w on l.LectureID = w.LectureID
+        where s.StudentID = @studentid
 
-        UNION ALL
-        --Spotkania studyjne online, ale wykupione bez całych studiów
-        SELECT
-            'Online Class without studies' AS EventType,
-            oc.Link AS EventLink,
-            a.StartDate AS EventStartDate,
-            a.EndDate AS EventEndDate,
-            NULL AS EventLocation
-        FROM Students s
-        INNER JOIN Orders o ON s.StudentID = o.StudentID
-        INNER JOIN Enrollments e ON o.OrderID = e.OrderID
-        INNER JOIN OnlineClasses oc ON e.LectureID = oc.LectureID
-        INNER JOIN Attendable a ON oc.AttendableID = a.AttendableID
-        WHERE s.StudentID = @StudentID
+        union all
+        -- Spotkania studyjne online, ale wykupione bez całych studiów
+        select
+            'Online Class without studies' as EventType,
+            oc.Link as EventLink,
+            a.StartDate as EventStartDate,
+            a.EndDate as EventEndDate,
+            null as EventLocation
+        from Students s
+        inner join Orders o on s.StudentID = o.StudentID
+        inner join Enrollments e on o.OrderID = e.OrderID
+        inner join OnlineClasses oc on e.LectureID = oc.LectureID
+        inner join Attendable a on oc.AttendableID = a.AttendableID
+        where s.StudentID = @studentid
 
-        UNION ALL
-        --Spotkania studyjne stacjonarne, ale wykupione bez całych studiów
-        SELECT
-            'Stationary Class without studies' AS EventType,
-            NULL AS EventLink,
-            a.StartDate AS EventStartDate,
-            a.EndDate AS EventEndDate,
-            sc.Classroom AS EventLocation
-        FROM Students s
-        INNER JOIN Orders o ON s.StudentID = o.StudentID
-        INNER JOIN Enrollments e ON o.OrderID = e.OrderID
-        INNER JOIN StationaryClasses sc ON e.LectureID = sc.LectureID
-        INNER JOIN Attendable a ON sc.AttendableID = a.AttendableID
-        WHERE s.StudentID = @StudentID
+        union all
+        -- Spotkania studyjne stacjonarne, ale wykupione bez całych studiów
+        select
+            'Stationary Class without studies' as EventType,
+            null as EventLink,
+            a.StartDate as EventStartDate,
+            a.EndDate as EventEndDate,
+            sc.Classroom as EventLocation
+        from Students s
+        inner join Orders o on s.StudentID = o.StudentID
+        inner join Enrollments e on o.OrderID = e.OrderID
+        inner join StationaryClasses sc on e.LectureID = sc.LectureID
+        inner join Attendable a on sc.AttendableID = a.AttendableID
+        where s.StudentID = @studentid
 
-        UNION ALL
-        --Spotkania studyjne online
-        SELECT
-            'Online Class Studies' AS EventType,
-            oc.Link AS EventLink,
-            a.StartDate AS EventStartDate,
-            a.EndDate AS EventEndDate,
-            NULL AS EventLocation
-        FROM Students s
-        INNER JOIN Orders o ON s.StudentID = o.StudentID
-        INNER JOIN Enrollments e ON o.OrderID = e.OrderID
-        INNER JOIN Studies st ON e.LectureID = st.LectureID
-        INNER JOIN Classes c ON st.StudiesID = c.StudiesID
-        INNER JOIN OnlineClasses oc ON c.ClassID = oc.ClassID
-        INNER JOIN Attendable a ON oc.AttendableID = a.AttendableID
-        WHERE s.StudentID = @StudentID
+        union all
+        -- Spotkania studyjne online
+        select
+            'Online Class Studies' as EventType,
+            oc.Link as EventLink,
+            a.StartDate as EventStartDate,
+            a.EndDate as EventEndDate,
+            null as EventLocation
+        from Students s
+        inner join Orders o on s.StudentID = o.StudentID
+        inner join Enrollments e on o.OrderID = e.OrderID
+        inner join Studies st on e.LectureID = st.LectureID
+        inner join Classes c on st.StudiesID = c.StudiesID
+        inner join OnlineClasses oc on c.ClassID = oc.ClassID
+        inner join Attendable a on oc.AttendableID = a.AttendableID
+        where s.StudentID = @studentid
 
-        UNION ALL
-        --Spotkania studyjne stacjonarne
-        SELECT
-            'Stationary Class Studies' AS EventType,
-            NULL AS EventLink,
-            a.StartDate AS EventStartDate,
-            a.EndDate AS EventEndDate,
-            sc.Classroom AS EventLocation
-        FROM Students s
-        INNER JOIN Orders o ON s.StudentID = o.StudentID
-        INNER JOIN Enrollments e ON o.OrderID = e.OrderID
-        INNER JOIN Studies st ON e.LectureID = st.LectureID
-        INNER JOIN Classes c ON st.StudiesID = c.StudiesID
-        INNER JOIN StationaryClasses sc ON c.ClassID = sc.ClassID
-        INNER JOIN Attendable a ON sc.AttendableID = a.AttendableID
-        WHERE s.StudentID = @StudentID
+        union all
+        -- Spotkania studyjne stacjonarne
+        select
+            'Stationary Class Studies' as EventType,
+            null as EventLink,
+            a.StartDate as EventStartDate,
+            a.EndDate as EventEndDate,
+            sc.Classroom as EventLocation
+        from Students s
+        inner join Orders o on s.StudentID = o.StudentID
+        inner join Enrollments e on o.OrderID = e.OrderID
+        inner join Studies st on e.LectureID = st.LectureID
+        inner join Classes c on st.StudiesID = c.StudiesID
+        inner join StationaryClasses sc on c.ClassID = sc.ClassID
+        inner join Attendable a on sc.AttendableID = a.AttendableID
+        where s.StudentID = @studentid
+
+        union all
+        -- Staże
+        select
+            'Internship' as EventType,
+            null as EventLink,
+            a.StartDate as EventStartDate,
+            a.EndDate as EventEndDate,
+            i.Address as EventLocation
+        from Students s
+        inner join Orders o on s.StudentID = o.StudentID
+        inner join Enrollments e on o.OrderID = e.OrderID
+        inner join Studies st on e.LectureID = st.LectureID
+        inner join Internships i on st.StudiesID = i.StudiesID
+        inner join Attendable a on i.AttendableID = a.AttendableID
+        where s.StudentID = @studentid
     );
-END;
+go
+
