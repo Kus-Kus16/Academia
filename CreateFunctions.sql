@@ -344,3 +344,183 @@ begin
     return @Result;
 end
 go
+
+-- Sprawdzenie frekwencji na przedmiocie -Ł-
+create function FN_Check_Attendance_In_Class(@ClassID int)
+returns float
+as
+begin
+    declare @Result float = 0;
+
+    if exists(
+        select 1
+        from Classes
+        where ClassID = @ClassID
+    )
+        begin
+            with ClassesHappened as (
+                select SC.StationaryClassID as ClassHappenedID, SC.AttendableID, 'Stationary' as ClassType
+                from Classes C
+                         inner join StationaryClasses SC on C.ClassID = SC.ClassID
+                where C.ClassID = @ClassID
+                union
+                select OC.OnlineClassID, OC.AttendableID, 'Online'
+                from Classes C
+                         inner join OnlineClasses OC on C.ClassID = OC.ClassID
+                where C.ClassID = @ClassID
+            ), AttendanceChecked as (
+                select sum(convert(int, Attendance)) as attendanceRate, count(*) as totalClasses
+                from ClassesHappened CH
+                         inner join Attendable A on CH.AttendableID = A.AttendableID
+                         inner join Attendances AT on A.AttendableID = AT.AttendableID
+            )
+            select @Result = (
+                select attendanceRate/totalClasses
+                from AttendanceChecked
+            )
+        end
+    else
+        begin
+            return null;
+        end
+
+    return @Result;
+end
+go
+
+-- Sprawdzenie frekwencji na kursie -Ł-
+create function FN_Check_Attendance_In_Course(@CourseID int)
+returns float
+as
+begin
+    declare @Result float = 0;
+
+    if exists(
+        select 1
+        from Courses
+        where CourseID = @CourseID
+    )
+        begin
+            with CoursesHappened as (
+                select SCM.StationaryCourseID as CourseHappenedID, SCM.AttendableID, 'Stationary' as CourseType
+                from Courses C
+                         inner join CourseModules CM on C.CourseID = CM.CourseID
+                         inner join StationaryCourseModules SCM on CM.CourseModuleID = SCM.CourseModuleID
+                where C.CourseID = @CourseID
+                union
+                select OCM.OnlineCourseID, OCM.AttendableID, 'Online'
+                from Courses C
+                         inner join CourseModules CM on C.CourseID = CM.CourseID
+                         inner join OnlineCourseModules OCM on CM.CourseModuleID = OCM.CourseModuleID
+                where C.CourseID = @CourseID
+            ), AttendanceChecked as (
+                select sum(convert(int, Attendance)) as attendanceRate, count(*) as totalClasses
+                from CoursesHappened CH
+                         inner join Attendable A on CH.AttendableID = A.AttendableID
+                         inner join Attendances AT on A.AttendableID = AT.AttendableID
+            )
+            select @Result = (
+                select attendanceRate/totalClasses
+                from AttendanceChecked
+            )
+        end
+    else
+        begin
+            return null;
+        end
+
+    return @Result;
+end
+go
+
+-- Obecność studenta na wszystkich praktykach -Ł-
+create function FN_Student_Presence_On_Internships(@StudentID int)
+returns bit
+as
+begin
+    declare @Result bit = 1;
+
+    if not exists(
+        select 1
+        from Internships I
+            inner join Studies S on I.StudiesID = S.StudiesID
+            inner join Lectures L on S.LectureID = L.LectureID
+            inner join Enrollments E on L.LectureID = E.LectureID
+            inner join Orders O on E.OrderID = O.OrderID
+        where O.StudentID = @StudentID
+    )
+        begin
+            return null;
+        end
+
+    if exists (
+        select 1
+        from Internships I
+                 inner join Attendable A on I.AttendableID = A.AttendableID
+                 inner join Attendances AT on A.AttendableID = AT.AttendableID
+        where AT.StudentID = @StudentID and AT.Attendance = 0
+    )
+        begin
+            set @Result = 0;
+        end
+
+    return @Result;
+end
+go
+
+-- Sprawdzenie czy student zdaje (na ten moment) studia -Ł-
+create function FN_Student_Passes_Studies(@StudentID int, @StudiesID nchar(5))
+returns bit
+as
+begin
+    declare @Result bit = 0;
+
+    if exists(
+        select 1
+        from Enrollments E
+            inner join Lectures L on E.LectureID = L.LectureID
+            inner join Studies S on L.LectureID = S.LectureID and S.StudiesID = @StudiesID
+            inner join Orders O on E.OrderID = O.OrderID
+        where O.StudentID = @StudentID and (E.Status = 'Completed' or E.Status = 'InProgress') and S.StudiesID = @StudiesID
+    )
+        begin
+            with ClassesHappened as (
+                select SC.StationaryClassID as ClassHappenedID, SC.AttendableID, 'Stationary' as ClassType, SC.StudySessionID
+                from Studies S
+                         inner join Classes C on S.StudiesID = C.StudiesID
+                         inner join StationaryClasses SC on C.ClassID = SC.ClassID
+                where S.StudiesID = @StudiesID
+                union
+                select OC.OnlineClassID, OC.AttendableID, 'Online',OC.StudySessionID
+                from Studies S
+                         inner join Classes C on S.StudiesID = C.StudiesID
+                         inner join OnlineClasses OC on C.ClassID = OC.ClassID
+                where S.StudiesID = @StudiesID
+            ), AttendanceChecked as (
+                select sum(convert(int, Attendance)) as attendanceRate, count(*) as totalClasses
+                from ClassesHappened CH
+                        inner join Attendable A on CH.AttendableID = A.AttendableID
+                        inner join Attendances AT on A.AttendableID = AT.AttendableID
+                where AT.StudentID = @StudentID
+            ), AttendanceSessionsChecked as (
+                select sum(convert(int, Attendance)) as attendanceRate, count(*) as totalClasses
+                from ClassesHappened CH
+                        inner join Attendable A on CH.AttendableID = A.AttendableID
+                        inner join Attendances AT on A.AttendableID = AT.AttendableID
+                where AT.StudentID = @StudentID and CH.StudySessionID is not null
+            )
+            select @Result = case
+                               when ASCH.attendanceRate / ASCH.totalClasses < 1 then 0
+                               when AC.attendanceRate / AC.totalClasses >= 0.8 then 1
+                               else 0
+                             end
+            from AttendanceChecked AC, AttendanceSessionsChecked ASCH
+        end
+    else
+        begin
+            return null;
+        end
+
+    return @Result;
+end
+go

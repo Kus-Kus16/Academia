@@ -185,7 +185,8 @@ CREATE TABLE OnlineCourseModules (
 
     CONSTRAINT OnlineCourseModules_pk PRIMARY KEY  (OnlineCourseID),
     CONSTRAINT OnlineCourseModules_CourseModules FOREIGN KEY (CourseModuleID) REFERENCES CourseModules (CourseModuleID),
-    CONSTRAINT OnlineCourseModules_Attendable FOREIGN KEY (AttendableID) REFERENCES Attendable (AttendableID)
+    CONSTRAINT OnlineCourseModules_Attendable FOREIGN KEY (AttendableID) REFERENCES Attendable (AttendableID),
+    CONSTRAINT UQ_OnlineCourseModules_AttendableID UNIQUE (AttendableID)
 );
 
 CREATE TABLE StationaryCourseModules (
@@ -198,7 +199,7 @@ CREATE TABLE StationaryCourseModules (
     CONSTRAINT StationaryCourseModules_pk PRIMARY KEY (StationaryCourseID),
     CONSTRAINT StationaryCourseModules_CourseModules FOREIGN KEY (CourseModuleID) REFERENCES CourseModules (CourseModuleID),
     CONSTRAINT StationaryCourseModules_Attendable FOREIGN KEY (AttendableID) REFERENCES Attendable (AttendableID),
-
+    CONSTRAINT UQ_StationaryCourseModules_AttendableID UNIQUE (AttendableID),
     CONSTRAINT CHK_StationaryCourseModules_SeatLimit CHECK (SeatLimit > 0)
 );
 
@@ -224,7 +225,8 @@ CREATE TABLE Internships (
 
     CONSTRAINT Internships_pk PRIMARY KEY (InternshipID),
     CONSTRAINT Internships_Attendable FOREIGN KEY (AttendableID) REFERENCES Attendable (AttendableID),
-    CONSTRAINT Internships_Studies FOREIGN KEY (StudiesID) REFERENCES Studies (StudiesID)
+    CONSTRAINT Internships_Studies FOREIGN KEY (StudiesID) REFERENCES Studies (StudiesID),
+    CONSTRAINT UQ_Internships_AttendableID UNIQUE (AttendableID)
 );
 
 CREATE TABLE StudySessions (
@@ -281,7 +283,8 @@ CREATE TABLE OnlineClasses (
     CONSTRAINT OnlineClasses_Classes FOREIGN KEY (ClassID) REFERENCES Classes (ClassID),
     CONSTRAINT OnlineClasses_Attendable FOREIGN KEY (AttendableID) REFERENCES Attendable (AttendableID),
     CONSTRAINT OnlineClasses_Lectures FOREIGN KEY (LectureID) REFERENCES Lectures (LectureID),
-    CONSTRAINT OnlineClasses_StudySessions FOREIGN KEY (StudySessionID) REFERENCES StudySessions (StudySessionID)
+    CONSTRAINT OnlineClasses_StudySessions FOREIGN KEY (StudySessionID) REFERENCES StudySessions (StudySessionID),
+    CONSTRAINT UQ_OnlineClasses_AttendableID UNIQUE (AttendableID)
 );
 
 CREATE TABLE StationaryClasses (
@@ -298,7 +301,7 @@ CREATE TABLE StationaryClasses (
     CONSTRAINT StationaryClasses_Attendable FOREIGN KEY (AttendableID) REFERENCES Attendable (AttendableID),
     CONSTRAINT StationaryClasses_Lectures FOREIGN KEY (LectureID) REFERENCES Lectures (LectureID),
     CONSTRAINT StationaryClasses_StudySessions FOREIGN KEY (StudySessionID) REFERENCES StudySessions (StudySessionID),
-
+    CONSTRAINT UQ_StationaryClasses_AttendableID UNIQUE (AttendableID),
     CONSTRAINT CHK_StationaryClasses_SeatLimit CHECK (SeatLimit > 0)
 );
 
