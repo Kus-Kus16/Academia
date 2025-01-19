@@ -256,7 +256,7 @@ begin
     if @LectureID is not null and exists 
         (select 1 from Enrollments E 
             inner join Orders O on O.OrderID = E.OrderID and E.Status = 'InProgress' and E.LectureID = @LectureID
-            inner join Students S on S.StudentID = @StudentID)
+            inner join Students S on S.StudentID = O.StudentID and S.StudentID = @StudentID)
     begin 
     set @Result = 1;
     end
@@ -338,7 +338,7 @@ begin
 
     select @Result = sum(E.TotalPrice)
     from Orders O 
-        inner join Enrollments E on E.OrderID = O.OrderID
+        inner join Enrollments E on E.OrderID = O.OrderID and E.OrderID = @OrderID
     group by E.OrderID
 
     return @Result;
