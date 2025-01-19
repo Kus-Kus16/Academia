@@ -34,6 +34,20 @@ return (
     inner join Attendable a on oc.AttendableID = a.AttendableID
     inner join Teachers t on c.TeacherID = t.TeacherID
     where c.StudiesID = @studiesID
+
+    union all
+
+    select InternshipID as MeetingID,
+           'Internship' as MeetingType,
+           Name,
+           null,
+           A2.StartDate,
+           A2.EndDate,
+           Address,
+           null
+    from Internships
+    inner join dbo.Attendable A2 on A2.AttendableID = Internships.AttendableID
+    where StudiesID = @studiesID
 )
 go
 
