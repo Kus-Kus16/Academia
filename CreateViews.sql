@@ -6,30 +6,30 @@ from Attendances A inner join Students S on S.StudentID = A.StudentID
 go
 
 create view VW_Internships_Attendance as
-select 'Internship' Type, I.InternshipID, I.StudiesID, I.Address, I.Name InternshipName, I.Description, A.*
+select I.InternshipID, I.StudiesID, I.Address, I.Name InternshipName, I.Description, A.*
 from VW_All_Attendance A inner join Internships I on I.AttendableID = A.AttendableID;
 go
 
 create view VW_StationaryClasses_Attendance as
-select 'StationaryClass' Type, C.StationaryClassID, C.ClassID, C.StudySessionID, C.Classroom, S.TeacherID, S.Name ClassName, S.Description, A.*
+select C.StationaryClassID, C.ClassID, C.StudySessionID, C.Classroom, S.TeacherID, S.Name ClassName, S.Description, A.*
 from VW_All_Attendance A inner join StationaryClasses C on C.AttendableID = A.AttendableID
     inner join Classes S on S.ClassID = C.ClassID;
 go
 
 create view VW_OnlineClasses_Attendance as
-select 'OnlineClass' Type, C.OnlineClassID, C.ClassID, C.StudySessionID, C.IsLive, S.TeacherID, S.Name ClassName, S.Description, A.*
+select C.OnlineClassID, C.ClassID, C.StudySessionID, C.IsLive, S.TeacherID, S.Name ClassName, S.Description, A.*
 from VW_All_Attendance A inner join OnlineClasses C on C.AttendableID = A.AttendableID
     inner join Classes S on S.ClassID = C.ClassID;
 go
 
 create view VW_StationaryCourseModules_Attendance as
-select 'StationaryCourseModule' Type, M.StationaryCourseID, M.Classroom, C.CourseModuleID, C.CourseID, C.TeacherID, C.Name CourseName, C.Description, A.*
+select M.StationaryCourseID, M.Classroom, C.CourseModuleID, C.CourseID, C.TeacherID, C.Name CourseName, C.Description, A.*
 from VW_All_Attendance A inner join StationaryCourseModules M on M.AttendableID = A.AttendableID
     inner join CourseModules C on C.CourseModuleID = M.CourseModuleID;
 go
 
 create view VW_OnlineCourseModules_Attendance as
-select 'OnlineCourseModule' Type, M.OnlineCourseID, M.IsLive, C.CourseModuleID, C.CourseID, C.TeacherID, C.Name CourseName, C.Description, A.*
+select M.OnlineCourseID, M.IsLive, C.CourseModuleID, C.CourseID, C.TeacherID, C.Name CourseName, C.Description, A.*
 from VW_All_Attendance A inner join OnlineCourseModules M on M.AttendableID = A.AttendableID
     inner join CourseModules C on C.CourseModuleID = M.CourseModuleID;
 go
