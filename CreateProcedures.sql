@@ -1,3 +1,28 @@
+-- sprawdzenie dostępności lecture -M-
+create procedure PR_Check_Availability
+@LectureID int
+as
+begin
+    if not exists (select 1 from Lectures L where L.LectureID = @LectureID)
+        throw 600027,'Lecture with given ID does not exist', 1;
+
+    if exists (select 1 from Lectures L where L.LectureID = @LectureID and L.Available = 0)
+        throw 600052,'Given lecture is not available for purchase', 1;
+
+    if exists (select 1 from Studies S where S.LectureID = @LectureID) 
+        and dbo.FN_Remaining_Studies_Limit((select S.StudiesID from Studies S where S.LectureID = @LectureID)) = 0
+        throw 600028,'No more free places at given studies', 1;
+
+    if exists (select 1 from Courses C where C.LectureID = @LectureID) 
+        and dbo.FN_Remaining_Course_Limit((select C.CourseID from Courses C where C.LectureID = @LectureID)) = 0
+        throw 600029,'No more free places at given course', 1;
+
+    if exists (select 1 from StationaryClasses C where C.LectureID = @LectureID) 
+        and dbo.FN_Remaining_StationaryClass_Limit((select C.StationaryClassID from StationaryClasses C where C.LectureID = @LectureID)) = 0
+        throw 600030,'No more free places at given class', 1;
+end
+go
+
 -- Stworzenie koszyka -M-
 create procedure PR_Create_Cart
 @StudentID int,
@@ -75,6 +100,111 @@ begin
         if @@TRANCOUNT > 0
             rollback;
 
+        throw;
+    end catch
+end
+go
+
+
+-- złożenie zamówienia -M-
+create procedure PR_Place_Order
+@OrderID int
+as
+begin
+    set nocount on;
+
+    set transaction isolation level serializable;
+    begin transaction;
+
+    begin try
+        if not exists (select 1 from Orders O where O.OrderID = @OrderID and O.Status = 'Cart')
+            throw 600050,'Cart with given ID does not exist', 1;
+
+        declare @LectureID int;
+        declare cur cursor for
+        select LectureID from Enrollments where OrderID = @OrderID
+
+        open cur  
+        fetch next from cur into @LectureID
+        
+        while @@fetch_status = 0
+        begin
+            exec PR_Check_Availability
+                @LectureID = @LectureID;
+
+            fetch next from cur into @LectureID
+        end
+
+        close cur
+        deallocate cur
+
+        declare @Date datetime;
+        set @Date = getdate();
+
+        update Orders
+            set OrderDate = @Date, Status = 'Pending'
+            where OrderID = @OrderID;
+
+        commit;
+    end try
+    begin catch
+        if @@TRANCOUNT > 0
+            rollback;
+
+        throw;
+    end catch
+end
+go
+
+-- opłacenie zaliczki zamówienia -M-
+create procedure PR_AdvancePayment_Paid
+@OrderID int
+as
+begin
+    set nocount on;
+
+    set transaction isolation level serializable;
+    begin transaction;
+
+    begin try
+        if not exists (select 1 from Orders O where O.OrderID = @OrderID and O.Status = 'Pending')
+            throw 600051,'Unpaid order with given ID does not exist', 1;
+
+        update Orders
+            set AdvancePaidDate = getdate()
+            where OrderID = @OrderID;
+
+        commit;
+    end try
+    begin catch
+        rollback;
+        throw;
+    end catch
+end
+go
+
+-- opłacenie całości zamówienia -M-
+create procedure PR_TotalPayment_Paid
+@OrderID int
+as
+begin
+    set nocount on;
+
+    set transaction isolation level serializable;
+    begin transaction;
+
+    begin try
+        if not exists (select 1 from Orders O where O.OrderID = @OrderID and O.Status = 'Pending')
+            throw 600051,'Unpaid order with given ID does not exist', 1;
+
+        update Orders
+            set TotalPaidDate = getdate(), Status = 'Completed'
+            where OrderID = @OrderID;
+
+        commit;
+    end try
+    begin catch
+        rollback;
         throw;
     end catch
 end
@@ -691,134 +821,5 @@ begin
     values (@AttendableID, @StudiesID, @Address, @Name, @Description);
 
     set @InternshipID = scope_identity();
-end
-go
-
--- złożenie zamówienia -M-
-create procedure PR_Place_Order
-@OrderID int
-as
-begin
-    set nocount on;
-
-    set transaction isolation level serializable;
-    begin transaction;
-
-    begin try
-        if not exists (select 1 from Orders O where O.OrderID = @OrderID and O.Status = 'Cart')
-            throw 600050,'Cart with given ID does not exist', 1;
-
-        declare @LectureID int;
-        declare cur cursor for
-        select LectureID from Enrollments where OrderID = @OrderID
-
-        open cur  
-        fetch next from cur into @LectureID
-        
-        while @@fetch_status = 0
-        begin
-            exec PR_Check_Availability
-                @LectureID = @LectureID;
-
-            fetch next from cur into @LectureID
-        end
-
-        close cur
-        deallocate cur
-
-        declare @Date datetime;
-        set @Date = getdate();
-
-        update Orders
-            set OrderDate = @Date, Status = 'Pending'
-            where OrderID = @OrderID;
-
-        commit;
-    end try
-    begin catch
-        if @@TRANCOUNT > 0
-            rollback;
-
-        throw;
-    end catch
-end
-go
-
--- opłacenie zaliczki zamówienia -M-
-create procedure PR_AdvancePayment_Paid
-@OrderID int
-as
-begin
-    set nocount on;
-
-    set transaction isolation level serializable;
-    begin transaction;
-
-    begin try
-        if not exists (select 1 from Orders O where O.OrderID = @OrderID and O.Status = 'Pending')
-            throw 600051,'Unpaid order with given ID does not exist', 1;
-
-        update Orders
-            set AdvancePaidDate = getdate()
-            where OrderID = @OrderID;
-
-        commit;
-    end try
-    begin catch
-        rollback;
-        throw;
-    end catch
-end
-go
-
--- opłacenie całości zamówienia -M-
-create procedure PR_TotalPayment_Paid
-@OrderID int
-as
-begin
-    set nocount on;
-
-    set transaction isolation level serializable;
-    begin transaction;
-
-    begin try
-        if not exists (select 1 from Orders O where O.OrderID = @OrderID and O.Status = 'Pending')
-            throw 600051,'Unpaid order with given ID does not exist', 1;
-
-        update Orders
-            set TotalPaidDate = getdate(), Status = 'Completed'
-            where OrderID = @OrderID;
-
-        commit;
-    end try
-    begin catch
-        rollback;
-        throw;
-    end catch
-end
-go
-
--- sprawdzenie dostępności lecture -M-
-create procedure PR_Check_Availability
-@LectureID int
-as
-begin
-    if not exists (select 1 from Lectures L where L.LectureID = @LectureID)
-        throw 600027,'Lecture with given ID does not exist', 1;
-
-    if exists (select 1 from Lectures L where L.LectureID = @LectureID and L.Available = 0)
-        throw 600052,'Given lecture is not available for purchase', 1;
-
-    if exists (select 1 from Studies S where S.LectureID = @LectureID) 
-        and dbo.FN_Remaining_Studies_Limit((select S.StudiesID from Studies S where S.LectureID = @LectureID)) = 0
-        throw 600028,'No more free places at given studies', 1;
-
-    if exists (select 1 from Courses C where C.LectureID = @LectureID) 
-        and dbo.FN_Remaining_Course_Limit((select C.CourseID from Courses C where C.LectureID = @LectureID)) = 0
-        throw 600029,'No more free places at given course', 1;
-
-    if exists (select 1 from StationaryClasses C where C.LectureID = @LectureID) 
-        and dbo.FN_Remaining_StationaryClass_Limit((select C.StationaryClassID from StationaryClasses C where C.LectureID = @LectureID)) = 0
-        throw 600030,'No more free places at given class', 1;
 end
 go
