@@ -80,6 +80,7 @@ CREATE TABLE PostponedPayments (
 
     CONSTRAINT PostponedPayments_pk PRIMARY KEY (OrderID),
     CONSTRAINT PostponedPayments_Orders FOREIGN KEY (OrderID) REFERENCES Orders (OrderID),
+    CONSTRAINT UQ_PostponedPayments_Orders UNIQUE (OrderID),
 
     CONSTRAINT CHK_PostponedPayments_DueDate CHECK (DueDate > GETDATE())
 );
@@ -151,6 +152,7 @@ CREATE TABLE Webinars (
     CONSTRAINT Webinars_pk PRIMARY KEY  (WebinarID),
     CONSTRAINT Webinars_Teachers FOREIGN KEY (TeacherID) REFERENCES Teachers (TeacherID),
     CONSTRAINT Webinars_Lectures FOREIGN KEY (LectureID) REFERENCES Lectures (LectureID),
+    CONSTRAINT UQ_Webinars_Lectures UNIQUE (LectureID)
 );
 
 CREATE TABLE Courses (
@@ -160,6 +162,7 @@ CREATE TABLE Courses (
 
     CONSTRAINT Courses_pk PRIMARY KEY (CourseID),
     CONSTRAINT Courses_Lectures FOREIGN KEY (LectureID) REFERENCES Lectures (LectureID),
+    CONSTRAINT UQ_Courses_Lectures UNIQUE (LectureID),
 
     CONSTRAINT CHK_Courses_CapacityLimit CHECK (CapacityLimit > 0)
 );
@@ -211,7 +214,8 @@ CREATE TABLE Studies (
 
     CONSTRAINT Studies_pk PRIMARY KEY (StudiesID),
     CONSTRAINT Studies_Lectures FOREIGN KEY (LectureID) REFERENCES Lectures (LectureID),
-
+    CONSTRAINT UQ_Studies_Lectures UNIQUE (LectureID),
+    
     CONSTRAINT CHK_Studies_CapacityLimit CHECK (CapacityLimit > 0)
 );
 
