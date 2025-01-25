@@ -22,10 +22,6 @@ CREATE INDEX idx_StudySessions_Price ON StudySessions (Price);
 CREATE INDEX idx_Attendable_StartDate ON Attendable (StartDate);
 CREATE INDEX idx_Attendable_EndDate ON Attendable (EndDate);
 
--- Enrollments
-CREATE INDEX idx_Enrollments_AdvancePrice ON Enrollments (AdvancePrice);
-CREATE INDEX idx_Enrollments_TotalPrice ON Enrollments (TotalPrice);
-
 -- Lectures
 CREATE INDEX idx_Lectures_Date ON Lectures (Date);
 
