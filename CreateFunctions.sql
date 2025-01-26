@@ -538,3 +538,68 @@ begin
     return @Result;
 end
 go
+
+-- Lista studentów na zajęciach -M-
+create function FN_Students_List(@AttendableID int)
+returns table
+as
+return (
+select A.*, T.StudentID, T.Name, T.Surname, T.Email
+        from Attendable A inner join Internships I on I.AttendableID = A.AttendableID and A.AttendableID = @AttendableID
+            inner join Studies D on D.StudiesID = I.StudiesID
+            inner join Lectures L on L.LectureID = D.LectureID
+            inner join Enrollments E on E.LectureID = L.LectureID and E.Status = 'InProgress'
+            inner join Orders O on O.OrderID = E.OrderID
+            inner join Students T on T.StudentID = O.StudentID
+    union all
+        select A.*, T.StudentID, T.Name, T.Surname, T.Email
+        from Attendable A inner join StationaryClasses C on C.AttendableID = A.AttendableID and A.AttendableID = @AttendableID
+            inner join Classes S on S.ClassID = C.ClassID
+            inner join Studies D on D.StudiesID = S.StudiesID
+            inner join Lectures L on L.LectureID = D.LectureID
+            inner join Enrollments E on E.LectureID = L.LectureID and E.Status = 'InProgress'
+            inner join Orders O on O.OrderID = E.OrderID
+            inner join Students T on T.StudentID = O.StudentID
+    union all
+        select A.*, T.StudentID, T.Name, T.Surname, T.Email
+        from Attendable A inner join StationaryClasses C on C.AttendableID = A.AttendableID and A.AttendableID = @AttendableID
+            inner join Lectures L on L.LectureID = C.LectureID
+            inner join Enrollments E on E.LectureID = L.LectureID and E.Status = 'InProgress'
+            inner join Orders O on O.OrderID = E.OrderID
+            inner join Students T on T.StudentID = O.StudentID
+    union all
+        select A.*, T.StudentID, T.Name, T.Surname, T.Email
+        from Attendable A inner join OnlineClasses C on C.AttendableID = A.AttendableID and A.AttendableID = @AttendableID
+            inner join Classes S on S.ClassID = C.ClassID
+            inner join Studies D on D.StudiesID = S.StudiesID
+            inner join Lectures L on L.LectureID = D.LectureID
+            inner join Enrollments E on E.LectureID = L.LectureID and E.Status = 'InProgress'
+            inner join Orders O on O.OrderID = E.OrderID
+            inner join Students T on T.StudentID = O.StudentID
+    union all
+        select A.*, T.StudentID, T.Name, T.Surname, T.Email
+        from Attendable A inner join OnlineClasses C on C.AttendableID = A.AttendableID and A.AttendableID = @AttendableID
+            inner join Lectures L on L.LectureID = C.LectureID
+            inner join Enrollments E on E.LectureID = L.LectureID and E.Status = 'InProgress'
+            inner join Orders O on O.OrderID = E.OrderID
+            inner join Students T on T.StudentID = O.StudentID
+    union all
+        select A.*, T.StudentID, T.Name, T.Surname, T.Email
+        from Attendable A inner join StationaryCourseModules C on C.AttendableID = A.AttendableID and A.AttendableID = @AttendableID
+            inner join CourseModules S on S.CourseModuleID = C.CourseModuleID
+            inner join Courses D on D.CourseID = S.CourseID
+            inner join Lectures L on L.LectureID = D.LectureID
+            inner join Enrollments E on E.LectureID = L.LectureID and E.Status = 'InProgress'
+            inner join Orders O on O.OrderID = E.OrderID
+            inner join Students T on T.StudentID = O.StudentID
+    union all
+        select A.*, T.StudentID, T.Name, T.Surname, T.Email
+        from Attendable A inner join OnlineCourseModules C on C.AttendableID = A.AttendableID and A.AttendableID = @AttendableID
+            inner join CourseModules S on S.CourseModuleID = C.CourseModuleID
+            inner join Courses D on D.CourseID = S.CourseID
+            inner join Lectures L on L.LectureID = D.LectureID
+            inner join Enrollments E on E.LectureID = L.LectureID and E.Status = 'InProgress'
+            inner join Orders O on O.OrderID = E.OrderID
+            inner join Students T on T.StudentID = O.StudentID
+)
+go
