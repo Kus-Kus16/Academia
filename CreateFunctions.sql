@@ -538,3 +538,102 @@ begin
     return @Result;
 end
 go
+
+--Harmonogram nauczyciela -K-
+create function FN_ScheduleForTeacher (@TeacherID int)
+returns table
+as
+return (
+    select
+        a.AttendableID,
+        a.StartDate,
+        a.EndDate,
+        case
+            when ocm.OnlineCourseID is not null then 'Online Course Module'
+            when scm.StationaryCourseID is not null then 'Stationary Course Module'
+            when oc.OnlineClassID is not null then 'Online Class'
+            when sc.StationaryClassID is not null then 'Stationary Class'
+        end as EventType,
+        case
+            when ocm.OnlineCourseID is not null then cm.Name
+            when scm.StationaryCourseID is not null then cm.Name
+            when oc.OnlineClassID is not null then c.Name
+            when sc.StationaryClassID is not null then c.Name
+        end as EventName,
+        case
+            when ocm.OnlineCourseID is not null then 'Online'
+            when scm.StationaryCourseID is not null then scm.Classroom
+            when oc.OnlineClassID is not null then 'Online'
+            when sc.StationaryClassID is not null then sc.Classroom
+        end as Location
+    from
+        Attendable a
+    left join OnlineCourseModules ocm on ocm.AttendableID = a.AttendableID
+    left join StationaryCourseModules scm on scm.AttendableID = a.AttendableID
+    left join OnlineClasses oc on oc.AttendableID = a.AttendableID
+    left join StationaryClasses sc on sc.AttendableID = a.AttendableID
+    left join CourseModules cm on cm.CourseModuleID = ocm.CourseModuleID or cm.CourseModuleID = scm.CourseModuleID
+    left join Classes c on c.ClassID = oc.ClassID or c.ClassID = sc.ClassID
+    where cm.TeacherID = @TeacherID or c.TeacherID = @TeacherID
+
+    UNION ALL
+
+    select '-',
+           L.date,
+           L.date,
+           'Webinar',
+           L.LectureName,
+           Link
+    from Webinars
+    inner join dbo.Lectures L on Webinars.LectureID = L.LectureID
+    where TeacherID = @TeacherID
+)
+go
+
+
+--Harmonogram translatora -K-
+create function FN_ScheduleForTranslator (@TranslatorID int)
+returns table
+as
+return (
+    select
+        a.AttendableID,
+        a.StartDate,
+        a.EndDate,
+        case
+            when scm.StationaryCourseID is not null then 'Stationary Course Module'
+            when sc.StationaryClassID is not null then 'Stationary Class'
+            when ocm.OnlineCourseID is not null then 'Online Course Module'
+            when oc.OnlineClassID is not null then 'Online Class'
+        end as EventType,
+        case
+            when scm.StationaryCourseID is not null then cm.Name
+            when sc.StationaryClassID is not null and c.Name is null then L.LectureName
+            when sc.StationaryClassID is not null then c.Name
+            when ocm.OnlineCourseID is not null then cm.Name
+            when oc.OnlineClassID is not null and c.Name is null then L.LectureName
+            when oc.OnlineClassID is not null then c.Name
+        end as EventName,
+        case
+            when scm.StationaryCourseID is not null then scm.Classroom
+            when sc.StationaryClassID is not null then sc.Classroom
+            when ocm.OnlineCourseID is not null then 'Online'
+            when oc.OnlineClassID is not null then 'Online'
+        end as Location
+    from
+        Attendable a
+    left join StationaryCourseModules scm on scm.AttendableID = a.AttendableID
+    left join CourseModules cm on cm.CourseModuleID = scm.CourseModuleID
+    left join StationaryClasses sc on sc.AttendableID = a.AttendableID
+    left join Classes c on c.ClassID = sc.ClassID
+    left join OnlineCourseModules ocm on ocm.AttendableID = a.AttendableID
+    left join OnlineClasses oc on oc.AttendableID = a.AttendableID
+    left join Courses on cm.CourseID = Courses.CourseID
+    left join dbo.Studies S on c.StudiesID = S.StudiesID
+    left join dbo.Lectures L on Courses.LectureID = L.LectureID or
+                                S.LectureID = L.LectureID or
+                                sc.LectureID = L.LectureID or
+                                oc.LectureID = L.LectureID
+    where L.TranslatorID = @TranslatorID
+);
+go
