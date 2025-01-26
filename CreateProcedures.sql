@@ -34,10 +34,10 @@ begin
     if not exists (select 1 from Students S where S.StudentID = @StudentID)
         throw 600026,'Student with given ID does not exist', 1;
 
-    set transaction isolation level serializable;
-    begin transaction;
-
     begin try
+        set transaction isolation level serializable;
+        begin transaction;
+
         if exists (select 1 from Orders O where O.StudentID = @StudentID and O.Status = 'Cart')
             throw 600053, 'Student with given ID already has a cart', 1;
 
@@ -69,10 +69,10 @@ begin
     if not exists (select 1 from Students S where S.StudentID = @StudentID)
         throw 600026,'Student with given ID does not exist', 1;
     
-    set transaction isolation level serializable;
-    begin transaction;
-
     begin try
+        set transaction isolation level serializable;
+        begin transaction;
+
         exec PR_Check_Availability
             @LectureID = @LectureID;
 
@@ -113,10 +113,10 @@ as
 begin
     set nocount on;
 
-    set transaction isolation level serializable;
-    begin transaction;
-
     begin try
+        set transaction isolation level serializable;
+        begin transaction;
+
         if not exists (select 1 from Orders O where O.OrderID = @OrderID and O.Status = 'Cart')
             throw 600050,'Cart with given ID does not exist', 1;
 
@@ -163,10 +163,10 @@ as
 begin
     set nocount on;
 
-    set transaction isolation level serializable;
-    begin transaction;
-
     begin try
+        set transaction isolation level serializable;
+        begin transaction;
+
         if not exists (select 1 from Orders O where O.OrderID = @OrderID and O.Status = 'Pending')
             throw 600051,'Unpaid order with given ID does not exist', 1;
 
@@ -190,10 +190,10 @@ as
 begin
     set nocount on;
 
-    set transaction isolation level serializable;
-    begin transaction;
-
     begin try
+        set transaction isolation level serializable;
+        begin transaction;
+
         if not exists (select 1 from Orders O where O.OrderID = @OrderID and O.Status = 'Pending')
             throw 600051,'Unpaid order with given ID does not exist', 1;
 
@@ -279,7 +279,7 @@ begin
         throw 600035,'Given date is from the past', 1;
 
     if @TranslatorID is null and @Language <> 'pl'
-        throw 600090, 'Inserting lecture without polish translations', 1;
+        raiserror('Inserting lecture without polish translations', 10, 1) with nowait;
 
     insert into Lectures (TranslatorID, LectureName, Description, AdvancePrice, TotalPrice, Date, Language, Available)
         values(@TranslatorID, @LectureName, @Description, @AdvancePrice, @TotalPrice, @Date, @Language, @Available);
@@ -454,6 +454,7 @@ begin
 
         if @LectureID is null
             throw 60000, 'Failed to create lecture', 1;
+
         insert into Webinars (LectureID, TeacherID, Link, IsFree)
             values (@LectureID, @TeacherID, @Link, @IsFree);
 
@@ -483,9 +484,11 @@ as
 begin
     set nocount on;
     declare @LectureID int;
+
     begin try
         set transaction isolation level serializable;
         begin transaction;
+
         exec PR_Create_Lecture
             @TranslatorID = @TranslatorID,
             @LectureName = @LectureName,
@@ -523,9 +526,11 @@ create procedure PR_Create_CourseModule
 as
 begin
     set nocount on;
+
     begin try
         set transaction isolation level serializable;
         begin transaction;
+
         if not exists (select 1 from Courses where CourseID = @CourseID)
             throw 60002,'Course with given ID does not exist',1;
 
@@ -553,9 +558,11 @@ create procedure PR_Create_StationaryCourseModule
 as
 begin
     set nocount on;
+
     begin try
         set transaction isolation level serializable;
         begin transaction;
+
         if not exists (select 1 from CourseModules where CourseModuleID = @CourseModuleID)
             throw 60003,'CourseModule with given ID does not exist', 1;
 
@@ -594,9 +601,11 @@ create procedure PR_Create_OnlineCourseModule
 as
 begin
     set nocount on;
+
     begin try
         set transaction isolation level serializable;
         begin transaction;
+
         if not exists (select 1 from CourseModules where CourseModuleID = @CourseModuleID)
             throw 60005,'CourseModule with given ID does not exist',1;
 
@@ -643,9 +652,11 @@ begin
     set nocount on;
 
     declare @LectureID int;
+
     begin try
         set transaction isolation level serializable;
         begin transaction;
+
         exec PR_Create_Lecture
             @TranslatorID = @TranslatorID,
             @LectureName = @LectureName,
@@ -681,9 +692,11 @@ create procedure PR_Create_StudySession
 as
 begin
     set nocount on;
+
     begin try
         set transaction isolation level serializable;
         begin transaction;
+
         if not exists (select 1 from Studies where StudiesID = @StudiesID)
             throw 6009,'Studies with given ID do not exist', 1;
 
@@ -720,9 +733,11 @@ create procedure PR_Create_Class
 as
 begin
     set nocount on;
+
     begin try
         set transaction isolation level serializable;
         begin transaction;
+
         if not exists (select 1 from Studies where StudiesID = @StudiesID)
             throw 60013,'Studies with given ID does not exist',1;
 
@@ -760,9 +775,11 @@ create procedure PR_Create_OnlineClass
 as
 begin
     set nocount on;
+
     begin try
         set transaction isolation level serializable;
         begin transaction;
+
         if not exists (select 1 from Classes where ClassID = @ClassID)
             throw 60015,'Class with given ID does not exist',1;
 
@@ -825,9 +842,11 @@ create procedure PR_Create_StationaryClass
 as
 begin
     set nocount on;
+
     begin try
         set transaction isolation level serializable;
         begin transaction;
+
         if not exists (select 1 from Classes where ClassID = @ClassID)
             throw 60019,'Class with given ID does not exist', 1;
 
@@ -892,9 +911,11 @@ create procedure PR_Create_Internship
 as
 begin
     set nocount on;
+
     begin try
         set transaction isolation level serializable;
         begin transaction;
+        
         if not exists (select 1 from Attendable where AttendableID = @AttendableID)
             throw 60024,'Attendable with given ID does not exist', 1;
 
