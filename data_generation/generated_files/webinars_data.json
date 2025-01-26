@@ -1,0 +1,422 @@
+[
+    {
+        "WebinarID": 1,
+        "LectureID": 1,
+        "TeacherID": 42,
+        "Link": "http://www.buck.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 2,
+        "LectureID": 2,
+        "TeacherID": 25,
+        "Link": "http://smith.net/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 3,
+        "LectureID": 3,
+        "TeacherID": 88,
+        "Link": "https://www.luna.net/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 4,
+        "LectureID": 4,
+        "TeacherID": 12,
+        "Link": "http://www.sheppard-miller.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 5,
+        "LectureID": 5,
+        "TeacherID": 69,
+        "Link": "https://www.lamb.net/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 6,
+        "LectureID": 6,
+        "TeacherID": 46,
+        "Link": "https://www.thompson-smith.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 7,
+        "LectureID": 7,
+        "TeacherID": 75,
+        "Link": "https://sullivan.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 8,
+        "LectureID": 8,
+        "TeacherID": 61,
+        "Link": "https://www.jenkins-garza.org/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 9,
+        "LectureID": 9,
+        "TeacherID": 51,
+        "Link": "https://ward.com/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 10,
+        "LectureID": 10,
+        "TeacherID": 74,
+        "Link": "https://www.moran-lopez.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 11,
+        "LectureID": 11,
+        "TeacherID": 30,
+        "Link": "https://www.carter.info/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 12,
+        "LectureID": 12,
+        "TeacherID": 3,
+        "Link": "https://randall-andrews.com/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 13,
+        "LectureID": 13,
+        "TeacherID": 40,
+        "Link": "http://mccall-murray.net/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 14,
+        "LectureID": 14,
+        "TeacherID": 69,
+        "Link": "http://hill.com/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 15,
+        "LectureID": 15,
+        "TeacherID": 76,
+        "Link": "http://www.wright.com/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 16,
+        "LectureID": 16,
+        "TeacherID": 96,
+        "Link": "http://www.cabrera-perez.com/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 17,
+        "LectureID": 17,
+        "TeacherID": 43,
+        "Link": "http://brown-roberts.net/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 18,
+        "LectureID": 18,
+        "TeacherID": 66,
+        "Link": "http://www.norman.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 19,
+        "LectureID": 19,
+        "TeacherID": 60,
+        "Link": "https://hall.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 20,
+        "LectureID": 20,
+        "TeacherID": 99,
+        "Link": "https://www.gallegos.org/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 21,
+        "LectureID": 21,
+        "TeacherID": 28,
+        "Link": "http://garza.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 22,
+        "LectureID": 22,
+        "TeacherID": 76,
+        "Link": "https://wallace-garcia.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 23,
+        "LectureID": 23,
+        "TeacherID": 88,
+        "Link": "https://www.cox.net/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 24,
+        "LectureID": 24,
+        "TeacherID": 78,
+        "Link": "https://hicks.net/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 25,
+        "LectureID": 25,
+        "TeacherID": 56,
+        "Link": "http://www.edwards-weaver.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 26,
+        "LectureID": 26,
+        "TeacherID": 22,
+        "Link": "https://martin.biz/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 27,
+        "LectureID": 27,
+        "TeacherID": 19,
+        "Link": "http://www.garcia.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 28,
+        "LectureID": 28,
+        "TeacherID": 10,
+        "Link": "http://www.duncan-thomas.com/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 29,
+        "LectureID": 29,
+        "TeacherID": 43,
+        "Link": "http://roy.net/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 30,
+        "LectureID": 30,
+        "TeacherID": 4,
+        "Link": "http://www.duncan.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 31,
+        "LectureID": 31,
+        "TeacherID": 9,
+        "Link": "http://jordan-robinson.com/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 32,
+        "LectureID": 32,
+        "TeacherID": 40,
+        "Link": "https://www.rollins-pierce.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 33,
+        "LectureID": 33,
+        "TeacherID": 36,
+        "Link": "https://www.bray-peters.org/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 34,
+        "LectureID": 34,
+        "TeacherID": 35,
+        "Link": "https://www.bruce-estrada.biz/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 35,
+        "LectureID": 35,
+        "TeacherID": 22,
+        "Link": "http://kelly.biz/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 36,
+        "LectureID": 36,
+        "TeacherID": 40,
+        "Link": "http://ward.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 37,
+        "LectureID": 37,
+        "TeacherID": 51,
+        "Link": "https://johns.org/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 38,
+        "LectureID": 38,
+        "TeacherID": 28,
+        "Link": "https://hicks-miller.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 39,
+        "LectureID": 39,
+        "TeacherID": 42,
+        "Link": "https://www.olson.com/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 40,
+        "LectureID": 40,
+        "TeacherID": 79,
+        "Link": "https://molina-chavez.biz/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 41,
+        "LectureID": 41,
+        "TeacherID": 86,
+        "Link": "http://armstrong-cole.org/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 42,
+        "LectureID": 42,
+        "TeacherID": 27,
+        "Link": "http://www.miller.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 43,
+        "LectureID": 43,
+        "TeacherID": 32,
+        "Link": "https://www.bowers.info/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 44,
+        "LectureID": 44,
+        "TeacherID": 80,
+        "Link": "https://vincent.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 45,
+        "LectureID": 45,
+        "TeacherID": 13,
+        "Link": "https://www.palmer-martinez.info/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 46,
+        "LectureID": 46,
+        "TeacherID": 38,
+        "Link": "http://www.wilson.com/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 47,
+        "LectureID": 47,
+        "TeacherID": 7,
+        "Link": "http://www.cooper.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 48,
+        "LectureID": 48,
+        "TeacherID": 43,
+        "Link": "https://www.potter-reed.net/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 49,
+        "LectureID": 49,
+        "TeacherID": 58,
+        "Link": "http://www.hughes-torres.biz/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 50,
+        "LectureID": 50,
+        "TeacherID": 70,
+        "Link": "http://callahan.net/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 51,
+        "LectureID": 51,
+        "TeacherID": 6,
+        "Link": "http://www.chang.org/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 52,
+        "LectureID": 52,
+        "TeacherID": 51,
+        "Link": "http://martinez-huerta.org/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 53,
+        "LectureID": 53,
+        "TeacherID": 96,
+        "Link": "http://www.cooper.biz/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 54,
+        "LectureID": 54,
+        "TeacherID": 59,
+        "Link": "http://www.reid-johnston.biz/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 55,
+        "LectureID": 55,
+        "TeacherID": 22,
+        "Link": "https://www.bailey-adams.com/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 56,
+        "LectureID": 56,
+        "TeacherID": 63,
+        "Link": "http://guzman.org/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 57,
+        "LectureID": 57,
+        "TeacherID": 6,
+        "Link": "http://garcia.biz/",
+        "IsFree": false
+    },
+    {
+        "WebinarID": 58,
+        "LectureID": 58,
+        "TeacherID": 68,
+        "Link": "http://hogan.com/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 59,
+        "LectureID": 59,
+        "TeacherID": 75,
+        "Link": "http://bailey.net/",
+        "IsFree": true
+    },
+    {
+        "WebinarID": 60,
+        "LectureID": 60,
+        "TeacherID": 2,
+        "Link": "https://smith.com/",
+        "IsFree": true
+    }
+]

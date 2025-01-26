@@ -1,0 +1,22 @@
+{
+    "students_number": 1000,
+    "translators_numbers": 20,
+    "payments_succeeded_number": 4000,
+    "payments_not_succeeded_number": 200,
+    "loans_number": 20,
+    "enrollments_number": 6000,
+    "lectures_number": 115,
+    "lecturers_number": 100,
+    "courses_number": 30,
+    "webinars_number": 60,
+    "studies_numbers": 10,
+    "studies_internships_number": 10,
+    "studies_classes_number": 35,
+    "online_classes_number": 10,
+    "stationary_classes_number": 10,
+    "courses_modules_number": 5,
+    "stationary_courses_modules_number": 4,
+    "online_courses_modules_number":4,
+    "attendables_number": 3700,
+    "attendances_number": 10000
+}

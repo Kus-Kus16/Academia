@@ -1,0 +1,4418 @@
+[
+    {
+        "PaymentID": 1,
+        "EnrollmentID": 21,
+        "StudySessionID": 55,
+        "Price": 80,
+        "DueDate": "2023-02-17 01:45:19",
+        "PaidDate": "2020-02-29 14:00:00"
+    },
+    {
+        "PaymentID": 2,
+        "EnrollmentID": 21,
+        "StudySessionID": 56,
+        "Price": 80,
+        "DueDate": "2022-01-26 13:33:33",
+        "PaidDate": "2020-02-29 14:00:00"
+    },
+    {
+        "PaymentID": 3,
+        "EnrollmentID": 21,
+        "StudySessionID": 57,
+        "Price": 90,
+        "DueDate": "2020-12-02 03:54:28",
+        "PaidDate": "2020-02-29 14:00:00"
+    },
+    {
+        "PaymentID": 4,
+        "EnrollmentID": 21,
+        "StudySessionID": 58,
+        "Price": 50,
+        "DueDate": "2023-07-03 06:43:32",
+        "PaidDate": "2020-02-29 14:00:00"
+    },
+    {
+        "PaymentID": 5,
+        "EnrollmentID": 21,
+        "StudySessionID": 59,
+        "Price": 50,
+        "DueDate": "2021-06-06 12:06:04",
+        "PaidDate": "2020-02-29 14:00:00"
+    },
+    {
+        "PaymentID": 6,
+        "EnrollmentID": 21,
+        "StudySessionID": 60,
+        "Price": 100,
+        "DueDate": "2023-02-25 08:59:11",
+        "PaidDate": "2020-02-29 14:00:00"
+    },
+    {
+        "PaymentID": 7,
+        "EnrollmentID": 46,
+        "StudySessionID": 1,
+        "Price": 70,
+        "DueDate": "2022-03-05 20:02:00",
+        "PaidDate": "2019-11-17 18:00:00"
+    },
+    {
+        "PaymentID": 8,
+        "EnrollmentID": 46,
+        "StudySessionID": 2,
+        "Price": 80,
+        "DueDate": "2023-04-18 04:03:10",
+        "PaidDate": "2019-11-17 18:00:00"
+    },
+    {
+        "PaymentID": 9,
+        "EnrollmentID": 46,
+        "StudySessionID": 3,
+        "Price": 80,
+        "DueDate": "2020-04-05 09:30:57",
+        "PaidDate": "2019-11-17 18:00:00"
+    },
+    {
+        "PaymentID": 10,
+        "EnrollmentID": 46,
+        "StudySessionID": 4,
+        "Price": 50,
+        "DueDate": "2023-04-21 02:11:56",
+        "PaidDate": "2019-11-17 18:00:00"
+    },
+    {
+        "PaymentID": 11,
+        "EnrollmentID": 46,
+        "StudySessionID": 5,
+        "Price": 90,
+        "DueDate": "2021-07-20 03:42:45",
+        "PaidDate": "2019-11-17 18:00:00"
+    },
+    {
+        "PaymentID": 12,
+        "EnrollmentID": 46,
+        "StudySessionID": 6,
+        "Price": 100,
+        "DueDate": "2023-01-26 14:32:03",
+        "PaidDate": "2019-11-17 18:00:00"
+    },
+    {
+        "PaymentID": 13,
+        "EnrollmentID": 53,
+        "StudySessionID": 49,
+        "Price": 60,
+        "DueDate": "2022-02-05 04:26:18",
+        "PaidDate": "2020-03-09 10:00:00"
+    },
+    {
+        "PaymentID": 14,
+        "EnrollmentID": 53,
+        "StudySessionID": 50,
+        "Price": 50,
+        "DueDate": "2022-12-04 16:09:35",
+        "PaidDate": "2020-03-09 10:00:00"
+    },
+    {
+        "PaymentID": 15,
+        "EnrollmentID": 53,
+        "StudySessionID": 51,
+        "Price": 60,
+        "DueDate": "2021-06-13 12:22:56",
+        "PaidDate": "2020-03-09 10:00:00"
+    },
+    {
+        "PaymentID": 16,
+        "EnrollmentID": 53,
+        "StudySessionID": 52,
+        "Price": 80,
+        "DueDate": "2022-05-07 05:45:18",
+        "PaidDate": "2020-03-09 10:00:00"
+    },
+    {
+        "PaymentID": 17,
+        "EnrollmentID": 53,
+        "StudySessionID": 53,
+        "Price": 80,
+        "DueDate": "2020-12-28 15:08:37",
+        "PaidDate": "2020-03-09 10:00:00"
+    },
+    {
+        "PaymentID": 18,
+        "EnrollmentID": 53,
+        "StudySessionID": 54,
+        "Price": 80,
+        "DueDate": "2021-03-24 23:10:41",
+        "PaidDate": "2020-03-09 10:00:00"
+    },
+    {
+        "PaymentID": 19,
+        "EnrollmentID": 71,
+        "StudySessionID": 43,
+        "Price": 80,
+        "DueDate": "2023-01-11 18:28:36",
+        "PaidDate": "2019-09-02 17:00:00"
+    },
+    {
+        "PaymentID": 20,
+        "EnrollmentID": 71,
+        "StudySessionID": 44,
+        "Price": 50,
+        "DueDate": "2019-10-01 22:55:57",
+        "PaidDate": "2019-09-02 17:00:00"
+    },
+    {
+        "PaymentID": 21,
+        "EnrollmentID": 71,
+        "StudySessionID": 45,
+        "Price": 80,
+        "DueDate": "2020-08-24 23:46:12",
+        "PaidDate": "2019-09-02 17:00:00"
+    },
+    {
+        "PaymentID": 22,
+        "EnrollmentID": 71,
+        "StudySessionID": 46,
+        "Price": 90,
+        "DueDate": "2021-01-19 08:22:53",
+        "PaidDate": "2019-09-02 17:00:00"
+    },
+    {
+        "PaymentID": 23,
+        "EnrollmentID": 71,
+        "StudySessionID": 47,
+        "Price": 80,
+        "DueDate": "2022-01-10 18:19:58",
+        "PaidDate": "2019-09-02 17:00:00"
+    },
+    {
+        "PaymentID": 24,
+        "EnrollmentID": 71,
+        "StudySessionID": 48,
+        "Price": 60,
+        "DueDate": "2022-05-03 08:49:57",
+        "PaidDate": "2019-09-02 17:00:00"
+    },
+    {
+        "PaymentID": 25,
+        "EnrollmentID": 101,
+        "StudySessionID": 49,
+        "Price": 60,
+        "DueDate": "2022-02-05 04:26:18",
+        "PaidDate": "2020-03-16 10:00:00"
+    },
+    {
+        "PaymentID": 26,
+        "EnrollmentID": 101,
+        "StudySessionID": 50,
+        "Price": 50,
+        "DueDate": "2022-12-04 16:09:35",
+        "PaidDate": "2020-03-16 10:00:00"
+    },
+    {
+        "PaymentID": 27,
+        "EnrollmentID": 101,
+        "StudySessionID": 51,
+        "Price": 60,
+        "DueDate": "2021-06-13 12:22:56",
+        "PaidDate": "2020-03-16 10:00:00"
+    },
+    {
+        "PaymentID": 28,
+        "EnrollmentID": 101,
+        "StudySessionID": 52,
+        "Price": 80,
+        "DueDate": "2022-05-07 05:45:18",
+        "PaidDate": "2020-03-16 10:00:00"
+    },
+    {
+        "PaymentID": 29,
+        "EnrollmentID": 101,
+        "StudySessionID": 53,
+        "Price": 80,
+        "DueDate": "2020-12-28 15:08:37",
+        "PaidDate": "2020-03-16 10:00:00"
+    },
+    {
+        "PaymentID": 30,
+        "EnrollmentID": 101,
+        "StudySessionID": 54,
+        "Price": 80,
+        "DueDate": "2021-03-24 23:10:41",
+        "PaidDate": "2020-03-16 10:00:00"
+    },
+    {
+        "PaymentID": 31,
+        "EnrollmentID": 281,
+        "StudySessionID": 49,
+        "Price": 60,
+        "DueDate": "2022-02-05 04:26:18",
+        "PaidDate": "2020-02-10 10:00:00"
+    },
+    {
+        "PaymentID": 32,
+        "EnrollmentID": 281,
+        "StudySessionID": 50,
+        "Price": 50,
+        "DueDate": "2022-12-04 16:09:35",
+        "PaidDate": "2020-02-10 10:00:00"
+    },
+    {
+        "PaymentID": 33,
+        "EnrollmentID": 281,
+        "StudySessionID": 51,
+        "Price": 60,
+        "DueDate": "2021-06-13 12:22:56",
+        "PaidDate": "2020-02-10 10:00:00"
+    },
+    {
+        "PaymentID": 34,
+        "EnrollmentID": 281,
+        "StudySessionID": 52,
+        "Price": 80,
+        "DueDate": "2022-05-07 05:45:18",
+        "PaidDate": "2020-02-10 10:00:00"
+    },
+    {
+        "PaymentID": 35,
+        "EnrollmentID": 281,
+        "StudySessionID": 53,
+        "Price": 80,
+        "DueDate": "2020-12-28 15:08:37",
+        "PaidDate": "2020-02-10 10:00:00"
+    },
+    {
+        "PaymentID": 36,
+        "EnrollmentID": 281,
+        "StudySessionID": 54,
+        "Price": 80,
+        "DueDate": "2021-03-24 23:10:41",
+        "PaidDate": "2020-02-10 10:00:00"
+    },
+    {
+        "PaymentID": 37,
+        "EnrollmentID": 378,
+        "StudySessionID": 25,
+        "Price": 100,
+        "DueDate": "2022-07-30 09:21:54",
+        "PaidDate": "2021-01-20 12:00:00"
+    },
+    {
+        "PaymentID": 38,
+        "EnrollmentID": 378,
+        "StudySessionID": 26,
+        "Price": 80,
+        "DueDate": "2023-01-10 07:39:30",
+        "PaidDate": "2021-01-20 12:00:00"
+    },
+    {
+        "PaymentID": 39,
+        "EnrollmentID": 378,
+        "StudySessionID": 27,
+        "Price": 50,
+        "DueDate": "2023-03-11 20:18:33",
+        "PaidDate": "2021-01-20 12:00:00"
+    },
+    {
+        "PaymentID": 40,
+        "EnrollmentID": 378,
+        "StudySessionID": 28,
+        "Price": 70,
+        "DueDate": "2023-03-04 19:12:15",
+        "PaidDate": "2021-01-20 12:00:00"
+    },
+    {
+        "PaymentID": 41,
+        "EnrollmentID": 378,
+        "StudySessionID": 29,
+        "Price": 80,
+        "DueDate": "2023-01-04 17:55:47",
+        "PaidDate": "2021-01-20 12:00:00"
+    },
+    {
+        "PaymentID": 42,
+        "EnrollmentID": 378,
+        "StudySessionID": 30,
+        "Price": 70,
+        "DueDate": "2023-09-03 06:55:43",
+        "PaidDate": "2021-01-20 12:00:00"
+    },
+    {
+        "PaymentID": 43,
+        "EnrollmentID": 414,
+        "StudySessionID": 7,
+        "Price": 70,
+        "DueDate": "2027-04-05 12:27:35",
+        "PaidDate": "2021-01-13 20:18:07"
+    },
+    {
+        "PaymentID": 44,
+        "EnrollmentID": 414,
+        "StudySessionID": 8,
+        "Price": 80,
+        "DueDate": "2025-03-02 17:35:31",
+        "PaidDate": "2021-01-13 20:18:07"
+    },
+    {
+        "PaymentID": 45,
+        "EnrollmentID": 414,
+        "StudySessionID": 9,
+        "Price": 60,
+        "DueDate": "2026-09-05 20:21:12",
+        "PaidDate": "2021-01-13 20:18:07"
+    },
+    {
+        "PaymentID": 46,
+        "EnrollmentID": 414,
+        "StudySessionID": 10,
+        "Price": 80,
+        "DueDate": "2027-05-09 14:45:22",
+        "PaidDate": "2021-01-13 20:18:07"
+    },
+    {
+        "PaymentID": 47,
+        "EnrollmentID": 414,
+        "StudySessionID": 11,
+        "Price": 80,
+        "DueDate": "2026-11-05 11:57:42",
+        "PaidDate": "2021-01-13 20:18:07"
+    },
+    {
+        "PaymentID": 48,
+        "EnrollmentID": 414,
+        "StudySessionID": 12,
+        "Price": 60,
+        "DueDate": "2026-04-10 23:14:21",
+        "PaidDate": "2021-01-13 20:18:07"
+    },
+    {
+        "PaymentID": 49,
+        "EnrollmentID": 532,
+        "StudySessionID": 43,
+        "Price": 80,
+        "DueDate": "2023-01-11 18:28:36",
+        "PaidDate": "2019-07-05 17:00:00"
+    },
+    {
+        "PaymentID": 50,
+        "EnrollmentID": 532,
+        "StudySessionID": 44,
+        "Price": 50,
+        "DueDate": "2019-10-01 22:55:57",
+        "PaidDate": "2019-07-05 17:00:00"
+    },
+    {
+        "PaymentID": 51,
+        "EnrollmentID": 532,
+        "StudySessionID": 45,
+        "Price": 80,
+        "DueDate": "2020-08-24 23:46:12",
+        "PaidDate": "2019-07-05 17:00:00"
+    },
+    {
+        "PaymentID": 52,
+        "EnrollmentID": 532,
+        "StudySessionID": 46,
+        "Price": 90,
+        "DueDate": "2021-01-19 08:22:53",
+        "PaidDate": "2019-07-05 17:00:00"
+    },
+    {
+        "PaymentID": 53,
+        "EnrollmentID": 532,
+        "StudySessionID": 47,
+        "Price": 80,
+        "DueDate": "2022-01-10 18:19:58",
+        "PaidDate": "2019-07-05 17:00:00"
+    },
+    {
+        "PaymentID": 54,
+        "EnrollmentID": 532,
+        "StudySessionID": 48,
+        "Price": 60,
+        "DueDate": "2022-05-03 08:49:57",
+        "PaidDate": "2019-07-05 17:00:00"
+    },
+    {
+        "PaymentID": 55,
+        "EnrollmentID": 540,
+        "StudySessionID": 19,
+        "Price": 50,
+        "DueDate": "2024-09-23 08:03:43",
+        "PaidDate": "2022-02-19 13:00:00"
+    },
+    {
+        "PaymentID": 56,
+        "EnrollmentID": 540,
+        "StudySessionID": 20,
+        "Price": 50,
+        "DueDate": "2023-12-26 13:23:59",
+        "PaidDate": "2022-02-19 13:00:00"
+    },
+    {
+        "PaymentID": 57,
+        "EnrollmentID": 540,
+        "StudySessionID": 21,
+        "Price": 50,
+        "DueDate": "2023-10-26 17:36:51",
+        "PaidDate": "2022-02-19 13:00:00"
+    },
+    {
+        "PaymentID": 58,
+        "EnrollmentID": 540,
+        "StudySessionID": 22,
+        "Price": 70,
+        "DueDate": "2023-12-11 01:30:18",
+        "PaidDate": "2022-02-19 13:00:00"
+    },
+    {
+        "PaymentID": 59,
+        "EnrollmentID": 540,
+        "StudySessionID": 23,
+        "Price": 70,
+        "DueDate": "2022-10-04 09:07:15",
+        "PaidDate": "2022-02-19 13:00:00"
+    },
+    {
+        "PaymentID": 60,
+        "EnrollmentID": 540,
+        "StudySessionID": 24,
+        "Price": 60,
+        "DueDate": "2023-08-14 17:15:34",
+        "PaidDate": "2022-02-19 13:00:00"
+    },
+    {
+        "PaymentID": 61,
+        "EnrollmentID": 576,
+        "StudySessionID": 37,
+        "Price": 60,
+        "DueDate": "2025-08-26 05:58:41",
+        "PaidDate": "2023-10-13 09:00:00"
+    },
+    {
+        "PaymentID": 62,
+        "EnrollmentID": 576,
+        "StudySessionID": 38,
+        "Price": 70,
+        "DueDate": "2025-04-15 17:09:54",
+        "PaidDate": "2023-10-13 09:00:00"
+    },
+    {
+        "PaymentID": 63,
+        "EnrollmentID": 576,
+        "StudySessionID": 39,
+        "Price": 100,
+        "DueDate": "2027-02-28 09:28:51",
+        "PaidDate": "2023-10-13 09:00:00"
+    },
+    {
+        "PaymentID": 64,
+        "EnrollmentID": 576,
+        "StudySessionID": 40,
+        "Price": 50,
+        "DueDate": "2027-02-01 21:55:05",
+        "PaidDate": "2023-10-13 09:00:00"
+    },
+    {
+        "PaymentID": 65,
+        "EnrollmentID": 576,
+        "StudySessionID": 41,
+        "Price": 100,
+        "DueDate": "2025-12-31 02:42:13",
+        "PaidDate": "2023-10-13 09:00:00"
+    },
+    {
+        "PaymentID": 66,
+        "EnrollmentID": 576,
+        "StudySessionID": 42,
+        "Price": 80,
+        "DueDate": "2024-08-04 15:31:22",
+        "PaidDate": "2023-10-13 09:00:00"
+    },
+    {
+        "PaymentID": 67,
+        "EnrollmentID": 588,
+        "StudySessionID": 55,
+        "Price": 80,
+        "DueDate": "2023-02-17 01:45:19",
+        "PaidDate": "2020-03-10 14:00:00"
+    },
+    {
+        "PaymentID": 68,
+        "EnrollmentID": 588,
+        "StudySessionID": 56,
+        "Price": 80,
+        "DueDate": "2022-01-26 13:33:33",
+        "PaidDate": "2020-03-10 14:00:00"
+    },
+    {
+        "PaymentID": 69,
+        "EnrollmentID": 588,
+        "StudySessionID": 57,
+        "Price": 90,
+        "DueDate": "2020-12-02 03:54:28",
+        "PaidDate": "2020-03-10 14:00:00"
+    },
+    {
+        "PaymentID": 70,
+        "EnrollmentID": 588,
+        "StudySessionID": 58,
+        "Price": 50,
+        "DueDate": "2023-07-03 06:43:32",
+        "PaidDate": "2020-03-10 14:00:00"
+    },
+    {
+        "PaymentID": 71,
+        "EnrollmentID": 588,
+        "StudySessionID": 59,
+        "Price": 50,
+        "DueDate": "2021-06-06 12:06:04",
+        "PaidDate": "2020-03-10 14:00:00"
+    },
+    {
+        "PaymentID": 72,
+        "EnrollmentID": 588,
+        "StudySessionID": 60,
+        "Price": 100,
+        "DueDate": "2023-02-25 08:59:11",
+        "PaidDate": "2020-03-10 14:00:00"
+    },
+    {
+        "PaymentID": 73,
+        "EnrollmentID": 784,
+        "StudySessionID": 7,
+        "Price": 70,
+        "DueDate": "2027-04-05 12:27:35",
+        "PaidDate": "2024-04-09 08:00:00"
+    },
+    {
+        "PaymentID": 74,
+        "EnrollmentID": 784,
+        "StudySessionID": 8,
+        "Price": 80,
+        "DueDate": "2025-03-02 17:35:31",
+        "PaidDate": "2024-04-09 08:00:00"
+    },
+    {
+        "PaymentID": 75,
+        "EnrollmentID": 784,
+        "StudySessionID": 9,
+        "Price": 60,
+        "DueDate": "2026-09-05 20:21:12",
+        "PaidDate": "2024-04-09 08:00:00"
+    },
+    {
+        "PaymentID": 76,
+        "EnrollmentID": 784,
+        "StudySessionID": 10,
+        "Price": 80,
+        "DueDate": "2027-05-09 14:45:22",
+        "PaidDate": "2024-04-09 08:00:00"
+    },
+    {
+        "PaymentID": 77,
+        "EnrollmentID": 784,
+        "StudySessionID": 11,
+        "Price": 80,
+        "DueDate": "2026-11-05 11:57:42",
+        "PaidDate": "2024-04-09 08:00:00"
+    },
+    {
+        "PaymentID": 78,
+        "EnrollmentID": 784,
+        "StudySessionID": 12,
+        "Price": 60,
+        "DueDate": "2026-04-10 23:14:21",
+        "PaidDate": "2024-04-09 08:00:00"
+    },
+    {
+        "PaymentID": 79,
+        "EnrollmentID": 923,
+        "StudySessionID": 55,
+        "Price": 80,
+        "DueDate": "2023-02-17 01:45:19",
+        "PaidDate": "2020-01-06 14:00:00"
+    },
+    {
+        "PaymentID": 80,
+        "EnrollmentID": 923,
+        "StudySessionID": 56,
+        "Price": 80,
+        "DueDate": "2022-01-26 13:33:33",
+        "PaidDate": "2020-01-06 14:00:00"
+    },
+    {
+        "PaymentID": 81,
+        "EnrollmentID": 923,
+        "StudySessionID": 57,
+        "Price": 90,
+        "DueDate": "2020-12-02 03:54:28",
+        "PaidDate": "2020-01-06 14:00:00"
+    },
+    {
+        "PaymentID": 82,
+        "EnrollmentID": 923,
+        "StudySessionID": 58,
+        "Price": 50,
+        "DueDate": "2023-07-03 06:43:32",
+        "PaidDate": "2020-01-06 14:00:00"
+    },
+    {
+        "PaymentID": 83,
+        "EnrollmentID": 923,
+        "StudySessionID": 59,
+        "Price": 50,
+        "DueDate": "2021-06-06 12:06:04",
+        "PaidDate": "2020-01-06 14:00:00"
+    },
+    {
+        "PaymentID": 84,
+        "EnrollmentID": 923,
+        "StudySessionID": 60,
+        "Price": 100,
+        "DueDate": "2023-02-25 08:59:11",
+        "PaidDate": "2020-01-06 14:00:00"
+    },
+    {
+        "PaymentID": 85,
+        "EnrollmentID": 971,
+        "StudySessionID": 49,
+        "Price": 60,
+        "DueDate": "2022-02-05 04:26:18",
+        "PaidDate": "2020-01-31 10:00:00"
+    },
+    {
+        "PaymentID": 86,
+        "EnrollmentID": 971,
+        "StudySessionID": 50,
+        "Price": 50,
+        "DueDate": "2022-12-04 16:09:35",
+        "PaidDate": "2020-01-31 10:00:00"
+    },
+    {
+        "PaymentID": 87,
+        "EnrollmentID": 971,
+        "StudySessionID": 51,
+        "Price": 60,
+        "DueDate": "2021-06-13 12:22:56",
+        "PaidDate": "2020-01-31 10:00:00"
+    },
+    {
+        "PaymentID": 88,
+        "EnrollmentID": 971,
+        "StudySessionID": 52,
+        "Price": 80,
+        "DueDate": "2022-05-07 05:45:18",
+        "PaidDate": "2020-01-31 10:00:00"
+    },
+    {
+        "PaymentID": 89,
+        "EnrollmentID": 971,
+        "StudySessionID": 53,
+        "Price": 80,
+        "DueDate": "2020-12-28 15:08:37",
+        "PaidDate": "2020-01-31 10:00:00"
+    },
+    {
+        "PaymentID": 90,
+        "EnrollmentID": 971,
+        "StudySessionID": 54,
+        "Price": 80,
+        "DueDate": "2021-03-24 23:10:41",
+        "PaidDate": "2020-01-31 10:00:00"
+    },
+    {
+        "PaymentID": 91,
+        "EnrollmentID": 972,
+        "StudySessionID": 55,
+        "Price": 80,
+        "DueDate": "2023-02-17 01:45:19",
+        "PaidDate": "2020-01-31 10:00:00"
+    },
+    {
+        "PaymentID": 92,
+        "EnrollmentID": 972,
+        "StudySessionID": 56,
+        "Price": 80,
+        "DueDate": "2022-01-26 13:33:33",
+        "PaidDate": "2020-01-31 10:00:00"
+    },
+    {
+        "PaymentID": 93,
+        "EnrollmentID": 972,
+        "StudySessionID": 57,
+        "Price": 90,
+        "DueDate": "2020-12-02 03:54:28",
+        "PaidDate": "2020-01-31 10:00:00"
+    },
+    {
+        "PaymentID": 94,
+        "EnrollmentID": 972,
+        "StudySessionID": 58,
+        "Price": 50,
+        "DueDate": "2023-07-03 06:43:32",
+        "PaidDate": "2020-01-31 10:00:00"
+    },
+    {
+        "PaymentID": 95,
+        "EnrollmentID": 972,
+        "StudySessionID": 59,
+        "Price": 50,
+        "DueDate": "2021-06-06 12:06:04",
+        "PaidDate": "2020-01-31 10:00:00"
+    },
+    {
+        "PaymentID": 96,
+        "EnrollmentID": 972,
+        "StudySessionID": 60,
+        "Price": 100,
+        "DueDate": "2023-02-25 08:59:11",
+        "PaidDate": "2020-01-31 10:00:00"
+    },
+    {
+        "PaymentID": 97,
+        "EnrollmentID": 1076,
+        "StudySessionID": 43,
+        "Price": 80,
+        "DueDate": "2023-01-11 18:28:36",
+        "PaidDate": "2019-07-24 17:00:00"
+    },
+    {
+        "PaymentID": 98,
+        "EnrollmentID": 1076,
+        "StudySessionID": 44,
+        "Price": 50,
+        "DueDate": "2019-10-01 22:55:57",
+        "PaidDate": "2019-07-24 17:00:00"
+    },
+    {
+        "PaymentID": 99,
+        "EnrollmentID": 1076,
+        "StudySessionID": 45,
+        "Price": 80,
+        "DueDate": "2020-08-24 23:46:12",
+        "PaidDate": "2019-07-24 17:00:00"
+    },
+    {
+        "PaymentID": 100,
+        "EnrollmentID": 1076,
+        "StudySessionID": 46,
+        "Price": 90,
+        "DueDate": "2021-01-19 08:22:53",
+        "PaidDate": "2019-07-24 17:00:00"
+    },
+    {
+        "PaymentID": 101,
+        "EnrollmentID": 1076,
+        "StudySessionID": 47,
+        "Price": 80,
+        "DueDate": "2022-01-10 18:19:58",
+        "PaidDate": "2019-07-24 17:00:00"
+    },
+    {
+        "PaymentID": 102,
+        "EnrollmentID": 1076,
+        "StudySessionID": 48,
+        "Price": 60,
+        "DueDate": "2022-05-03 08:49:57",
+        "PaidDate": "2019-07-24 17:00:00"
+    },
+    {
+        "PaymentID": 103,
+        "EnrollmentID": 1114,
+        "StudySessionID": 19,
+        "Price": 50,
+        "DueDate": "2024-09-23 08:03:43",
+        "PaidDate": "2022-04-19 13:00:00"
+    },
+    {
+        "PaymentID": 104,
+        "EnrollmentID": 1114,
+        "StudySessionID": 20,
+        "Price": 50,
+        "DueDate": "2023-12-26 13:23:59",
+        "PaidDate": "2022-04-19 13:00:00"
+    },
+    {
+        "PaymentID": 105,
+        "EnrollmentID": 1114,
+        "StudySessionID": 21,
+        "Price": 50,
+        "DueDate": "2023-10-26 17:36:51",
+        "PaidDate": "2022-04-19 13:00:00"
+    },
+    {
+        "PaymentID": 106,
+        "EnrollmentID": 1114,
+        "StudySessionID": 22,
+        "Price": 70,
+        "DueDate": "2023-12-11 01:30:18",
+        "PaidDate": "2022-04-19 13:00:00"
+    },
+    {
+        "PaymentID": 107,
+        "EnrollmentID": 1114,
+        "StudySessionID": 23,
+        "Price": 70,
+        "DueDate": "2022-10-04 09:07:15",
+        "PaidDate": "2022-04-19 13:00:00"
+    },
+    {
+        "PaymentID": 108,
+        "EnrollmentID": 1114,
+        "StudySessionID": 24,
+        "Price": 60,
+        "DueDate": "2023-08-14 17:15:34",
+        "PaidDate": "2022-04-19 13:00:00"
+    },
+    {
+        "PaymentID": 109,
+        "EnrollmentID": 1130,
+        "StudySessionID": 31,
+        "Price": 50,
+        "DueDate": "2021-09-17 12:57:08",
+        "PaidDate": "2020-02-22 15:00:00"
+    },
+    {
+        "PaymentID": 110,
+        "EnrollmentID": 1130,
+        "StudySessionID": 32,
+        "Price": 80,
+        "DueDate": "2021-02-26 01:07:45",
+        "PaidDate": "2020-02-22 15:00:00"
+    },
+    {
+        "PaymentID": 111,
+        "EnrollmentID": 1130,
+        "StudySessionID": 33,
+        "Price": 60,
+        "DueDate": "2022-10-20 03:03:31",
+        "PaidDate": "2020-02-22 15:00:00"
+    },
+    {
+        "PaymentID": 112,
+        "EnrollmentID": 1130,
+        "StudySessionID": 34,
+        "Price": 80,
+        "DueDate": "2022-01-19 19:02:33",
+        "PaidDate": "2020-02-22 15:00:00"
+    },
+    {
+        "PaymentID": 113,
+        "EnrollmentID": 1130,
+        "StudySessionID": 35,
+        "Price": 80,
+        "DueDate": "2021-02-14 06:45:30",
+        "PaidDate": "2020-02-22 15:00:00"
+    },
+    {
+        "PaymentID": 114,
+        "EnrollmentID": 1130,
+        "StudySessionID": 36,
+        "Price": 50,
+        "DueDate": "2022-08-14 03:17:49",
+        "PaidDate": "2020-02-22 15:00:00"
+    },
+    {
+        "PaymentID": 115,
+        "EnrollmentID": 1156,
+        "StudySessionID": 55,
+        "Price": 80,
+        "DueDate": "2023-02-17 01:45:19",
+        "PaidDate": "2020-01-03 14:00:00"
+    },
+    {
+        "PaymentID": 116,
+        "EnrollmentID": 1156,
+        "StudySessionID": 56,
+        "Price": 80,
+        "DueDate": "2022-01-26 13:33:33",
+        "PaidDate": "2020-01-03 14:00:00"
+    },
+    {
+        "PaymentID": 117,
+        "EnrollmentID": 1156,
+        "StudySessionID": 57,
+        "Price": 90,
+        "DueDate": "2020-12-02 03:54:28",
+        "PaidDate": "2020-01-03 14:00:00"
+    },
+    {
+        "PaymentID": 118,
+        "EnrollmentID": 1156,
+        "StudySessionID": 58,
+        "Price": 50,
+        "DueDate": "2023-07-03 06:43:32",
+        "PaidDate": "2020-01-03 14:00:00"
+    },
+    {
+        "PaymentID": 119,
+        "EnrollmentID": 1156,
+        "StudySessionID": 59,
+        "Price": 50,
+        "DueDate": "2021-06-06 12:06:04",
+        "PaidDate": "2020-01-03 14:00:00"
+    },
+    {
+        "PaymentID": 120,
+        "EnrollmentID": 1156,
+        "StudySessionID": 60,
+        "Price": 100,
+        "DueDate": "2023-02-25 08:59:11",
+        "PaidDate": "2020-01-03 14:00:00"
+    },
+    {
+        "PaymentID": 121,
+        "EnrollmentID": 1263,
+        "StudySessionID": 19,
+        "Price": 50,
+        "DueDate": "2024-09-23 08:03:43",
+        "PaidDate": "2022-04-21 13:00:00"
+    },
+    {
+        "PaymentID": 122,
+        "EnrollmentID": 1263,
+        "StudySessionID": 20,
+        "Price": 50,
+        "DueDate": "2023-12-26 13:23:59",
+        "PaidDate": "2022-04-21 13:00:00"
+    },
+    {
+        "PaymentID": 123,
+        "EnrollmentID": 1263,
+        "StudySessionID": 21,
+        "Price": 50,
+        "DueDate": "2023-10-26 17:36:51",
+        "PaidDate": "2022-04-21 13:00:00"
+    },
+    {
+        "PaymentID": 124,
+        "EnrollmentID": 1263,
+        "StudySessionID": 22,
+        "Price": 70,
+        "DueDate": "2023-12-11 01:30:18",
+        "PaidDate": "2022-04-21 13:00:00"
+    },
+    {
+        "PaymentID": 125,
+        "EnrollmentID": 1263,
+        "StudySessionID": 23,
+        "Price": 70,
+        "DueDate": "2022-10-04 09:07:15",
+        "PaidDate": "2022-04-21 13:00:00"
+    },
+    {
+        "PaymentID": 126,
+        "EnrollmentID": 1263,
+        "StudySessionID": 24,
+        "Price": 60,
+        "DueDate": "2023-08-14 17:15:34",
+        "PaidDate": "2022-04-21 13:00:00"
+    },
+    {
+        "PaymentID": 127,
+        "EnrollmentID": 1283,
+        "StudySessionID": 19,
+        "Price": 50,
+        "DueDate": "2024-09-23 08:03:43",
+        "PaidDate": "2022-03-26 13:00:00"
+    },
+    {
+        "PaymentID": 128,
+        "EnrollmentID": 1283,
+        "StudySessionID": 20,
+        "Price": 50,
+        "DueDate": "2023-12-26 13:23:59",
+        "PaidDate": "2022-03-26 13:00:00"
+    },
+    {
+        "PaymentID": 129,
+        "EnrollmentID": 1283,
+        "StudySessionID": 21,
+        "Price": 50,
+        "DueDate": "2023-10-26 17:36:51",
+        "PaidDate": "2022-03-26 13:00:00"
+    },
+    {
+        "PaymentID": 130,
+        "EnrollmentID": 1283,
+        "StudySessionID": 22,
+        "Price": 70,
+        "DueDate": "2023-12-11 01:30:18",
+        "PaidDate": "2022-03-26 13:00:00"
+    },
+    {
+        "PaymentID": 131,
+        "EnrollmentID": 1283,
+        "StudySessionID": 23,
+        "Price": 70,
+        "DueDate": "2022-10-04 09:07:15",
+        "PaidDate": "2022-03-26 13:00:00"
+    },
+    {
+        "PaymentID": 132,
+        "EnrollmentID": 1283,
+        "StudySessionID": 24,
+        "Price": 60,
+        "DueDate": "2023-08-14 17:15:34",
+        "PaidDate": "2022-03-26 13:00:00"
+    },
+    {
+        "PaymentID": 133,
+        "EnrollmentID": 1296,
+        "StudySessionID": 37,
+        "Price": 60,
+        "DueDate": "2025-08-26 05:58:41",
+        "PaidDate": "2022-02-01 10:56:50"
+    },
+    {
+        "PaymentID": 134,
+        "EnrollmentID": 1296,
+        "StudySessionID": 38,
+        "Price": 70,
+        "DueDate": "2025-04-15 17:09:54",
+        "PaidDate": "2022-02-01 10:56:50"
+    },
+    {
+        "PaymentID": 135,
+        "EnrollmentID": 1296,
+        "StudySessionID": 39,
+        "Price": 100,
+        "DueDate": "2027-02-28 09:28:51",
+        "PaidDate": "2022-02-01 10:56:50"
+    },
+    {
+        "PaymentID": 136,
+        "EnrollmentID": 1296,
+        "StudySessionID": 40,
+        "Price": 50,
+        "DueDate": "2027-02-01 21:55:05",
+        "PaidDate": "2022-02-01 10:56:50"
+    },
+    {
+        "PaymentID": 137,
+        "EnrollmentID": 1296,
+        "StudySessionID": 41,
+        "Price": 100,
+        "DueDate": "2025-12-31 02:42:13",
+        "PaidDate": "2022-02-01 10:56:50"
+    },
+    {
+        "PaymentID": 138,
+        "EnrollmentID": 1296,
+        "StudySessionID": 42,
+        "Price": 80,
+        "DueDate": "2024-08-04 15:31:22",
+        "PaidDate": "2022-02-01 10:56:50"
+    },
+    {
+        "PaymentID": 139,
+        "EnrollmentID": 1333,
+        "StudySessionID": 55,
+        "Price": 80,
+        "DueDate": "2023-02-17 01:45:19",
+        "PaidDate": "2020-02-13 14:00:00"
+    },
+    {
+        "PaymentID": 140,
+        "EnrollmentID": 1333,
+        "StudySessionID": 56,
+        "Price": 80,
+        "DueDate": "2022-01-26 13:33:33",
+        "PaidDate": "2020-02-13 14:00:00"
+    },
+    {
+        "PaymentID": 141,
+        "EnrollmentID": 1333,
+        "StudySessionID": 57,
+        "Price": 90,
+        "DueDate": "2020-12-02 03:54:28",
+        "PaidDate": "2020-02-13 14:00:00"
+    },
+    {
+        "PaymentID": 142,
+        "EnrollmentID": 1333,
+        "StudySessionID": 58,
+        "Price": 50,
+        "DueDate": "2023-07-03 06:43:32",
+        "PaidDate": "2020-02-13 14:00:00"
+    },
+    {
+        "PaymentID": 143,
+        "EnrollmentID": 1333,
+        "StudySessionID": 59,
+        "Price": 50,
+        "DueDate": "2021-06-06 12:06:04",
+        "PaidDate": "2020-02-13 14:00:00"
+    },
+    {
+        "PaymentID": 144,
+        "EnrollmentID": 1333,
+        "StudySessionID": 60,
+        "Price": 100,
+        "DueDate": "2023-02-25 08:59:11",
+        "PaidDate": "2020-02-13 14:00:00"
+    },
+    {
+        "PaymentID": 145,
+        "EnrollmentID": 1453,
+        "StudySessionID": 55,
+        "Price": 80,
+        "DueDate": "2023-02-17 01:45:19",
+        "PaidDate": "2019-12-31 14:00:00"
+    },
+    {
+        "PaymentID": 146,
+        "EnrollmentID": 1453,
+        "StudySessionID": 56,
+        "Price": 80,
+        "DueDate": "2022-01-26 13:33:33",
+        "PaidDate": "2019-12-31 14:00:00"
+    },
+    {
+        "PaymentID": 147,
+        "EnrollmentID": 1453,
+        "StudySessionID": 57,
+        "Price": 90,
+        "DueDate": "2020-12-02 03:54:28",
+        "PaidDate": "2019-12-31 14:00:00"
+    },
+    {
+        "PaymentID": 148,
+        "EnrollmentID": 1453,
+        "StudySessionID": 58,
+        "Price": 50,
+        "DueDate": "2023-07-03 06:43:32",
+        "PaidDate": "2019-12-31 14:00:00"
+    },
+    {
+        "PaymentID": 149,
+        "EnrollmentID": 1453,
+        "StudySessionID": 59,
+        "Price": 50,
+        "DueDate": "2021-06-06 12:06:04",
+        "PaidDate": "2019-12-31 14:00:00"
+    },
+    {
+        "PaymentID": 150,
+        "EnrollmentID": 1453,
+        "StudySessionID": 60,
+        "Price": 100,
+        "DueDate": "2023-02-25 08:59:11",
+        "PaidDate": "2019-12-31 14:00:00"
+    },
+    {
+        "PaymentID": 151,
+        "EnrollmentID": 1498,
+        "StudySessionID": 49,
+        "Price": 60,
+        "DueDate": "2022-02-05 04:26:18",
+        "PaidDate": "2020-01-26 10:00:00"
+    },
+    {
+        "PaymentID": 152,
+        "EnrollmentID": 1498,
+        "StudySessionID": 50,
+        "Price": 50,
+        "DueDate": "2022-12-04 16:09:35",
+        "PaidDate": "2020-01-26 10:00:00"
+    },
+    {
+        "PaymentID": 153,
+        "EnrollmentID": 1498,
+        "StudySessionID": 51,
+        "Price": 60,
+        "DueDate": "2021-06-13 12:22:56",
+        "PaidDate": "2020-01-26 10:00:00"
+    },
+    {
+        "PaymentID": 154,
+        "EnrollmentID": 1498,
+        "StudySessionID": 52,
+        "Price": 80,
+        "DueDate": "2022-05-07 05:45:18",
+        "PaidDate": "2020-01-26 10:00:00"
+    },
+    {
+        "PaymentID": 155,
+        "EnrollmentID": 1498,
+        "StudySessionID": 53,
+        "Price": 80,
+        "DueDate": "2020-12-28 15:08:37",
+        "PaidDate": "2020-01-26 10:00:00"
+    },
+    {
+        "PaymentID": 156,
+        "EnrollmentID": 1498,
+        "StudySessionID": 54,
+        "Price": 80,
+        "DueDate": "2021-03-24 23:10:41",
+        "PaidDate": "2020-01-26 10:00:00"
+    },
+    {
+        "PaymentID": 157,
+        "EnrollmentID": 1606,
+        "StudySessionID": 37,
+        "Price": 60,
+        "DueDate": "2025-08-26 05:58:41",
+        "PaidDate": "2021-01-04 15:29:40"
+    },
+    {
+        "PaymentID": 158,
+        "EnrollmentID": 1606,
+        "StudySessionID": 38,
+        "Price": 70,
+        "DueDate": "2025-04-15 17:09:54",
+        "PaidDate": "2021-01-04 15:29:40"
+    },
+    {
+        "PaymentID": 159,
+        "EnrollmentID": 1606,
+        "StudySessionID": 39,
+        "Price": 100,
+        "DueDate": "2027-02-28 09:28:51",
+        "PaidDate": "2021-01-04 15:29:40"
+    },
+    {
+        "PaymentID": 160,
+        "EnrollmentID": 1606,
+        "StudySessionID": 40,
+        "Price": 50,
+        "DueDate": "2027-02-01 21:55:05",
+        "PaidDate": "2021-01-04 15:29:40"
+    },
+    {
+        "PaymentID": 161,
+        "EnrollmentID": 1606,
+        "StudySessionID": 41,
+        "Price": 100,
+        "DueDate": "2025-12-31 02:42:13",
+        "PaidDate": "2021-01-04 15:29:40"
+    },
+    {
+        "PaymentID": 162,
+        "EnrollmentID": 1606,
+        "StudySessionID": 42,
+        "Price": 80,
+        "DueDate": "2024-08-04 15:31:22",
+        "PaidDate": "2021-01-04 15:29:40"
+    },
+    {
+        "PaymentID": 163,
+        "EnrollmentID": 1697,
+        "StudySessionID": 49,
+        "Price": 60,
+        "DueDate": "2022-02-05 04:26:18",
+        "PaidDate": "2020-01-04 10:00:00"
+    },
+    {
+        "PaymentID": 164,
+        "EnrollmentID": 1697,
+        "StudySessionID": 50,
+        "Price": 50,
+        "DueDate": "2022-12-04 16:09:35",
+        "PaidDate": "2020-01-04 10:00:00"
+    },
+    {
+        "PaymentID": 165,
+        "EnrollmentID": 1697,
+        "StudySessionID": 51,
+        "Price": 60,
+        "DueDate": "2021-06-13 12:22:56",
+        "PaidDate": "2020-01-04 10:00:00"
+    },
+    {
+        "PaymentID": 166,
+        "EnrollmentID": 1697,
+        "StudySessionID": 52,
+        "Price": 80,
+        "DueDate": "2022-05-07 05:45:18",
+        "PaidDate": "2020-01-04 10:00:00"
+    },
+    {
+        "PaymentID": 167,
+        "EnrollmentID": 1697,
+        "StudySessionID": 53,
+        "Price": 80,
+        "DueDate": "2020-12-28 15:08:37",
+        "PaidDate": "2020-01-04 10:00:00"
+    },
+    {
+        "PaymentID": 168,
+        "EnrollmentID": 1697,
+        "StudySessionID": 54,
+        "Price": 80,
+        "DueDate": "2021-03-24 23:10:41",
+        "PaidDate": "2020-01-04 10:00:00"
+    },
+    {
+        "PaymentID": 169,
+        "EnrollmentID": 1711,
+        "StudySessionID": 43,
+        "Price": 80,
+        "DueDate": "2023-01-11 18:28:36",
+        "PaidDate": "2019-08-31 17:00:00"
+    },
+    {
+        "PaymentID": 170,
+        "EnrollmentID": 1711,
+        "StudySessionID": 44,
+        "Price": 50,
+        "DueDate": "2019-10-01 22:55:57",
+        "PaidDate": "2019-08-31 17:00:00"
+    },
+    {
+        "PaymentID": 171,
+        "EnrollmentID": 1711,
+        "StudySessionID": 45,
+        "Price": 80,
+        "DueDate": "2020-08-24 23:46:12",
+        "PaidDate": "2019-08-31 17:00:00"
+    },
+    {
+        "PaymentID": 172,
+        "EnrollmentID": 1711,
+        "StudySessionID": 46,
+        "Price": 90,
+        "DueDate": "2021-01-19 08:22:53",
+        "PaidDate": "2019-08-31 17:00:00"
+    },
+    {
+        "PaymentID": 173,
+        "EnrollmentID": 1711,
+        "StudySessionID": 47,
+        "Price": 80,
+        "DueDate": "2022-01-10 18:19:58",
+        "PaidDate": "2019-08-31 17:00:00"
+    },
+    {
+        "PaymentID": 174,
+        "EnrollmentID": 1711,
+        "StudySessionID": 48,
+        "Price": 60,
+        "DueDate": "2022-05-03 08:49:57",
+        "PaidDate": "2019-08-31 17:00:00"
+    },
+    {
+        "PaymentID": 175,
+        "EnrollmentID": 1754,
+        "StudySessionID": 7,
+        "Price": 70,
+        "DueDate": "2027-04-05 12:27:35",
+        "PaidDate": "2022-04-21 18:00:00"
+    },
+    {
+        "PaymentID": 176,
+        "EnrollmentID": 1754,
+        "StudySessionID": 8,
+        "Price": 80,
+        "DueDate": "2025-03-02 17:35:31",
+        "PaidDate": "2022-04-21 18:00:00"
+    },
+    {
+        "PaymentID": 177,
+        "EnrollmentID": 1754,
+        "StudySessionID": 9,
+        "Price": 60,
+        "DueDate": "2026-09-05 20:21:12",
+        "PaidDate": "2022-04-21 18:00:00"
+    },
+    {
+        "PaymentID": 178,
+        "EnrollmentID": 1754,
+        "StudySessionID": 10,
+        "Price": 80,
+        "DueDate": "2027-05-09 14:45:22",
+        "PaidDate": "2022-04-21 18:00:00"
+    },
+    {
+        "PaymentID": 179,
+        "EnrollmentID": 1754,
+        "StudySessionID": 11,
+        "Price": 80,
+        "DueDate": "2026-11-05 11:57:42",
+        "PaidDate": "2022-04-21 18:00:00"
+    },
+    {
+        "PaymentID": 180,
+        "EnrollmentID": 1754,
+        "StudySessionID": 12,
+        "Price": 60,
+        "DueDate": "2026-04-10 23:14:21",
+        "PaidDate": "2022-04-21 18:00:00"
+    },
+    {
+        "PaymentID": 181,
+        "EnrollmentID": 1760,
+        "StudySessionID": 7,
+        "Price": 70,
+        "DueDate": "2027-04-05 12:27:35",
+        "PaidDate": "2022-09-18 10:45:21"
+    },
+    {
+        "PaymentID": 182,
+        "EnrollmentID": 1760,
+        "StudySessionID": 8,
+        "Price": 80,
+        "DueDate": "2025-03-02 17:35:31",
+        "PaidDate": "2022-09-18 10:45:21"
+    },
+    {
+        "PaymentID": 183,
+        "EnrollmentID": 1760,
+        "StudySessionID": 9,
+        "Price": 60,
+        "DueDate": "2026-09-05 20:21:12",
+        "PaidDate": "2022-09-18 10:45:21"
+    },
+    {
+        "PaymentID": 184,
+        "EnrollmentID": 1760,
+        "StudySessionID": 10,
+        "Price": 80,
+        "DueDate": "2027-05-09 14:45:22",
+        "PaidDate": "2022-09-18 10:45:21"
+    },
+    {
+        "PaymentID": 185,
+        "EnrollmentID": 1760,
+        "StudySessionID": 11,
+        "Price": 80,
+        "DueDate": "2026-11-05 11:57:42",
+        "PaidDate": "2022-09-18 10:45:21"
+    },
+    {
+        "PaymentID": 186,
+        "EnrollmentID": 1760,
+        "StudySessionID": 12,
+        "Price": 60,
+        "DueDate": "2026-04-10 23:14:21",
+        "PaidDate": "2022-09-18 10:45:21"
+    },
+    {
+        "PaymentID": 187,
+        "EnrollmentID": 1837,
+        "StudySessionID": 25,
+        "Price": 100,
+        "DueDate": "2022-07-30 09:21:54",
+        "PaidDate": "2022-04-24 09:00:00"
+    },
+    {
+        "PaymentID": 188,
+        "EnrollmentID": 1837,
+        "StudySessionID": 26,
+        "Price": 80,
+        "DueDate": "2023-01-10 07:39:30",
+        "PaidDate": "2022-04-24 09:00:00"
+    },
+    {
+        "PaymentID": 189,
+        "EnrollmentID": 1837,
+        "StudySessionID": 27,
+        "Price": 50,
+        "DueDate": "2023-03-11 20:18:33",
+        "PaidDate": "2022-04-24 09:00:00"
+    },
+    {
+        "PaymentID": 190,
+        "EnrollmentID": 1837,
+        "StudySessionID": 28,
+        "Price": 70,
+        "DueDate": "2023-03-04 19:12:15",
+        "PaidDate": "2022-04-24 09:00:00"
+    },
+    {
+        "PaymentID": 191,
+        "EnrollmentID": 1837,
+        "StudySessionID": 29,
+        "Price": 80,
+        "DueDate": "2023-01-04 17:55:47",
+        "PaidDate": "2022-04-24 09:00:00"
+    },
+    {
+        "PaymentID": 192,
+        "EnrollmentID": 1837,
+        "StudySessionID": 30,
+        "Price": 70,
+        "DueDate": "2023-09-03 06:55:43",
+        "PaidDate": "2022-04-24 09:00:00"
+    },
+    {
+        "PaymentID": 193,
+        "EnrollmentID": 1912,
+        "StudySessionID": 13,
+        "Price": 100,
+        "DueDate": "2026-09-25 16:04:27",
+        "PaidDate": "2022-03-27 22:06:14"
+    },
+    {
+        "PaymentID": 194,
+        "EnrollmentID": 1912,
+        "StudySessionID": 14,
+        "Price": 100,
+        "DueDate": "2025-08-30 10:39:24",
+        "PaidDate": "2022-03-27 22:06:14"
+    },
+    {
+        "PaymentID": 195,
+        "EnrollmentID": 1912,
+        "StudySessionID": 15,
+        "Price": 60,
+        "DueDate": "2027-02-23 05:25:48",
+        "PaidDate": "2022-03-27 22:06:14"
+    },
+    {
+        "PaymentID": 196,
+        "EnrollmentID": 1912,
+        "StudySessionID": 16,
+        "Price": 70,
+        "DueDate": "2027-10-31 16:44:02",
+        "PaidDate": "2022-03-27 22:06:14"
+    },
+    {
+        "PaymentID": 197,
+        "EnrollmentID": 1912,
+        "StudySessionID": 17,
+        "Price": 50,
+        "DueDate": "2025-05-23 07:09:32",
+        "PaidDate": "2022-03-27 22:06:14"
+    },
+    {
+        "PaymentID": 198,
+        "EnrollmentID": 1912,
+        "StudySessionID": 18,
+        "Price": 100,
+        "DueDate": "2025-12-22 06:51:01",
+        "PaidDate": "2022-03-27 22:06:14"
+    },
+    {
+        "PaymentID": 199,
+        "EnrollmentID": 1934,
+        "StudySessionID": 37,
+        "Price": 60,
+        "DueDate": "2025-08-26 05:58:41",
+        "PaidDate": "2023-08-31 09:00:00"
+    },
+    {
+        "PaymentID": 200,
+        "EnrollmentID": 1934,
+        "StudySessionID": 38,
+        "Price": 70,
+        "DueDate": "2025-04-15 17:09:54",
+        "PaidDate": "2023-08-31 09:00:00"
+    },
+    {
+        "PaymentID": 201,
+        "EnrollmentID": 1934,
+        "StudySessionID": 39,
+        "Price": 100,
+        "DueDate": "2027-02-28 09:28:51",
+        "PaidDate": "2023-08-31 09:00:00"
+    },
+    {
+        "PaymentID": 202,
+        "EnrollmentID": 1934,
+        "StudySessionID": 40,
+        "Price": 50,
+        "DueDate": "2027-02-01 21:55:05",
+        "PaidDate": "2023-08-31 09:00:00"
+    },
+    {
+        "PaymentID": 203,
+        "EnrollmentID": 1934,
+        "StudySessionID": 41,
+        "Price": 100,
+        "DueDate": "2025-12-31 02:42:13",
+        "PaidDate": "2023-08-31 09:00:00"
+    },
+    {
+        "PaymentID": 204,
+        "EnrollmentID": 1934,
+        "StudySessionID": 42,
+        "Price": 80,
+        "DueDate": "2024-08-04 15:31:22",
+        "PaidDate": "2023-08-31 09:00:00"
+    },
+    {
+        "PaymentID": 205,
+        "EnrollmentID": 1994,
+        "StudySessionID": 31,
+        "Price": 50,
+        "DueDate": "2021-09-17 12:57:08",
+        "PaidDate": "2020-01-21 15:00:00"
+    },
+    {
+        "PaymentID": 206,
+        "EnrollmentID": 1994,
+        "StudySessionID": 32,
+        "Price": 80,
+        "DueDate": "2021-02-26 01:07:45",
+        "PaidDate": "2020-01-21 15:00:00"
+    },
+    {
+        "PaymentID": 207,
+        "EnrollmentID": 1994,
+        "StudySessionID": 33,
+        "Price": 60,
+        "DueDate": "2022-10-20 03:03:31",
+        "PaidDate": "2020-01-21 15:00:00"
+    },
+    {
+        "PaymentID": 208,
+        "EnrollmentID": 1994,
+        "StudySessionID": 34,
+        "Price": 80,
+        "DueDate": "2022-01-19 19:02:33",
+        "PaidDate": "2020-01-21 15:00:00"
+    },
+    {
+        "PaymentID": 209,
+        "EnrollmentID": 1994,
+        "StudySessionID": 35,
+        "Price": 80,
+        "DueDate": "2021-02-14 06:45:30",
+        "PaidDate": "2020-01-21 15:00:00"
+    },
+    {
+        "PaymentID": 210,
+        "EnrollmentID": 1994,
+        "StudySessionID": 36,
+        "Price": 50,
+        "DueDate": "2022-08-14 03:17:49",
+        "PaidDate": "2020-01-21 15:00:00"
+    },
+    {
+        "PaymentID": 211,
+        "EnrollmentID": 2097,
+        "StudySessionID": 13,
+        "Price": 100,
+        "DueDate": "2026-09-25 16:04:27",
+        "PaidDate": "2021-05-05 07:47:12"
+    },
+    {
+        "PaymentID": 212,
+        "EnrollmentID": 2097,
+        "StudySessionID": 14,
+        "Price": 100,
+        "DueDate": "2025-08-30 10:39:24",
+        "PaidDate": "2021-05-05 07:47:12"
+    },
+    {
+        "PaymentID": 213,
+        "EnrollmentID": 2097,
+        "StudySessionID": 15,
+        "Price": 60,
+        "DueDate": "2027-02-23 05:25:48",
+        "PaidDate": "2021-05-05 07:47:12"
+    },
+    {
+        "PaymentID": 214,
+        "EnrollmentID": 2097,
+        "StudySessionID": 16,
+        "Price": 70,
+        "DueDate": "2027-10-31 16:44:02",
+        "PaidDate": "2021-05-05 07:47:12"
+    },
+    {
+        "PaymentID": 215,
+        "EnrollmentID": 2097,
+        "StudySessionID": 17,
+        "Price": 50,
+        "DueDate": "2025-05-23 07:09:32",
+        "PaidDate": "2021-05-05 07:47:12"
+    },
+    {
+        "PaymentID": 216,
+        "EnrollmentID": 2097,
+        "StudySessionID": 18,
+        "Price": 100,
+        "DueDate": "2025-12-22 06:51:01",
+        "PaidDate": "2021-05-05 07:47:12"
+    },
+    {
+        "PaymentID": 217,
+        "EnrollmentID": 2204,
+        "StudySessionID": 7,
+        "Price": 70,
+        "DueDate": "2027-04-05 12:27:35",
+        "PaidDate": "2024-04-30 08:00:00"
+    },
+    {
+        "PaymentID": 218,
+        "EnrollmentID": 2204,
+        "StudySessionID": 8,
+        "Price": 80,
+        "DueDate": "2025-03-02 17:35:31",
+        "PaidDate": "2024-04-30 08:00:00"
+    },
+    {
+        "PaymentID": 219,
+        "EnrollmentID": 2204,
+        "StudySessionID": 9,
+        "Price": 60,
+        "DueDate": "2026-09-05 20:21:12",
+        "PaidDate": "2024-04-30 08:00:00"
+    },
+    {
+        "PaymentID": 220,
+        "EnrollmentID": 2204,
+        "StudySessionID": 10,
+        "Price": 80,
+        "DueDate": "2027-05-09 14:45:22",
+        "PaidDate": "2024-04-30 08:00:00"
+    },
+    {
+        "PaymentID": 221,
+        "EnrollmentID": 2204,
+        "StudySessionID": 11,
+        "Price": 80,
+        "DueDate": "2026-11-05 11:57:42",
+        "PaidDate": "2024-04-30 08:00:00"
+    },
+    {
+        "PaymentID": 222,
+        "EnrollmentID": 2204,
+        "StudySessionID": 12,
+        "Price": 60,
+        "DueDate": "2026-04-10 23:14:21",
+        "PaidDate": "2024-04-30 08:00:00"
+    },
+    {
+        "PaymentID": 223,
+        "EnrollmentID": 2451,
+        "StudySessionID": 19,
+        "Price": 50,
+        "DueDate": "2024-09-23 08:03:43",
+        "PaidDate": "2022-02-05 13:00:00"
+    },
+    {
+        "PaymentID": 224,
+        "EnrollmentID": 2451,
+        "StudySessionID": 20,
+        "Price": 50,
+        "DueDate": "2023-12-26 13:23:59",
+        "PaidDate": "2022-02-05 13:00:00"
+    },
+    {
+        "PaymentID": 225,
+        "EnrollmentID": 2451,
+        "StudySessionID": 21,
+        "Price": 50,
+        "DueDate": "2023-10-26 17:36:51",
+        "PaidDate": "2022-02-05 13:00:00"
+    },
+    {
+        "PaymentID": 226,
+        "EnrollmentID": 2451,
+        "StudySessionID": 22,
+        "Price": 70,
+        "DueDate": "2023-12-11 01:30:18",
+        "PaidDate": "2022-02-05 13:00:00"
+    },
+    {
+        "PaymentID": 227,
+        "EnrollmentID": 2451,
+        "StudySessionID": 23,
+        "Price": 70,
+        "DueDate": "2022-10-04 09:07:15",
+        "PaidDate": "2022-02-05 13:00:00"
+    },
+    {
+        "PaymentID": 228,
+        "EnrollmentID": 2451,
+        "StudySessionID": 24,
+        "Price": 60,
+        "DueDate": "2023-08-14 17:15:34",
+        "PaidDate": "2022-02-05 13:00:00"
+    },
+    {
+        "PaymentID": 229,
+        "EnrollmentID": 2534,
+        "StudySessionID": 37,
+        "Price": 60,
+        "DueDate": "2025-08-26 05:58:41",
+        "PaidDate": "2023-10-26 09:00:00"
+    },
+    {
+        "PaymentID": 230,
+        "EnrollmentID": 2534,
+        "StudySessionID": 38,
+        "Price": 70,
+        "DueDate": "2025-04-15 17:09:54",
+        "PaidDate": "2023-10-26 09:00:00"
+    },
+    {
+        "PaymentID": 231,
+        "EnrollmentID": 2534,
+        "StudySessionID": 39,
+        "Price": 100,
+        "DueDate": "2027-02-28 09:28:51",
+        "PaidDate": "2023-10-26 09:00:00"
+    },
+    {
+        "PaymentID": 232,
+        "EnrollmentID": 2534,
+        "StudySessionID": 40,
+        "Price": 50,
+        "DueDate": "2027-02-01 21:55:05",
+        "PaidDate": "2023-10-26 09:00:00"
+    },
+    {
+        "PaymentID": 233,
+        "EnrollmentID": 2534,
+        "StudySessionID": 41,
+        "Price": 100,
+        "DueDate": "2025-12-31 02:42:13",
+        "PaidDate": "2023-10-26 09:00:00"
+    },
+    {
+        "PaymentID": 234,
+        "EnrollmentID": 2534,
+        "StudySessionID": 42,
+        "Price": 80,
+        "DueDate": "2024-08-04 15:31:22",
+        "PaidDate": "2023-10-26 09:00:00"
+    },
+    {
+        "PaymentID": 235,
+        "EnrollmentID": 2610,
+        "StudySessionID": 1,
+        "Price": 70,
+        "DueDate": "2022-03-05 20:02:00",
+        "PaidDate": "2020-01-31 18:00:00"
+    },
+    {
+        "PaymentID": 236,
+        "EnrollmentID": 2610,
+        "StudySessionID": 2,
+        "Price": 80,
+        "DueDate": "2023-04-18 04:03:10",
+        "PaidDate": "2020-01-31 18:00:00"
+    },
+    {
+        "PaymentID": 237,
+        "EnrollmentID": 2610,
+        "StudySessionID": 3,
+        "Price": 80,
+        "DueDate": "2020-04-05 09:30:57",
+        "PaidDate": "2020-01-31 18:00:00"
+    },
+    {
+        "PaymentID": 238,
+        "EnrollmentID": 2610,
+        "StudySessionID": 4,
+        "Price": 50,
+        "DueDate": "2023-04-21 02:11:56",
+        "PaidDate": "2020-01-31 18:00:00"
+    },
+    {
+        "PaymentID": 239,
+        "EnrollmentID": 2610,
+        "StudySessionID": 5,
+        "Price": 90,
+        "DueDate": "2021-07-20 03:42:45",
+        "PaidDate": "2020-01-31 18:00:00"
+    },
+    {
+        "PaymentID": 240,
+        "EnrollmentID": 2610,
+        "StudySessionID": 6,
+        "Price": 100,
+        "DueDate": "2023-01-26 14:32:03",
+        "PaidDate": "2020-01-31 18:00:00"
+    },
+    {
+        "PaymentID": 241,
+        "EnrollmentID": 2621,
+        "StudySessionID": 7,
+        "Price": 70,
+        "DueDate": "2027-04-05 12:27:35",
+        "PaidDate": "2024-03-30 08:00:00"
+    },
+    {
+        "PaymentID": 242,
+        "EnrollmentID": 2621,
+        "StudySessionID": 8,
+        "Price": 80,
+        "DueDate": "2025-03-02 17:35:31",
+        "PaidDate": "2024-03-30 08:00:00"
+    },
+    {
+        "PaymentID": 243,
+        "EnrollmentID": 2621,
+        "StudySessionID": 9,
+        "Price": 60,
+        "DueDate": "2026-09-05 20:21:12",
+        "PaidDate": "2024-03-30 08:00:00"
+    },
+    {
+        "PaymentID": 244,
+        "EnrollmentID": 2621,
+        "StudySessionID": 10,
+        "Price": 80,
+        "DueDate": "2027-05-09 14:45:22",
+        "PaidDate": "2024-03-30 08:00:00"
+    },
+    {
+        "PaymentID": 245,
+        "EnrollmentID": 2621,
+        "StudySessionID": 11,
+        "Price": 80,
+        "DueDate": "2026-11-05 11:57:42",
+        "PaidDate": "2024-03-30 08:00:00"
+    },
+    {
+        "PaymentID": 246,
+        "EnrollmentID": 2621,
+        "StudySessionID": 12,
+        "Price": 60,
+        "DueDate": "2026-04-10 23:14:21",
+        "PaidDate": "2024-03-30 08:00:00"
+    },
+    {
+        "PaymentID": 247,
+        "EnrollmentID": 2654,
+        "StudySessionID": 25,
+        "Price": 100,
+        "DueDate": "2022-07-30 09:21:54",
+        "PaidDate": "2022-04-16 09:00:00"
+    },
+    {
+        "PaymentID": 248,
+        "EnrollmentID": 2654,
+        "StudySessionID": 26,
+        "Price": 80,
+        "DueDate": "2023-01-10 07:39:30",
+        "PaidDate": "2022-04-16 09:00:00"
+    },
+    {
+        "PaymentID": 249,
+        "EnrollmentID": 2654,
+        "StudySessionID": 27,
+        "Price": 50,
+        "DueDate": "2023-03-11 20:18:33",
+        "PaidDate": "2022-04-16 09:00:00"
+    },
+    {
+        "PaymentID": 250,
+        "EnrollmentID": 2654,
+        "StudySessionID": 28,
+        "Price": 70,
+        "DueDate": "2023-03-04 19:12:15",
+        "PaidDate": "2022-04-16 09:00:00"
+    },
+    {
+        "PaymentID": 251,
+        "EnrollmentID": 2654,
+        "StudySessionID": 29,
+        "Price": 80,
+        "DueDate": "2023-01-04 17:55:47",
+        "PaidDate": "2022-04-16 09:00:00"
+    },
+    {
+        "PaymentID": 252,
+        "EnrollmentID": 2654,
+        "StudySessionID": 30,
+        "Price": 70,
+        "DueDate": "2023-09-03 06:55:43",
+        "PaidDate": "2022-04-16 09:00:00"
+    },
+    {
+        "PaymentID": 253,
+        "EnrollmentID": 2684,
+        "StudySessionID": 7,
+        "Price": 70,
+        "DueDate": "2027-04-05 12:27:35",
+        "PaidDate": "2021-01-12 12:00:00"
+    },
+    {
+        "PaymentID": 254,
+        "EnrollmentID": 2684,
+        "StudySessionID": 8,
+        "Price": 80,
+        "DueDate": "2025-03-02 17:35:31",
+        "PaidDate": "2021-01-12 12:00:00"
+    },
+    {
+        "PaymentID": 255,
+        "EnrollmentID": 2684,
+        "StudySessionID": 9,
+        "Price": 60,
+        "DueDate": "2026-09-05 20:21:12",
+        "PaidDate": "2021-01-12 12:00:00"
+    },
+    {
+        "PaymentID": 256,
+        "EnrollmentID": 2684,
+        "StudySessionID": 10,
+        "Price": 80,
+        "DueDate": "2027-05-09 14:45:22",
+        "PaidDate": "2021-01-12 12:00:00"
+    },
+    {
+        "PaymentID": 257,
+        "EnrollmentID": 2684,
+        "StudySessionID": 11,
+        "Price": 80,
+        "DueDate": "2026-11-05 11:57:42",
+        "PaidDate": "2021-01-12 12:00:00"
+    },
+    {
+        "PaymentID": 258,
+        "EnrollmentID": 2684,
+        "StudySessionID": 12,
+        "Price": 60,
+        "DueDate": "2026-04-10 23:14:21",
+        "PaidDate": "2021-01-12 12:00:00"
+    },
+    {
+        "PaymentID": 259,
+        "EnrollmentID": 2713,
+        "StudySessionID": 43,
+        "Price": 80,
+        "DueDate": "2023-01-11 18:28:36",
+        "PaidDate": "2019-08-26 17:00:00"
+    },
+    {
+        "PaymentID": 260,
+        "EnrollmentID": 2713,
+        "StudySessionID": 44,
+        "Price": 50,
+        "DueDate": "2019-10-01 22:55:57",
+        "PaidDate": "2019-08-26 17:00:00"
+    },
+    {
+        "PaymentID": 261,
+        "EnrollmentID": 2713,
+        "StudySessionID": 45,
+        "Price": 80,
+        "DueDate": "2020-08-24 23:46:12",
+        "PaidDate": "2019-08-26 17:00:00"
+    },
+    {
+        "PaymentID": 262,
+        "EnrollmentID": 2713,
+        "StudySessionID": 46,
+        "Price": 90,
+        "DueDate": "2021-01-19 08:22:53",
+        "PaidDate": "2019-08-26 17:00:00"
+    },
+    {
+        "PaymentID": 263,
+        "EnrollmentID": 2713,
+        "StudySessionID": 47,
+        "Price": 80,
+        "DueDate": "2022-01-10 18:19:58",
+        "PaidDate": "2019-08-26 17:00:00"
+    },
+    {
+        "PaymentID": 264,
+        "EnrollmentID": 2713,
+        "StudySessionID": 48,
+        "Price": 60,
+        "DueDate": "2022-05-03 08:49:57",
+        "PaidDate": "2019-08-26 17:00:00"
+    },
+    {
+        "PaymentID": 265,
+        "EnrollmentID": 2725,
+        "StudySessionID": 37,
+        "Price": 60,
+        "DueDate": "2025-08-26 05:58:41",
+        "PaidDate": "2023-09-08 09:00:00"
+    },
+    {
+        "PaymentID": 266,
+        "EnrollmentID": 2725,
+        "StudySessionID": 38,
+        "Price": 70,
+        "DueDate": "2025-04-15 17:09:54",
+        "PaidDate": "2023-09-08 09:00:00"
+    },
+    {
+        "PaymentID": 267,
+        "EnrollmentID": 2725,
+        "StudySessionID": 39,
+        "Price": 100,
+        "DueDate": "2027-02-28 09:28:51",
+        "PaidDate": "2023-09-08 09:00:00"
+    },
+    {
+        "PaymentID": 268,
+        "EnrollmentID": 2725,
+        "StudySessionID": 40,
+        "Price": 50,
+        "DueDate": "2027-02-01 21:55:05",
+        "PaidDate": "2023-09-08 09:00:00"
+    },
+    {
+        "PaymentID": 269,
+        "EnrollmentID": 2725,
+        "StudySessionID": 41,
+        "Price": 100,
+        "DueDate": "2025-12-31 02:42:13",
+        "PaidDate": "2023-09-08 09:00:00"
+    },
+    {
+        "PaymentID": 270,
+        "EnrollmentID": 2725,
+        "StudySessionID": 42,
+        "Price": 80,
+        "DueDate": "2024-08-04 15:31:22",
+        "PaidDate": "2023-09-08 09:00:00"
+    },
+    {
+        "PaymentID": 271,
+        "EnrollmentID": 2749,
+        "StudySessionID": 1,
+        "Price": 70,
+        "DueDate": "2022-03-05 20:02:00",
+        "PaidDate": "2019-12-14 18:00:00"
+    },
+    {
+        "PaymentID": 272,
+        "EnrollmentID": 2749,
+        "StudySessionID": 2,
+        "Price": 80,
+        "DueDate": "2023-04-18 04:03:10",
+        "PaidDate": "2019-12-14 18:00:00"
+    },
+    {
+        "PaymentID": 273,
+        "EnrollmentID": 2749,
+        "StudySessionID": 3,
+        "Price": 80,
+        "DueDate": "2020-04-05 09:30:57",
+        "PaidDate": "2019-12-14 18:00:00"
+    },
+    {
+        "PaymentID": 274,
+        "EnrollmentID": 2749,
+        "StudySessionID": 4,
+        "Price": 50,
+        "DueDate": "2023-04-21 02:11:56",
+        "PaidDate": "2019-12-14 18:00:00"
+    },
+    {
+        "PaymentID": 275,
+        "EnrollmentID": 2749,
+        "StudySessionID": 5,
+        "Price": 90,
+        "DueDate": "2021-07-20 03:42:45",
+        "PaidDate": "2019-12-14 18:00:00"
+    },
+    {
+        "PaymentID": 276,
+        "EnrollmentID": 2749,
+        "StudySessionID": 6,
+        "Price": 100,
+        "DueDate": "2023-01-26 14:32:03",
+        "PaidDate": "2019-12-14 18:00:00"
+    },
+    {
+        "PaymentID": 277,
+        "EnrollmentID": 2931,
+        "StudySessionID": 37,
+        "Price": 60,
+        "DueDate": "2025-08-26 05:58:41",
+        "PaidDate": "2023-08-26 09:00:00"
+    },
+    {
+        "PaymentID": 278,
+        "EnrollmentID": 2931,
+        "StudySessionID": 38,
+        "Price": 70,
+        "DueDate": "2025-04-15 17:09:54",
+        "PaidDate": "2023-08-26 09:00:00"
+    },
+    {
+        "PaymentID": 279,
+        "EnrollmentID": 2931,
+        "StudySessionID": 39,
+        "Price": 100,
+        "DueDate": "2027-02-28 09:28:51",
+        "PaidDate": "2023-08-26 09:00:00"
+    },
+    {
+        "PaymentID": 280,
+        "EnrollmentID": 2931,
+        "StudySessionID": 40,
+        "Price": 50,
+        "DueDate": "2027-02-01 21:55:05",
+        "PaidDate": "2023-08-26 09:00:00"
+    },
+    {
+        "PaymentID": 281,
+        "EnrollmentID": 2931,
+        "StudySessionID": 41,
+        "Price": 100,
+        "DueDate": "2025-12-31 02:42:13",
+        "PaidDate": "2023-08-26 09:00:00"
+    },
+    {
+        "PaymentID": 282,
+        "EnrollmentID": 2931,
+        "StudySessionID": 42,
+        "Price": 80,
+        "DueDate": "2024-08-04 15:31:22",
+        "PaidDate": "2023-08-26 09:00:00"
+    },
+    {
+        "PaymentID": 283,
+        "EnrollmentID": 3006,
+        "StudySessionID": 49,
+        "Price": 60,
+        "DueDate": "2022-02-05 04:26:18",
+        "PaidDate": "2020-03-14 10:00:00"
+    },
+    {
+        "PaymentID": 284,
+        "EnrollmentID": 3006,
+        "StudySessionID": 50,
+        "Price": 50,
+        "DueDate": "2022-12-04 16:09:35",
+        "PaidDate": "2020-03-14 10:00:00"
+    },
+    {
+        "PaymentID": 285,
+        "EnrollmentID": 3006,
+        "StudySessionID": 51,
+        "Price": 60,
+        "DueDate": "2021-06-13 12:22:56",
+        "PaidDate": "2020-03-14 10:00:00"
+    },
+    {
+        "PaymentID": 286,
+        "EnrollmentID": 3006,
+        "StudySessionID": 52,
+        "Price": 80,
+        "DueDate": "2022-05-07 05:45:18",
+        "PaidDate": "2020-03-14 10:00:00"
+    },
+    {
+        "PaymentID": 287,
+        "EnrollmentID": 3006,
+        "StudySessionID": 53,
+        "Price": 80,
+        "DueDate": "2020-12-28 15:08:37",
+        "PaidDate": "2020-03-14 10:00:00"
+    },
+    {
+        "PaymentID": 288,
+        "EnrollmentID": 3006,
+        "StudySessionID": 54,
+        "Price": 80,
+        "DueDate": "2021-03-24 23:10:41",
+        "PaidDate": "2020-03-14 10:00:00"
+    },
+    {
+        "PaymentID": 289,
+        "EnrollmentID": 3089,
+        "StudySessionID": 19,
+        "Price": 50,
+        "DueDate": "2024-09-23 08:03:43",
+        "PaidDate": "2021-09-30 03:06:13"
+    },
+    {
+        "PaymentID": 290,
+        "EnrollmentID": 3089,
+        "StudySessionID": 20,
+        "Price": 50,
+        "DueDate": "2023-12-26 13:23:59",
+        "PaidDate": "2021-09-30 03:06:13"
+    },
+    {
+        "PaymentID": 291,
+        "EnrollmentID": 3089,
+        "StudySessionID": 21,
+        "Price": 50,
+        "DueDate": "2023-10-26 17:36:51",
+        "PaidDate": "2021-09-30 03:06:13"
+    },
+    {
+        "PaymentID": 292,
+        "EnrollmentID": 3089,
+        "StudySessionID": 22,
+        "Price": 70,
+        "DueDate": "2023-12-11 01:30:18",
+        "PaidDate": "2021-09-30 03:06:13"
+    },
+    {
+        "PaymentID": 293,
+        "EnrollmentID": 3089,
+        "StudySessionID": 23,
+        "Price": 70,
+        "DueDate": "2022-10-04 09:07:15",
+        "PaidDate": "2021-09-30 03:06:13"
+    },
+    {
+        "PaymentID": 294,
+        "EnrollmentID": 3089,
+        "StudySessionID": 24,
+        "Price": 60,
+        "DueDate": "2023-08-14 17:15:34",
+        "PaidDate": "2021-09-30 03:06:13"
+    },
+    {
+        "PaymentID": 295,
+        "EnrollmentID": 3127,
+        "StudySessionID": 37,
+        "Price": 60,
+        "DueDate": "2025-08-26 05:58:41",
+        "PaidDate": "2023-04-21 02:36:14"
+    },
+    {
+        "PaymentID": 296,
+        "EnrollmentID": 3127,
+        "StudySessionID": 38,
+        "Price": 70,
+        "DueDate": "2025-04-15 17:09:54",
+        "PaidDate": "2023-04-21 02:36:14"
+    },
+    {
+        "PaymentID": 297,
+        "EnrollmentID": 3127,
+        "StudySessionID": 39,
+        "Price": 100,
+        "DueDate": "2027-02-28 09:28:51",
+        "PaidDate": "2023-04-21 02:36:14"
+    },
+    {
+        "PaymentID": 298,
+        "EnrollmentID": 3127,
+        "StudySessionID": 40,
+        "Price": 50,
+        "DueDate": "2027-02-01 21:55:05",
+        "PaidDate": "2023-04-21 02:36:14"
+    },
+    {
+        "PaymentID": 299,
+        "EnrollmentID": 3127,
+        "StudySessionID": 41,
+        "Price": 100,
+        "DueDate": "2025-12-31 02:42:13",
+        "PaidDate": "2023-04-21 02:36:14"
+    },
+    {
+        "PaymentID": 300,
+        "EnrollmentID": 3127,
+        "StudySessionID": 42,
+        "Price": 80,
+        "DueDate": "2024-08-04 15:31:22",
+        "PaidDate": "2023-04-21 02:36:14"
+    },
+    {
+        "PaymentID": 301,
+        "EnrollmentID": 3227,
+        "StudySessionID": 43,
+        "Price": 80,
+        "DueDate": "2023-01-11 18:28:36",
+        "PaidDate": "2019-08-03 17:00:00"
+    },
+    {
+        "PaymentID": 302,
+        "EnrollmentID": 3227,
+        "StudySessionID": 44,
+        "Price": 50,
+        "DueDate": "2019-10-01 22:55:57",
+        "PaidDate": "2019-08-03 17:00:00"
+    },
+    {
+        "PaymentID": 303,
+        "EnrollmentID": 3227,
+        "StudySessionID": 45,
+        "Price": 80,
+        "DueDate": "2020-08-24 23:46:12",
+        "PaidDate": "2019-08-03 17:00:00"
+    },
+    {
+        "PaymentID": 304,
+        "EnrollmentID": 3227,
+        "StudySessionID": 46,
+        "Price": 90,
+        "DueDate": "2021-01-19 08:22:53",
+        "PaidDate": "2019-08-03 17:00:00"
+    },
+    {
+        "PaymentID": 305,
+        "EnrollmentID": 3227,
+        "StudySessionID": 47,
+        "Price": 80,
+        "DueDate": "2022-01-10 18:19:58",
+        "PaidDate": "2019-08-03 17:00:00"
+    },
+    {
+        "PaymentID": 306,
+        "EnrollmentID": 3227,
+        "StudySessionID": 48,
+        "Price": 60,
+        "DueDate": "2022-05-03 08:49:57",
+        "PaidDate": "2019-08-03 17:00:00"
+    },
+    {
+        "PaymentID": 307,
+        "EnrollmentID": 3315,
+        "StudySessionID": 43,
+        "Price": 80,
+        "DueDate": "2023-01-11 18:28:36",
+        "PaidDate": "2019-06-25 17:00:00"
+    },
+    {
+        "PaymentID": 308,
+        "EnrollmentID": 3315,
+        "StudySessionID": 44,
+        "Price": 50,
+        "DueDate": "2019-10-01 22:55:57",
+        "PaidDate": "2019-06-25 17:00:00"
+    },
+    {
+        "PaymentID": 309,
+        "EnrollmentID": 3315,
+        "StudySessionID": 45,
+        "Price": 80,
+        "DueDate": "2020-08-24 23:46:12",
+        "PaidDate": "2019-06-25 17:00:00"
+    },
+    {
+        "PaymentID": 310,
+        "EnrollmentID": 3315,
+        "StudySessionID": 46,
+        "Price": 90,
+        "DueDate": "2021-01-19 08:22:53",
+        "PaidDate": "2019-06-25 17:00:00"
+    },
+    {
+        "PaymentID": 311,
+        "EnrollmentID": 3315,
+        "StudySessionID": 47,
+        "Price": 80,
+        "DueDate": "2022-01-10 18:19:58",
+        "PaidDate": "2019-06-25 17:00:00"
+    },
+    {
+        "PaymentID": 312,
+        "EnrollmentID": 3315,
+        "StudySessionID": 48,
+        "Price": 60,
+        "DueDate": "2022-05-03 08:49:57",
+        "PaidDate": "2019-06-25 17:00:00"
+    },
+    {
+        "PaymentID": 313,
+        "EnrollmentID": 3321,
+        "StudySessionID": 1,
+        "Price": 70,
+        "DueDate": "2022-03-05 20:02:00",
+        "PaidDate": "2019-11-11 18:00:00"
+    },
+    {
+        "PaymentID": 314,
+        "EnrollmentID": 3321,
+        "StudySessionID": 2,
+        "Price": 80,
+        "DueDate": "2023-04-18 04:03:10",
+        "PaidDate": "2019-11-11 18:00:00"
+    },
+    {
+        "PaymentID": 315,
+        "EnrollmentID": 3321,
+        "StudySessionID": 3,
+        "Price": 80,
+        "DueDate": "2020-04-05 09:30:57",
+        "PaidDate": "2019-11-11 18:00:00"
+    },
+    {
+        "PaymentID": 316,
+        "EnrollmentID": 3321,
+        "StudySessionID": 4,
+        "Price": 50,
+        "DueDate": "2023-04-21 02:11:56",
+        "PaidDate": "2019-11-11 18:00:00"
+    },
+    {
+        "PaymentID": 317,
+        "EnrollmentID": 3321,
+        "StudySessionID": 5,
+        "Price": 90,
+        "DueDate": "2021-07-20 03:42:45",
+        "PaidDate": "2019-11-11 18:00:00"
+    },
+    {
+        "PaymentID": 318,
+        "EnrollmentID": 3321,
+        "StudySessionID": 6,
+        "Price": 100,
+        "DueDate": "2023-01-26 14:32:03",
+        "PaidDate": "2019-11-11 18:00:00"
+    },
+    {
+        "PaymentID": 319,
+        "EnrollmentID": 3342,
+        "StudySessionID": 43,
+        "Price": 80,
+        "DueDate": "2023-01-11 18:28:36",
+        "PaidDate": "2019-07-16 17:00:00"
+    },
+    {
+        "PaymentID": 320,
+        "EnrollmentID": 3342,
+        "StudySessionID": 44,
+        "Price": 50,
+        "DueDate": "2019-10-01 22:55:57",
+        "PaidDate": "2019-07-16 17:00:00"
+    },
+    {
+        "PaymentID": 321,
+        "EnrollmentID": 3342,
+        "StudySessionID": 45,
+        "Price": 80,
+        "DueDate": "2020-08-24 23:46:12",
+        "PaidDate": "2019-07-16 17:00:00"
+    },
+    {
+        "PaymentID": 322,
+        "EnrollmentID": 3342,
+        "StudySessionID": 46,
+        "Price": 90,
+        "DueDate": "2021-01-19 08:22:53",
+        "PaidDate": "2019-07-16 17:00:00"
+    },
+    {
+        "PaymentID": 323,
+        "EnrollmentID": 3342,
+        "StudySessionID": 47,
+        "Price": 80,
+        "DueDate": "2022-01-10 18:19:58",
+        "PaidDate": "2019-07-16 17:00:00"
+    },
+    {
+        "PaymentID": 324,
+        "EnrollmentID": 3342,
+        "StudySessionID": 48,
+        "Price": 60,
+        "DueDate": "2022-05-03 08:49:57",
+        "PaidDate": "2019-07-16 17:00:00"
+    },
+    {
+        "PaymentID": 325,
+        "EnrollmentID": 3392,
+        "StudySessionID": 43,
+        "Price": 80,
+        "DueDate": "2023-01-11 18:28:36",
+        "PaidDate": "2019-09-09 17:00:00"
+    },
+    {
+        "PaymentID": 326,
+        "EnrollmentID": 3392,
+        "StudySessionID": 44,
+        "Price": 50,
+        "DueDate": "2019-10-01 22:55:57",
+        "PaidDate": "2019-09-09 17:00:00"
+    },
+    {
+        "PaymentID": 327,
+        "EnrollmentID": 3392,
+        "StudySessionID": 45,
+        "Price": 80,
+        "DueDate": "2020-08-24 23:46:12",
+        "PaidDate": "2019-09-09 17:00:00"
+    },
+    {
+        "PaymentID": 328,
+        "EnrollmentID": 3392,
+        "StudySessionID": 46,
+        "Price": 90,
+        "DueDate": "2021-01-19 08:22:53",
+        "PaidDate": "2019-09-09 17:00:00"
+    },
+    {
+        "PaymentID": 329,
+        "EnrollmentID": 3392,
+        "StudySessionID": 47,
+        "Price": 80,
+        "DueDate": "2022-01-10 18:19:58",
+        "PaidDate": "2019-09-09 17:00:00"
+    },
+    {
+        "PaymentID": 330,
+        "EnrollmentID": 3392,
+        "StudySessionID": 48,
+        "Price": 60,
+        "DueDate": "2022-05-03 08:49:57",
+        "PaidDate": "2019-09-09 17:00:00"
+    },
+    {
+        "PaymentID": 331,
+        "EnrollmentID": 3397,
+        "StudySessionID": 19,
+        "Price": 50,
+        "DueDate": "2024-09-23 08:03:43",
+        "PaidDate": "2021-05-17 04:43:18"
+    },
+    {
+        "PaymentID": 332,
+        "EnrollmentID": 3397,
+        "StudySessionID": 20,
+        "Price": 50,
+        "DueDate": "2023-12-26 13:23:59",
+        "PaidDate": "2021-05-17 04:43:18"
+    },
+    {
+        "PaymentID": 333,
+        "EnrollmentID": 3397,
+        "StudySessionID": 21,
+        "Price": 50,
+        "DueDate": "2023-10-26 17:36:51",
+        "PaidDate": "2021-05-17 04:43:18"
+    },
+    {
+        "PaymentID": 334,
+        "EnrollmentID": 3397,
+        "StudySessionID": 22,
+        "Price": 70,
+        "DueDate": "2023-12-11 01:30:18",
+        "PaidDate": "2021-05-17 04:43:18"
+    },
+    {
+        "PaymentID": 335,
+        "EnrollmentID": 3397,
+        "StudySessionID": 23,
+        "Price": 70,
+        "DueDate": "2022-10-04 09:07:15",
+        "PaidDate": "2021-05-17 04:43:18"
+    },
+    {
+        "PaymentID": 336,
+        "EnrollmentID": 3397,
+        "StudySessionID": 24,
+        "Price": 60,
+        "DueDate": "2023-08-14 17:15:34",
+        "PaidDate": "2021-05-17 04:43:18"
+    },
+    {
+        "PaymentID": 337,
+        "EnrollmentID": 3510,
+        "StudySessionID": 1,
+        "Price": 70,
+        "DueDate": "2022-03-05 20:02:00",
+        "PaidDate": "2020-01-26 18:00:00"
+    },
+    {
+        "PaymentID": 338,
+        "EnrollmentID": 3510,
+        "StudySessionID": 2,
+        "Price": 80,
+        "DueDate": "2023-04-18 04:03:10",
+        "PaidDate": "2020-01-26 18:00:00"
+    },
+    {
+        "PaymentID": 339,
+        "EnrollmentID": 3510,
+        "StudySessionID": 3,
+        "Price": 80,
+        "DueDate": "2020-04-05 09:30:57",
+        "PaidDate": "2020-01-26 18:00:00"
+    },
+    {
+        "PaymentID": 340,
+        "EnrollmentID": 3510,
+        "StudySessionID": 4,
+        "Price": 50,
+        "DueDate": "2023-04-21 02:11:56",
+        "PaidDate": "2020-01-26 18:00:00"
+    },
+    {
+        "PaymentID": 341,
+        "EnrollmentID": 3510,
+        "StudySessionID": 5,
+        "Price": 90,
+        "DueDate": "2021-07-20 03:42:45",
+        "PaidDate": "2020-01-26 18:00:00"
+    },
+    {
+        "PaymentID": 342,
+        "EnrollmentID": 3510,
+        "StudySessionID": 6,
+        "Price": 100,
+        "DueDate": "2023-01-26 14:32:03",
+        "PaidDate": "2020-01-26 18:00:00"
+    },
+    {
+        "PaymentID": 343,
+        "EnrollmentID": 3556,
+        "StudySessionID": 13,
+        "Price": 100,
+        "DueDate": "2026-09-25 16:04:27",
+        "PaidDate": "2021-01-23 04:44:01"
+    },
+    {
+        "PaymentID": 344,
+        "EnrollmentID": 3556,
+        "StudySessionID": 14,
+        "Price": 100,
+        "DueDate": "2025-08-30 10:39:24",
+        "PaidDate": "2021-01-23 04:44:01"
+    },
+    {
+        "PaymentID": 345,
+        "EnrollmentID": 3556,
+        "StudySessionID": 15,
+        "Price": 60,
+        "DueDate": "2027-02-23 05:25:48",
+        "PaidDate": "2021-01-23 04:44:01"
+    },
+    {
+        "PaymentID": 346,
+        "EnrollmentID": 3556,
+        "StudySessionID": 16,
+        "Price": 70,
+        "DueDate": "2027-10-31 16:44:02",
+        "PaidDate": "2021-01-23 04:44:01"
+    },
+    {
+        "PaymentID": 347,
+        "EnrollmentID": 3556,
+        "StudySessionID": 17,
+        "Price": 50,
+        "DueDate": "2025-05-23 07:09:32",
+        "PaidDate": "2021-01-23 04:44:01"
+    },
+    {
+        "PaymentID": 348,
+        "EnrollmentID": 3556,
+        "StudySessionID": 18,
+        "Price": 100,
+        "DueDate": "2025-12-22 06:51:01",
+        "PaidDate": "2021-01-23 04:44:01"
+    },
+    {
+        "PaymentID": 349,
+        "EnrollmentID": 3593,
+        "StudySessionID": 25,
+        "Price": 100,
+        "DueDate": "2022-07-30 09:21:54",
+        "PaidDate": "2022-02-27 09:00:00"
+    },
+    {
+        "PaymentID": 350,
+        "EnrollmentID": 3593,
+        "StudySessionID": 26,
+        "Price": 80,
+        "DueDate": "2023-01-10 07:39:30",
+        "PaidDate": "2022-02-27 09:00:00"
+    },
+    {
+        "PaymentID": 351,
+        "EnrollmentID": 3593,
+        "StudySessionID": 27,
+        "Price": 50,
+        "DueDate": "2023-03-11 20:18:33",
+        "PaidDate": "2022-02-27 09:00:00"
+    },
+    {
+        "PaymentID": 352,
+        "EnrollmentID": 3593,
+        "StudySessionID": 28,
+        "Price": 70,
+        "DueDate": "2023-03-04 19:12:15",
+        "PaidDate": "2022-02-27 09:00:00"
+    },
+    {
+        "PaymentID": 353,
+        "EnrollmentID": 3593,
+        "StudySessionID": 29,
+        "Price": 80,
+        "DueDate": "2023-01-04 17:55:47",
+        "PaidDate": "2022-02-27 09:00:00"
+    },
+    {
+        "PaymentID": 354,
+        "EnrollmentID": 3593,
+        "StudySessionID": 30,
+        "Price": 70,
+        "DueDate": "2023-09-03 06:55:43",
+        "PaidDate": "2022-02-27 09:00:00"
+    },
+    {
+        "PaymentID": 355,
+        "EnrollmentID": 3605,
+        "StudySessionID": 19,
+        "Price": 50,
+        "DueDate": "2024-09-23 08:03:43",
+        "PaidDate": "2022-04-22 13:00:00"
+    },
+    {
+        "PaymentID": 356,
+        "EnrollmentID": 3605,
+        "StudySessionID": 20,
+        "Price": 50,
+        "DueDate": "2023-12-26 13:23:59",
+        "PaidDate": "2022-04-22 13:00:00"
+    },
+    {
+        "PaymentID": 357,
+        "EnrollmentID": 3605,
+        "StudySessionID": 21,
+        "Price": 50,
+        "DueDate": "2023-10-26 17:36:51",
+        "PaidDate": "2022-04-22 13:00:00"
+    },
+    {
+        "PaymentID": 358,
+        "EnrollmentID": 3605,
+        "StudySessionID": 22,
+        "Price": 70,
+        "DueDate": "2023-12-11 01:30:18",
+        "PaidDate": "2022-04-22 13:00:00"
+    },
+    {
+        "PaymentID": 359,
+        "EnrollmentID": 3605,
+        "StudySessionID": 23,
+        "Price": 70,
+        "DueDate": "2022-10-04 09:07:15",
+        "PaidDate": "2022-04-22 13:00:00"
+    },
+    {
+        "PaymentID": 360,
+        "EnrollmentID": 3605,
+        "StudySessionID": 24,
+        "Price": 60,
+        "DueDate": "2023-08-14 17:15:34",
+        "PaidDate": "2022-04-22 13:00:00"
+    },
+    {
+        "PaymentID": 361,
+        "EnrollmentID": 3607,
+        "StudySessionID": 49,
+        "Price": 60,
+        "DueDate": "2022-02-05 04:26:18",
+        "PaidDate": "2020-03-18 10:00:00"
+    },
+    {
+        "PaymentID": 362,
+        "EnrollmentID": 3607,
+        "StudySessionID": 50,
+        "Price": 50,
+        "DueDate": "2022-12-04 16:09:35",
+        "PaidDate": "2020-03-18 10:00:00"
+    },
+    {
+        "PaymentID": 363,
+        "EnrollmentID": 3607,
+        "StudySessionID": 51,
+        "Price": 60,
+        "DueDate": "2021-06-13 12:22:56",
+        "PaidDate": "2020-03-18 10:00:00"
+    },
+    {
+        "PaymentID": 364,
+        "EnrollmentID": 3607,
+        "StudySessionID": 52,
+        "Price": 80,
+        "DueDate": "2022-05-07 05:45:18",
+        "PaidDate": "2020-03-18 10:00:00"
+    },
+    {
+        "PaymentID": 365,
+        "EnrollmentID": 3607,
+        "StudySessionID": 53,
+        "Price": 80,
+        "DueDate": "2020-12-28 15:08:37",
+        "PaidDate": "2020-03-18 10:00:00"
+    },
+    {
+        "PaymentID": 366,
+        "EnrollmentID": 3607,
+        "StudySessionID": 54,
+        "Price": 80,
+        "DueDate": "2021-03-24 23:10:41",
+        "PaidDate": "2020-03-18 10:00:00"
+    },
+    {
+        "PaymentID": 367,
+        "EnrollmentID": 3709,
+        "StudySessionID": 43,
+        "Price": 80,
+        "DueDate": "2023-01-11 18:28:36",
+        "PaidDate": "2019-02-06 20:22:27"
+    },
+    {
+        "PaymentID": 368,
+        "EnrollmentID": 3709,
+        "StudySessionID": 44,
+        "Price": 50,
+        "DueDate": "2019-10-01 22:55:57",
+        "PaidDate": "2019-02-06 20:22:27"
+    },
+    {
+        "PaymentID": 369,
+        "EnrollmentID": 3709,
+        "StudySessionID": 45,
+        "Price": 80,
+        "DueDate": "2020-08-24 23:46:12",
+        "PaidDate": "2019-02-06 20:22:27"
+    },
+    {
+        "PaymentID": 370,
+        "EnrollmentID": 3709,
+        "StudySessionID": 46,
+        "Price": 90,
+        "DueDate": "2021-01-19 08:22:53",
+        "PaidDate": "2019-02-06 20:22:27"
+    },
+    {
+        "PaymentID": 371,
+        "EnrollmentID": 3709,
+        "StudySessionID": 47,
+        "Price": 80,
+        "DueDate": "2022-01-10 18:19:58",
+        "PaidDate": "2019-02-06 20:22:27"
+    },
+    {
+        "PaymentID": 372,
+        "EnrollmentID": 3709,
+        "StudySessionID": 48,
+        "Price": 60,
+        "DueDate": "2022-05-03 08:49:57",
+        "PaidDate": "2019-02-06 20:22:27"
+    },
+    {
+        "PaymentID": 373,
+        "EnrollmentID": 3730,
+        "StudySessionID": 7,
+        "Price": 70,
+        "DueDate": "2027-04-05 12:27:35",
+        "PaidDate": "2019-02-24 18:00:00"
+    },
+    {
+        "PaymentID": 374,
+        "EnrollmentID": 3730,
+        "StudySessionID": 8,
+        "Price": 80,
+        "DueDate": "2025-03-02 17:35:31",
+        "PaidDate": "2019-02-24 18:00:00"
+    },
+    {
+        "PaymentID": 375,
+        "EnrollmentID": 3730,
+        "StudySessionID": 9,
+        "Price": 60,
+        "DueDate": "2026-09-05 20:21:12",
+        "PaidDate": "2019-02-24 18:00:00"
+    },
+    {
+        "PaymentID": 376,
+        "EnrollmentID": 3730,
+        "StudySessionID": 10,
+        "Price": 80,
+        "DueDate": "2027-05-09 14:45:22",
+        "PaidDate": "2019-02-24 18:00:00"
+    },
+    {
+        "PaymentID": 377,
+        "EnrollmentID": 3730,
+        "StudySessionID": 11,
+        "Price": 80,
+        "DueDate": "2026-11-05 11:57:42",
+        "PaidDate": "2019-02-24 18:00:00"
+    },
+    {
+        "PaymentID": 378,
+        "EnrollmentID": 3730,
+        "StudySessionID": 12,
+        "Price": 60,
+        "DueDate": "2026-04-10 23:14:21",
+        "PaidDate": "2019-02-24 18:00:00"
+    },
+    {
+        "PaymentID": 379,
+        "EnrollmentID": 3733,
+        "StudySessionID": 31,
+        "Price": 50,
+        "DueDate": "2021-09-17 12:57:08",
+        "PaidDate": "2020-02-10 15:00:00"
+    },
+    {
+        "PaymentID": 380,
+        "EnrollmentID": 3733,
+        "StudySessionID": 32,
+        "Price": 80,
+        "DueDate": "2021-02-26 01:07:45",
+        "PaidDate": "2020-02-10 15:00:00"
+    },
+    {
+        "PaymentID": 381,
+        "EnrollmentID": 3733,
+        "StudySessionID": 33,
+        "Price": 60,
+        "DueDate": "2022-10-20 03:03:31",
+        "PaidDate": "2020-02-10 15:00:00"
+    },
+    {
+        "PaymentID": 382,
+        "EnrollmentID": 3733,
+        "StudySessionID": 34,
+        "Price": 80,
+        "DueDate": "2022-01-19 19:02:33",
+        "PaidDate": "2020-02-10 15:00:00"
+    },
+    {
+        "PaymentID": 383,
+        "EnrollmentID": 3733,
+        "StudySessionID": 35,
+        "Price": 80,
+        "DueDate": "2021-02-14 06:45:30",
+        "PaidDate": "2020-02-10 15:00:00"
+    },
+    {
+        "PaymentID": 384,
+        "EnrollmentID": 3733,
+        "StudySessionID": 36,
+        "Price": 50,
+        "DueDate": "2022-08-14 03:17:49",
+        "PaidDate": "2020-02-10 15:00:00"
+    },
+    {
+        "PaymentID": 385,
+        "EnrollmentID": 3736,
+        "StudySessionID": 43,
+        "Price": 80,
+        "DueDate": "2023-01-11 18:28:36",
+        "PaidDate": "2019-08-24 17:00:00"
+    },
+    {
+        "PaymentID": 386,
+        "EnrollmentID": 3736,
+        "StudySessionID": 44,
+        "Price": 50,
+        "DueDate": "2019-10-01 22:55:57",
+        "PaidDate": "2019-08-24 17:00:00"
+    },
+    {
+        "PaymentID": 387,
+        "EnrollmentID": 3736,
+        "StudySessionID": 45,
+        "Price": 80,
+        "DueDate": "2020-08-24 23:46:12",
+        "PaidDate": "2019-08-24 17:00:00"
+    },
+    {
+        "PaymentID": 388,
+        "EnrollmentID": 3736,
+        "StudySessionID": 46,
+        "Price": 90,
+        "DueDate": "2021-01-19 08:22:53",
+        "PaidDate": "2019-08-24 17:00:00"
+    },
+    {
+        "PaymentID": 389,
+        "EnrollmentID": 3736,
+        "StudySessionID": 47,
+        "Price": 80,
+        "DueDate": "2022-01-10 18:19:58",
+        "PaidDate": "2019-08-24 17:00:00"
+    },
+    {
+        "PaymentID": 390,
+        "EnrollmentID": 3736,
+        "StudySessionID": 48,
+        "Price": 60,
+        "DueDate": "2022-05-03 08:49:57",
+        "PaidDate": "2019-08-24 17:00:00"
+    },
+    {
+        "PaymentID": 391,
+        "EnrollmentID": 3859,
+        "StudySessionID": 31,
+        "Price": 50,
+        "DueDate": "2021-09-17 12:57:08",
+        "PaidDate": "2019-12-18 15:00:00"
+    },
+    {
+        "PaymentID": 392,
+        "EnrollmentID": 3859,
+        "StudySessionID": 32,
+        "Price": 80,
+        "DueDate": "2021-02-26 01:07:45",
+        "PaidDate": "2019-12-18 15:00:00"
+    },
+    {
+        "PaymentID": 393,
+        "EnrollmentID": 3859,
+        "StudySessionID": 33,
+        "Price": 60,
+        "DueDate": "2022-10-20 03:03:31",
+        "PaidDate": "2019-12-18 15:00:00"
+    },
+    {
+        "PaymentID": 394,
+        "EnrollmentID": 3859,
+        "StudySessionID": 34,
+        "Price": 80,
+        "DueDate": "2022-01-19 19:02:33",
+        "PaidDate": "2019-12-18 15:00:00"
+    },
+    {
+        "PaymentID": 395,
+        "EnrollmentID": 3859,
+        "StudySessionID": 35,
+        "Price": 80,
+        "DueDate": "2021-02-14 06:45:30",
+        "PaidDate": "2019-12-18 15:00:00"
+    },
+    {
+        "PaymentID": 396,
+        "EnrollmentID": 3859,
+        "StudySessionID": 36,
+        "Price": 50,
+        "DueDate": "2022-08-14 03:17:49",
+        "PaidDate": "2019-12-18 15:00:00"
+    },
+    {
+        "PaymentID": 397,
+        "EnrollmentID": 3884,
+        "StudySessionID": 49,
+        "Price": 60,
+        "DueDate": "2022-02-05 04:26:18",
+        "PaidDate": "2020-02-01 10:00:00"
+    },
+    {
+        "PaymentID": 398,
+        "EnrollmentID": 3884,
+        "StudySessionID": 50,
+        "Price": 50,
+        "DueDate": "2022-12-04 16:09:35",
+        "PaidDate": "2020-02-01 10:00:00"
+    },
+    {
+        "PaymentID": 399,
+        "EnrollmentID": 3884,
+        "StudySessionID": 51,
+        "Price": 60,
+        "DueDate": "2021-06-13 12:22:56",
+        "PaidDate": "2020-02-01 10:00:00"
+    },
+    {
+        "PaymentID": 400,
+        "EnrollmentID": 3884,
+        "StudySessionID": 52,
+        "Price": 80,
+        "DueDate": "2022-05-07 05:45:18",
+        "PaidDate": "2020-02-01 10:00:00"
+    },
+    {
+        "PaymentID": 401,
+        "EnrollmentID": 3884,
+        "StudySessionID": 53,
+        "Price": 80,
+        "DueDate": "2020-12-28 15:08:37",
+        "PaidDate": "2020-02-01 10:00:00"
+    },
+    {
+        "PaymentID": 402,
+        "EnrollmentID": 3884,
+        "StudySessionID": 54,
+        "Price": 80,
+        "DueDate": "2021-03-24 23:10:41",
+        "PaidDate": "2020-02-01 10:00:00"
+    },
+    {
+        "PaymentID": 403,
+        "EnrollmentID": 4027,
+        "StudySessionID": 7,
+        "Price": 70,
+        "DueDate": "2027-04-05 12:27:35",
+        "PaidDate": "2021-03-23 20:13:04"
+    },
+    {
+        "PaymentID": 404,
+        "EnrollmentID": 4027,
+        "StudySessionID": 8,
+        "Price": 80,
+        "DueDate": "2025-03-02 17:35:31",
+        "PaidDate": "2021-03-23 20:13:04"
+    },
+    {
+        "PaymentID": 405,
+        "EnrollmentID": 4027,
+        "StudySessionID": 9,
+        "Price": 60,
+        "DueDate": "2026-09-05 20:21:12",
+        "PaidDate": "2021-03-23 20:13:04"
+    },
+    {
+        "PaymentID": 406,
+        "EnrollmentID": 4027,
+        "StudySessionID": 10,
+        "Price": 80,
+        "DueDate": "2027-05-09 14:45:22",
+        "PaidDate": "2021-03-23 20:13:04"
+    },
+    {
+        "PaymentID": 407,
+        "EnrollmentID": 4027,
+        "StudySessionID": 11,
+        "Price": 80,
+        "DueDate": "2026-11-05 11:57:42",
+        "PaidDate": "2021-03-23 20:13:04"
+    },
+    {
+        "PaymentID": 408,
+        "EnrollmentID": 4027,
+        "StudySessionID": 12,
+        "Price": 60,
+        "DueDate": "2026-04-10 23:14:21",
+        "PaidDate": "2021-03-23 20:13:04"
+    },
+    {
+        "PaymentID": 409,
+        "EnrollmentID": 4051,
+        "StudySessionID": 13,
+        "Price": 100,
+        "DueDate": "2026-09-25 16:04:27",
+        "PaidDate": "2024-06-22 12:00:00"
+    },
+    {
+        "PaymentID": 410,
+        "EnrollmentID": 4051,
+        "StudySessionID": 14,
+        "Price": 100,
+        "DueDate": "2025-08-30 10:39:24",
+        "PaidDate": "2024-06-22 12:00:00"
+    },
+    {
+        "PaymentID": 411,
+        "EnrollmentID": 4051,
+        "StudySessionID": 15,
+        "Price": 60,
+        "DueDate": "2027-02-23 05:25:48",
+        "PaidDate": "2024-06-22 12:00:00"
+    },
+    {
+        "PaymentID": 412,
+        "EnrollmentID": 4051,
+        "StudySessionID": 16,
+        "Price": 70,
+        "DueDate": "2027-10-31 16:44:02",
+        "PaidDate": "2024-06-22 12:00:00"
+    },
+    {
+        "PaymentID": 413,
+        "EnrollmentID": 4051,
+        "StudySessionID": 17,
+        "Price": 50,
+        "DueDate": "2025-05-23 07:09:32",
+        "PaidDate": "2024-06-22 12:00:00"
+    },
+    {
+        "PaymentID": 414,
+        "EnrollmentID": 4051,
+        "StudySessionID": 18,
+        "Price": 100,
+        "DueDate": "2025-12-22 06:51:01",
+        "PaidDate": "2024-06-22 12:00:00"
+    },
+    {
+        "PaymentID": 415,
+        "EnrollmentID": 4096,
+        "StudySessionID": 7,
+        "Price": 70,
+        "DueDate": "2027-04-05 12:27:35",
+        "PaidDate": "2023-05-22 15:03:57"
+    },
+    {
+        "PaymentID": 416,
+        "EnrollmentID": 4096,
+        "StudySessionID": 8,
+        "Price": 80,
+        "DueDate": "2025-03-02 17:35:31",
+        "PaidDate": "2023-05-22 15:03:57"
+    },
+    {
+        "PaymentID": 417,
+        "EnrollmentID": 4096,
+        "StudySessionID": 9,
+        "Price": 60,
+        "DueDate": "2026-09-05 20:21:12",
+        "PaidDate": "2023-05-22 15:03:57"
+    },
+    {
+        "PaymentID": 418,
+        "EnrollmentID": 4096,
+        "StudySessionID": 10,
+        "Price": 80,
+        "DueDate": "2027-05-09 14:45:22",
+        "PaidDate": "2023-05-22 15:03:57"
+    },
+    {
+        "PaymentID": 419,
+        "EnrollmentID": 4096,
+        "StudySessionID": 11,
+        "Price": 80,
+        "DueDate": "2026-11-05 11:57:42",
+        "PaidDate": "2023-05-22 15:03:57"
+    },
+    {
+        "PaymentID": 420,
+        "EnrollmentID": 4096,
+        "StudySessionID": 12,
+        "Price": 60,
+        "DueDate": "2026-04-10 23:14:21",
+        "PaidDate": "2023-05-22 15:03:57"
+    },
+    {
+        "PaymentID": 421,
+        "EnrollmentID": 4167,
+        "StudySessionID": 31,
+        "Price": 50,
+        "DueDate": "2021-09-17 12:57:08",
+        "PaidDate": "2019-10-15 06:26:45"
+    },
+    {
+        "PaymentID": 422,
+        "EnrollmentID": 4167,
+        "StudySessionID": 32,
+        "Price": 80,
+        "DueDate": "2021-02-26 01:07:45",
+        "PaidDate": "2019-10-15 06:26:45"
+    },
+    {
+        "PaymentID": 423,
+        "EnrollmentID": 4167,
+        "StudySessionID": 33,
+        "Price": 60,
+        "DueDate": "2022-10-20 03:03:31",
+        "PaidDate": "2019-10-15 06:26:45"
+    },
+    {
+        "PaymentID": 424,
+        "EnrollmentID": 4167,
+        "StudySessionID": 34,
+        "Price": 80,
+        "DueDate": "2022-01-19 19:02:33",
+        "PaidDate": "2019-10-15 06:26:45"
+    },
+    {
+        "PaymentID": 425,
+        "EnrollmentID": 4167,
+        "StudySessionID": 35,
+        "Price": 80,
+        "DueDate": "2021-02-14 06:45:30",
+        "PaidDate": "2019-10-15 06:26:45"
+    },
+    {
+        "PaymentID": 426,
+        "EnrollmentID": 4167,
+        "StudySessionID": 36,
+        "Price": 50,
+        "DueDate": "2022-08-14 03:17:49",
+        "PaidDate": "2019-10-15 06:26:45"
+    },
+    {
+        "PaymentID": 427,
+        "EnrollmentID": 4239,
+        "StudySessionID": 37,
+        "Price": 60,
+        "DueDate": "2025-08-26 05:58:41",
+        "PaidDate": "2020-09-23 07:19:12"
+    },
+    {
+        "PaymentID": 428,
+        "EnrollmentID": 4239,
+        "StudySessionID": 38,
+        "Price": 70,
+        "DueDate": "2025-04-15 17:09:54",
+        "PaidDate": "2020-09-23 07:19:12"
+    },
+    {
+        "PaymentID": 429,
+        "EnrollmentID": 4239,
+        "StudySessionID": 39,
+        "Price": 100,
+        "DueDate": "2027-02-28 09:28:51",
+        "PaidDate": "2020-09-23 07:19:12"
+    },
+    {
+        "PaymentID": 430,
+        "EnrollmentID": 4239,
+        "StudySessionID": 40,
+        "Price": 50,
+        "DueDate": "2027-02-01 21:55:05",
+        "PaidDate": "2020-09-23 07:19:12"
+    },
+    {
+        "PaymentID": 431,
+        "EnrollmentID": 4239,
+        "StudySessionID": 41,
+        "Price": 100,
+        "DueDate": "2025-12-31 02:42:13",
+        "PaidDate": "2020-09-23 07:19:12"
+    },
+    {
+        "PaymentID": 432,
+        "EnrollmentID": 4239,
+        "StudySessionID": 42,
+        "Price": 80,
+        "DueDate": "2024-08-04 15:31:22",
+        "PaidDate": "2020-09-23 07:19:12"
+    },
+    {
+        "PaymentID": 433,
+        "EnrollmentID": 4241,
+        "StudySessionID": 49,
+        "Price": 60,
+        "DueDate": "2022-02-05 04:26:18",
+        "PaidDate": "2020-02-27 10:00:00"
+    },
+    {
+        "PaymentID": 434,
+        "EnrollmentID": 4241,
+        "StudySessionID": 50,
+        "Price": 50,
+        "DueDate": "2022-12-04 16:09:35",
+        "PaidDate": "2020-02-27 10:00:00"
+    },
+    {
+        "PaymentID": 435,
+        "EnrollmentID": 4241,
+        "StudySessionID": 51,
+        "Price": 60,
+        "DueDate": "2021-06-13 12:22:56",
+        "PaidDate": "2020-02-27 10:00:00"
+    },
+    {
+        "PaymentID": 436,
+        "EnrollmentID": 4241,
+        "StudySessionID": 52,
+        "Price": 80,
+        "DueDate": "2022-05-07 05:45:18",
+        "PaidDate": "2020-02-27 10:00:00"
+    },
+    {
+        "PaymentID": 437,
+        "EnrollmentID": 4241,
+        "StudySessionID": 53,
+        "Price": 80,
+        "DueDate": "2020-12-28 15:08:37",
+        "PaidDate": "2020-02-27 10:00:00"
+    },
+    {
+        "PaymentID": 438,
+        "EnrollmentID": 4241,
+        "StudySessionID": 54,
+        "Price": 80,
+        "DueDate": "2021-03-24 23:10:41",
+        "PaidDate": "2020-02-27 10:00:00"
+    },
+    {
+        "PaymentID": 439,
+        "EnrollmentID": 4267,
+        "StudySessionID": 37,
+        "Price": 60,
+        "DueDate": "2025-08-26 05:58:41",
+        "PaidDate": "2023-02-13 14:23:31"
+    },
+    {
+        "PaymentID": 440,
+        "EnrollmentID": 4267,
+        "StudySessionID": 38,
+        "Price": 70,
+        "DueDate": "2025-04-15 17:09:54",
+        "PaidDate": "2023-02-13 14:23:31"
+    },
+    {
+        "PaymentID": 441,
+        "EnrollmentID": 4267,
+        "StudySessionID": 39,
+        "Price": 100,
+        "DueDate": "2027-02-28 09:28:51",
+        "PaidDate": "2023-02-13 14:23:31"
+    },
+    {
+        "PaymentID": 442,
+        "EnrollmentID": 4267,
+        "StudySessionID": 40,
+        "Price": 50,
+        "DueDate": "2027-02-01 21:55:05",
+        "PaidDate": "2023-02-13 14:23:31"
+    },
+    {
+        "PaymentID": 443,
+        "EnrollmentID": 4267,
+        "StudySessionID": 41,
+        "Price": 100,
+        "DueDate": "2025-12-31 02:42:13",
+        "PaidDate": "2023-02-13 14:23:31"
+    },
+    {
+        "PaymentID": 444,
+        "EnrollmentID": 4267,
+        "StudySessionID": 42,
+        "Price": 80,
+        "DueDate": "2024-08-04 15:31:22",
+        "PaidDate": "2023-02-13 14:23:31"
+    },
+    {
+        "PaymentID": 445,
+        "EnrollmentID": 4315,
+        "StudySessionID": 19,
+        "Price": 50,
+        "DueDate": "2024-09-23 08:03:43",
+        "PaidDate": "2021-12-07 01:35:56"
+    },
+    {
+        "PaymentID": 446,
+        "EnrollmentID": 4315,
+        "StudySessionID": 20,
+        "Price": 50,
+        "DueDate": "2023-12-26 13:23:59",
+        "PaidDate": "2021-12-07 01:35:56"
+    },
+    {
+        "PaymentID": 447,
+        "EnrollmentID": 4315,
+        "StudySessionID": 21,
+        "Price": 50,
+        "DueDate": "2023-10-26 17:36:51",
+        "PaidDate": "2021-12-07 01:35:56"
+    },
+    {
+        "PaymentID": 448,
+        "EnrollmentID": 4315,
+        "StudySessionID": 22,
+        "Price": 70,
+        "DueDate": "2023-12-11 01:30:18",
+        "PaidDate": "2021-12-07 01:35:56"
+    },
+    {
+        "PaymentID": 449,
+        "EnrollmentID": 4315,
+        "StudySessionID": 23,
+        "Price": 70,
+        "DueDate": "2022-10-04 09:07:15",
+        "PaidDate": "2021-12-07 01:35:56"
+    },
+    {
+        "PaymentID": 450,
+        "EnrollmentID": 4315,
+        "StudySessionID": 24,
+        "Price": 60,
+        "DueDate": "2023-08-14 17:15:34",
+        "PaidDate": "2021-12-07 01:35:56"
+    },
+    {
+        "PaymentID": 451,
+        "EnrollmentID": 4408,
+        "StudySessionID": 19,
+        "Price": 50,
+        "DueDate": "2024-09-23 08:03:43",
+        "PaidDate": "2019-04-17 21:02:21"
+    },
+    {
+        "PaymentID": 452,
+        "EnrollmentID": 4408,
+        "StudySessionID": 20,
+        "Price": 50,
+        "DueDate": "2023-12-26 13:23:59",
+        "PaidDate": "2019-04-17 21:02:21"
+    },
+    {
+        "PaymentID": 453,
+        "EnrollmentID": 4408,
+        "StudySessionID": 21,
+        "Price": 50,
+        "DueDate": "2023-10-26 17:36:51",
+        "PaidDate": "2019-04-17 21:02:21"
+    },
+    {
+        "PaymentID": 454,
+        "EnrollmentID": 4408,
+        "StudySessionID": 22,
+        "Price": 70,
+        "DueDate": "2023-12-11 01:30:18",
+        "PaidDate": "2019-04-17 21:02:21"
+    },
+    {
+        "PaymentID": 455,
+        "EnrollmentID": 4408,
+        "StudySessionID": 23,
+        "Price": 70,
+        "DueDate": "2022-10-04 09:07:15",
+        "PaidDate": "2019-04-17 21:02:21"
+    },
+    {
+        "PaymentID": 456,
+        "EnrollmentID": 4408,
+        "StudySessionID": 24,
+        "Price": 60,
+        "DueDate": "2023-08-14 17:15:34",
+        "PaidDate": "2019-04-17 21:02:21"
+    },
+    {
+        "PaymentID": 457,
+        "EnrollmentID": 4497,
+        "StudySessionID": 1,
+        "Price": 70,
+        "DueDate": "2022-03-05 20:02:00",
+        "PaidDate": "2019-11-23 18:00:00"
+    },
+    {
+        "PaymentID": 458,
+        "EnrollmentID": 4497,
+        "StudySessionID": 2,
+        "Price": 80,
+        "DueDate": "2023-04-18 04:03:10",
+        "PaidDate": "2019-11-23 18:00:00"
+    },
+    {
+        "PaymentID": 459,
+        "EnrollmentID": 4497,
+        "StudySessionID": 3,
+        "Price": 80,
+        "DueDate": "2020-04-05 09:30:57",
+        "PaidDate": "2019-11-23 18:00:00"
+    },
+    {
+        "PaymentID": 460,
+        "EnrollmentID": 4497,
+        "StudySessionID": 4,
+        "Price": 50,
+        "DueDate": "2023-04-21 02:11:56",
+        "PaidDate": "2019-11-23 18:00:00"
+    },
+    {
+        "PaymentID": 461,
+        "EnrollmentID": 4497,
+        "StudySessionID": 5,
+        "Price": 90,
+        "DueDate": "2021-07-20 03:42:45",
+        "PaidDate": "2019-11-23 18:00:00"
+    },
+    {
+        "PaymentID": 462,
+        "EnrollmentID": 4497,
+        "StudySessionID": 6,
+        "Price": 100,
+        "DueDate": "2023-01-26 14:32:03",
+        "PaidDate": "2019-11-23 18:00:00"
+    },
+    {
+        "PaymentID": 463,
+        "EnrollmentID": 4514,
+        "StudySessionID": 49,
+        "Price": 60,
+        "DueDate": "2022-02-05 04:26:18",
+        "PaidDate": "2019-03-08 16:00:00"
+    },
+    {
+        "PaymentID": 464,
+        "EnrollmentID": 4514,
+        "StudySessionID": 50,
+        "Price": 50,
+        "DueDate": "2022-12-04 16:09:35",
+        "PaidDate": "2019-03-08 16:00:00"
+    },
+    {
+        "PaymentID": 465,
+        "EnrollmentID": 4514,
+        "StudySessionID": 51,
+        "Price": 60,
+        "DueDate": "2021-06-13 12:22:56",
+        "PaidDate": "2019-03-08 16:00:00"
+    },
+    {
+        "PaymentID": 466,
+        "EnrollmentID": 4514,
+        "StudySessionID": 52,
+        "Price": 80,
+        "DueDate": "2022-05-07 05:45:18",
+        "PaidDate": "2019-03-08 16:00:00"
+    },
+    {
+        "PaymentID": 467,
+        "EnrollmentID": 4514,
+        "StudySessionID": 53,
+        "Price": 80,
+        "DueDate": "2020-12-28 15:08:37",
+        "PaidDate": "2019-03-08 16:00:00"
+    },
+    {
+        "PaymentID": 468,
+        "EnrollmentID": 4514,
+        "StudySessionID": 54,
+        "Price": 80,
+        "DueDate": "2021-03-24 23:10:41",
+        "PaidDate": "2019-03-08 16:00:00"
+    },
+    {
+        "PaymentID": 469,
+        "EnrollmentID": 4551,
+        "StudySessionID": 7,
+        "Price": 70,
+        "DueDate": "2027-04-05 12:27:35",
+        "PaidDate": "2024-03-07 10:55:04"
+    },
+    {
+        "PaymentID": 470,
+        "EnrollmentID": 4551,
+        "StudySessionID": 8,
+        "Price": 80,
+        "DueDate": "2025-03-02 17:35:31",
+        "PaidDate": "2024-03-07 10:55:04"
+    },
+    {
+        "PaymentID": 471,
+        "EnrollmentID": 4551,
+        "StudySessionID": 9,
+        "Price": 60,
+        "DueDate": "2026-09-05 20:21:12",
+        "PaidDate": "2024-03-07 10:55:04"
+    },
+    {
+        "PaymentID": 472,
+        "EnrollmentID": 4551,
+        "StudySessionID": 10,
+        "Price": 80,
+        "DueDate": "2027-05-09 14:45:22",
+        "PaidDate": "2024-03-07 10:55:04"
+    },
+    {
+        "PaymentID": 473,
+        "EnrollmentID": 4551,
+        "StudySessionID": 11,
+        "Price": 80,
+        "DueDate": "2026-11-05 11:57:42",
+        "PaidDate": "2024-03-07 10:55:04"
+    },
+    {
+        "PaymentID": 474,
+        "EnrollmentID": 4551,
+        "StudySessionID": 12,
+        "Price": 60,
+        "DueDate": "2026-04-10 23:14:21",
+        "PaidDate": "2024-03-07 10:55:04"
+    },
+    {
+        "PaymentID": 475,
+        "EnrollmentID": 4556,
+        "StudySessionID": 55,
+        "Price": 80,
+        "DueDate": "2023-02-17 01:45:19",
+        "PaidDate": "2020-03-05 14:00:00"
+    },
+    {
+        "PaymentID": 476,
+        "EnrollmentID": 4556,
+        "StudySessionID": 56,
+        "Price": 80,
+        "DueDate": "2022-01-26 13:33:33",
+        "PaidDate": "2020-03-05 14:00:00"
+    },
+    {
+        "PaymentID": 477,
+        "EnrollmentID": 4556,
+        "StudySessionID": 57,
+        "Price": 90,
+        "DueDate": "2020-12-02 03:54:28",
+        "PaidDate": "2020-03-05 14:00:00"
+    },
+    {
+        "PaymentID": 478,
+        "EnrollmentID": 4556,
+        "StudySessionID": 58,
+        "Price": 50,
+        "DueDate": "2023-07-03 06:43:32",
+        "PaidDate": "2020-03-05 14:00:00"
+    },
+    {
+        "PaymentID": 479,
+        "EnrollmentID": 4556,
+        "StudySessionID": 59,
+        "Price": 50,
+        "DueDate": "2021-06-06 12:06:04",
+        "PaidDate": "2020-03-05 14:00:00"
+    },
+    {
+        "PaymentID": 480,
+        "EnrollmentID": 4556,
+        "StudySessionID": 60,
+        "Price": 100,
+        "DueDate": "2023-02-25 08:59:11",
+        "PaidDate": "2020-03-05 14:00:00"
+    },
+    {
+        "PaymentID": 481,
+        "EnrollmentID": 4693,
+        "StudySessionID": 43,
+        "Price": 80,
+        "DueDate": "2023-01-11 18:28:36",
+        "PaidDate": "2019-08-25 17:00:00"
+    },
+    {
+        "PaymentID": 482,
+        "EnrollmentID": 4693,
+        "StudySessionID": 44,
+        "Price": 50,
+        "DueDate": "2019-10-01 22:55:57",
+        "PaidDate": "2019-08-25 17:00:00"
+    },
+    {
+        "PaymentID": 483,
+        "EnrollmentID": 4693,
+        "StudySessionID": 45,
+        "Price": 80,
+        "DueDate": "2020-08-24 23:46:12",
+        "PaidDate": "2019-08-25 17:00:00"
+    },
+    {
+        "PaymentID": 484,
+        "EnrollmentID": 4693,
+        "StudySessionID": 46,
+        "Price": 90,
+        "DueDate": "2021-01-19 08:22:53",
+        "PaidDate": "2019-08-25 17:00:00"
+    },
+    {
+        "PaymentID": 485,
+        "EnrollmentID": 4693,
+        "StudySessionID": 47,
+        "Price": 80,
+        "DueDate": "2022-01-10 18:19:58",
+        "PaidDate": "2019-08-25 17:00:00"
+    },
+    {
+        "PaymentID": 486,
+        "EnrollmentID": 4693,
+        "StudySessionID": 48,
+        "Price": 60,
+        "DueDate": "2022-05-03 08:49:57",
+        "PaidDate": "2019-08-25 17:00:00"
+    },
+    {
+        "PaymentID": 487,
+        "EnrollmentID": 4801,
+        "StudySessionID": 37,
+        "Price": 60,
+        "DueDate": "2025-08-26 05:58:41",
+        "PaidDate": "2023-09-16 09:00:00"
+    },
+    {
+        "PaymentID": 488,
+        "EnrollmentID": 4801,
+        "StudySessionID": 38,
+        "Price": 70,
+        "DueDate": "2025-04-15 17:09:54",
+        "PaidDate": "2023-09-16 09:00:00"
+    },
+    {
+        "PaymentID": 489,
+        "EnrollmentID": 4801,
+        "StudySessionID": 39,
+        "Price": 100,
+        "DueDate": "2027-02-28 09:28:51",
+        "PaidDate": "2023-09-16 09:00:00"
+    },
+    {
+        "PaymentID": 490,
+        "EnrollmentID": 4801,
+        "StudySessionID": 40,
+        "Price": 50,
+        "DueDate": "2027-02-01 21:55:05",
+        "PaidDate": "2023-09-16 09:00:00"
+    },
+    {
+        "PaymentID": 491,
+        "EnrollmentID": 4801,
+        "StudySessionID": 41,
+        "Price": 100,
+        "DueDate": "2025-12-31 02:42:13",
+        "PaidDate": "2023-09-16 09:00:00"
+    },
+    {
+        "PaymentID": 492,
+        "EnrollmentID": 4801,
+        "StudySessionID": 42,
+        "Price": 80,
+        "DueDate": "2024-08-04 15:31:22",
+        "PaidDate": "2023-09-16 09:00:00"
+    },
+    {
+        "PaymentID": 493,
+        "EnrollmentID": 4821,
+        "StudySessionID": 1,
+        "Price": 70,
+        "DueDate": "2022-03-05 20:02:00",
+        "PaidDate": "2020-01-16 18:00:00"
+    },
+    {
+        "PaymentID": 494,
+        "EnrollmentID": 4821,
+        "StudySessionID": 2,
+        "Price": 80,
+        "DueDate": "2023-04-18 04:03:10",
+        "PaidDate": "2020-01-16 18:00:00"
+    },
+    {
+        "PaymentID": 495,
+        "EnrollmentID": 4821,
+        "StudySessionID": 3,
+        "Price": 80,
+        "DueDate": "2020-04-05 09:30:57",
+        "PaidDate": "2020-01-16 18:00:00"
+    },
+    {
+        "PaymentID": 496,
+        "EnrollmentID": 4821,
+        "StudySessionID": 4,
+        "Price": 50,
+        "DueDate": "2023-04-21 02:11:56",
+        "PaidDate": "2020-01-16 18:00:00"
+    },
+    {
+        "PaymentID": 497,
+        "EnrollmentID": 4821,
+        "StudySessionID": 5,
+        "Price": 90,
+        "DueDate": "2021-07-20 03:42:45",
+        "PaidDate": "2020-01-16 18:00:00"
+    },
+    {
+        "PaymentID": 498,
+        "EnrollmentID": 4821,
+        "StudySessionID": 6,
+        "Price": 100,
+        "DueDate": "2023-01-26 14:32:03",
+        "PaidDate": "2020-01-16 18:00:00"
+    },
+    {
+        "PaymentID": 499,
+        "EnrollmentID": 4823,
+        "StudySessionID": 37,
+        "Price": 60,
+        "DueDate": "2025-08-26 05:58:41",
+        "PaidDate": "2020-05-29 00:16:33"
+    },
+    {
+        "PaymentID": 500,
+        "EnrollmentID": 4823,
+        "StudySessionID": 38,
+        "Price": 70,
+        "DueDate": "2025-04-15 17:09:54",
+        "PaidDate": "2020-05-29 00:16:33"
+    },
+    {
+        "PaymentID": 501,
+        "EnrollmentID": 4823,
+        "StudySessionID": 39,
+        "Price": 100,
+        "DueDate": "2027-02-28 09:28:51",
+        "PaidDate": "2020-05-29 00:16:33"
+    },
+    {
+        "PaymentID": 502,
+        "EnrollmentID": 4823,
+        "StudySessionID": 40,
+        "Price": 50,
+        "DueDate": "2027-02-01 21:55:05",
+        "PaidDate": "2020-05-29 00:16:33"
+    },
+    {
+        "PaymentID": 503,
+        "EnrollmentID": 4823,
+        "StudySessionID": 41,
+        "Price": 100,
+        "DueDate": "2025-12-31 02:42:13",
+        "PaidDate": "2020-05-29 00:16:33"
+    },
+    {
+        "PaymentID": 504,
+        "EnrollmentID": 4823,
+        "StudySessionID": 42,
+        "Price": 80,
+        "DueDate": "2024-08-04 15:31:22",
+        "PaidDate": "2020-05-29 00:16:33"
+    },
+    {
+        "PaymentID": 505,
+        "EnrollmentID": 4901,
+        "StudySessionID": 13,
+        "Price": 100,
+        "DueDate": "2026-09-25 16:04:27",
+        "PaidDate": "2019-02-17 23:43:45"
+    },
+    {
+        "PaymentID": 506,
+        "EnrollmentID": 4901,
+        "StudySessionID": 14,
+        "Price": 100,
+        "DueDate": "2025-08-30 10:39:24",
+        "PaidDate": "2019-02-17 23:43:45"
+    },
+    {
+        "PaymentID": 507,
+        "EnrollmentID": 4901,
+        "StudySessionID": 15,
+        "Price": 60,
+        "DueDate": "2027-02-23 05:25:48",
+        "PaidDate": "2019-02-17 23:43:45"
+    },
+    {
+        "PaymentID": 508,
+        "EnrollmentID": 4901,
+        "StudySessionID": 16,
+        "Price": 70,
+        "DueDate": "2027-10-31 16:44:02",
+        "PaidDate": "2019-02-17 23:43:45"
+    },
+    {
+        "PaymentID": 509,
+        "EnrollmentID": 4901,
+        "StudySessionID": 17,
+        "Price": 50,
+        "DueDate": "2025-05-23 07:09:32",
+        "PaidDate": "2019-02-17 23:43:45"
+    },
+    {
+        "PaymentID": 510,
+        "EnrollmentID": 4901,
+        "StudySessionID": 18,
+        "Price": 100,
+        "DueDate": "2025-12-22 06:51:01",
+        "PaidDate": "2019-02-17 23:43:45"
+    },
+    {
+        "PaymentID": 511,
+        "EnrollmentID": 4913,
+        "StudySessionID": 1,
+        "Price": 70,
+        "DueDate": "2022-03-05 20:02:00",
+        "PaidDate": "2019-11-10 18:00:00"
+    },
+    {
+        "PaymentID": 512,
+        "EnrollmentID": 4913,
+        "StudySessionID": 2,
+        "Price": 80,
+        "DueDate": "2023-04-18 04:03:10",
+        "PaidDate": "2019-11-10 18:00:00"
+    },
+    {
+        "PaymentID": 513,
+        "EnrollmentID": 4913,
+        "StudySessionID": 3,
+        "Price": 80,
+        "DueDate": "2020-04-05 09:30:57",
+        "PaidDate": "2019-11-10 18:00:00"
+    },
+    {
+        "PaymentID": 514,
+        "EnrollmentID": 4913,
+        "StudySessionID": 4,
+        "Price": 50,
+        "DueDate": "2023-04-21 02:11:56",
+        "PaidDate": "2019-11-10 18:00:00"
+    },
+    {
+        "PaymentID": 515,
+        "EnrollmentID": 4913,
+        "StudySessionID": 5,
+        "Price": 90,
+        "DueDate": "2021-07-20 03:42:45",
+        "PaidDate": "2019-11-10 18:00:00"
+    },
+    {
+        "PaymentID": 516,
+        "EnrollmentID": 4913,
+        "StudySessionID": 6,
+        "Price": 100,
+        "DueDate": "2023-01-26 14:32:03",
+        "PaidDate": "2019-11-10 18:00:00"
+    },
+    {
+        "PaymentID": 517,
+        "EnrollmentID": 4930,
+        "StudySessionID": 43,
+        "Price": 80,
+        "DueDate": "2023-01-11 18:28:36",
+        "PaidDate": "2019-08-24 17:00:00"
+    },
+    {
+        "PaymentID": 518,
+        "EnrollmentID": 4930,
+        "StudySessionID": 44,
+        "Price": 50,
+        "DueDate": "2019-10-01 22:55:57",
+        "PaidDate": "2019-08-24 17:00:00"
+    },
+    {
+        "PaymentID": 519,
+        "EnrollmentID": 4930,
+        "StudySessionID": 45,
+        "Price": 80,
+        "DueDate": "2020-08-24 23:46:12",
+        "PaidDate": "2019-08-24 17:00:00"
+    },
+    {
+        "PaymentID": 520,
+        "EnrollmentID": 4930,
+        "StudySessionID": 46,
+        "Price": 90,
+        "DueDate": "2021-01-19 08:22:53",
+        "PaidDate": "2019-08-24 17:00:00"
+    },
+    {
+        "PaymentID": 521,
+        "EnrollmentID": 4930,
+        "StudySessionID": 47,
+        "Price": 80,
+        "DueDate": "2022-01-10 18:19:58",
+        "PaidDate": "2019-08-24 17:00:00"
+    },
+    {
+        "PaymentID": 522,
+        "EnrollmentID": 4930,
+        "StudySessionID": 48,
+        "Price": 60,
+        "DueDate": "2022-05-03 08:49:57",
+        "PaidDate": "2019-08-24 17:00:00"
+    },
+    {
+        "PaymentID": 523,
+        "EnrollmentID": 4940,
+        "StudySessionID": 7,
+        "Price": 70,
+        "DueDate": "2027-04-05 12:27:35",
+        "PaidDate": "2024-03-28 08:00:00"
+    },
+    {
+        "PaymentID": 524,
+        "EnrollmentID": 4940,
+        "StudySessionID": 8,
+        "Price": 80,
+        "DueDate": "2025-03-02 17:35:31",
+        "PaidDate": "2024-03-28 08:00:00"
+    },
+    {
+        "PaymentID": 525,
+        "EnrollmentID": 4940,
+        "StudySessionID": 9,
+        "Price": 60,
+        "DueDate": "2026-09-05 20:21:12",
+        "PaidDate": "2024-03-28 08:00:00"
+    },
+    {
+        "PaymentID": 526,
+        "EnrollmentID": 4940,
+        "StudySessionID": 10,
+        "Price": 80,
+        "DueDate": "2027-05-09 14:45:22",
+        "PaidDate": "2024-03-28 08:00:00"
+    },
+    {
+        "PaymentID": 527,
+        "EnrollmentID": 4940,
+        "StudySessionID": 11,
+        "Price": 80,
+        "DueDate": "2026-11-05 11:57:42",
+        "PaidDate": "2024-03-28 08:00:00"
+    },
+    {
+        "PaymentID": 528,
+        "EnrollmentID": 4940,
+        "StudySessionID": 12,
+        "Price": 60,
+        "DueDate": "2026-04-10 23:14:21",
+        "PaidDate": "2024-03-28 08:00:00"
+    },
+    {
+        "PaymentID": 529,
+        "EnrollmentID": 4994,
+        "StudySessionID": 1,
+        "Price": 70,
+        "DueDate": "2022-03-05 20:02:00",
+        "PaidDate": "2019-08-30 05:31:13"
+    },
+    {
+        "PaymentID": 530,
+        "EnrollmentID": 4994,
+        "StudySessionID": 2,
+        "Price": 80,
+        "DueDate": "2023-04-18 04:03:10",
+        "PaidDate": "2019-08-30 05:31:13"
+    },
+    {
+        "PaymentID": 531,
+        "EnrollmentID": 4994,
+        "StudySessionID": 3,
+        "Price": 80,
+        "DueDate": "2020-04-05 09:30:57",
+        "PaidDate": "2019-08-30 05:31:13"
+    },
+    {
+        "PaymentID": 532,
+        "EnrollmentID": 4994,
+        "StudySessionID": 4,
+        "Price": 50,
+        "DueDate": "2023-04-21 02:11:56",
+        "PaidDate": "2019-08-30 05:31:13"
+    },
+    {
+        "PaymentID": 533,
+        "EnrollmentID": 4994,
+        "StudySessionID": 5,
+        "Price": 90,
+        "DueDate": "2021-07-20 03:42:45",
+        "PaidDate": "2019-08-30 05:31:13"
+    },
+    {
+        "PaymentID": 534,
+        "EnrollmentID": 4994,
+        "StudySessionID": 6,
+        "Price": 100,
+        "DueDate": "2023-01-26 14:32:03",
+        "PaidDate": "2019-08-30 05:31:13"
+    },
+    {
+        "PaymentID": 535,
+        "EnrollmentID": 5024,
+        "StudySessionID": 7,
+        "Price": 70,
+        "DueDate": "2027-04-05 12:27:35",
+        "PaidDate": "2024-03-08 08:00:00"
+    },
+    {
+        "PaymentID": 536,
+        "EnrollmentID": 5024,
+        "StudySessionID": 8,
+        "Price": 80,
+        "DueDate": "2025-03-02 17:35:31",
+        "PaidDate": "2024-03-08 08:00:00"
+    },
+    {
+        "PaymentID": 537,
+        "EnrollmentID": 5024,
+        "StudySessionID": 9,
+        "Price": 60,
+        "DueDate": "2026-09-05 20:21:12",
+        "PaidDate": "2024-03-08 08:00:00"
+    },
+    {
+        "PaymentID": 538,
+        "EnrollmentID": 5024,
+        "StudySessionID": 10,
+        "Price": 80,
+        "DueDate": "2027-05-09 14:45:22",
+        "PaidDate": "2024-03-08 08:00:00"
+    },
+    {
+        "PaymentID": 539,
+        "EnrollmentID": 5024,
+        "StudySessionID": 11,
+        "Price": 80,
+        "DueDate": "2026-11-05 11:57:42",
+        "PaidDate": "2024-03-08 08:00:00"
+    },
+    {
+        "PaymentID": 540,
+        "EnrollmentID": 5024,
+        "StudySessionID": 12,
+        "Price": 60,
+        "DueDate": "2026-04-10 23:14:21",
+        "PaidDate": "2024-03-08 08:00:00"
+    },
+    {
+        "PaymentID": 541,
+        "EnrollmentID": 5111,
+        "StudySessionID": 1,
+        "Price": 70,
+        "DueDate": "2022-03-05 20:02:00",
+        "PaidDate": "2019-11-26 18:00:00"
+    },
+    {
+        "PaymentID": 542,
+        "EnrollmentID": 5111,
+        "StudySessionID": 2,
+        "Price": 80,
+        "DueDate": "2023-04-18 04:03:10",
+        "PaidDate": "2019-11-26 18:00:00"
+    },
+    {
+        "PaymentID": 543,
+        "EnrollmentID": 5111,
+        "StudySessionID": 3,
+        "Price": 80,
+        "DueDate": "2020-04-05 09:30:57",
+        "PaidDate": "2019-11-26 18:00:00"
+    },
+    {
+        "PaymentID": 544,
+        "EnrollmentID": 5111,
+        "StudySessionID": 4,
+        "Price": 50,
+        "DueDate": "2023-04-21 02:11:56",
+        "PaidDate": "2019-11-26 18:00:00"
+    },
+    {
+        "PaymentID": 545,
+        "EnrollmentID": 5111,
+        "StudySessionID": 5,
+        "Price": 90,
+        "DueDate": "2021-07-20 03:42:45",
+        "PaidDate": "2019-11-26 18:00:00"
+    },
+    {
+        "PaymentID": 546,
+        "EnrollmentID": 5111,
+        "StudySessionID": 6,
+        "Price": 100,
+        "DueDate": "2023-01-26 14:32:03",
+        "PaidDate": "2019-11-26 18:00:00"
+    },
+    {
+        "PaymentID": 547,
+        "EnrollmentID": 5117,
+        "StudySessionID": 31,
+        "Price": 50,
+        "DueDate": "2021-09-17 12:57:08",
+        "PaidDate": "2019-12-19 15:00:00"
+    },
+    {
+        "PaymentID": 548,
+        "EnrollmentID": 5117,
+        "StudySessionID": 32,
+        "Price": 80,
+        "DueDate": "2021-02-26 01:07:45",
+        "PaidDate": "2019-12-19 15:00:00"
+    },
+    {
+        "PaymentID": 549,
+        "EnrollmentID": 5117,
+        "StudySessionID": 33,
+        "Price": 60,
+        "DueDate": "2022-10-20 03:03:31",
+        "PaidDate": "2019-12-19 15:00:00"
+    },
+    {
+        "PaymentID": 550,
+        "EnrollmentID": 5117,
+        "StudySessionID": 34,
+        "Price": 80,
+        "DueDate": "2022-01-19 19:02:33",
+        "PaidDate": "2019-12-19 15:00:00"
+    },
+    {
+        "PaymentID": 551,
+        "EnrollmentID": 5117,
+        "StudySessionID": 35,
+        "Price": 80,
+        "DueDate": "2021-02-14 06:45:30",
+        "PaidDate": "2019-12-19 15:00:00"
+    },
+    {
+        "PaymentID": 552,
+        "EnrollmentID": 5117,
+        "StudySessionID": 36,
+        "Price": 50,
+        "DueDate": "2022-08-14 03:17:49",
+        "PaidDate": "2019-12-19 15:00:00"
+    }
+]
