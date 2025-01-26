@@ -24,8 +24,6 @@ grant select on VW_Future_CourseModules to Student;
 grant select on VW_Future_Webinars to Student;
 grant select on VW_Future_Classes to Student;
 
-grant delete, update on Students to Student;
-
 grant execute on PR_Create_Cart to Student;
 grant execute on PR_Add_To_Cart to Student;
 grant execute on PR_Place_Order to Student;
