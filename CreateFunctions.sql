@@ -539,7 +539,6 @@ begin
 end
 go
 
-<<<<<<< HEAD
 -- Lista studentów na zajęciach -M-
 create function FN_Students_List(@AttendableID int)
 returns table
@@ -604,7 +603,7 @@ select A.*, T.StudentID, T.Name, T.Surname, T.Email
             inner join Students T on T.StudentID = O.StudentID
 )
 go
-=======
+
 --Harmonogram nauczyciela -K-
 create function FN_ScheduleForTeacher (@TeacherID int)
 returns table
@@ -656,7 +655,6 @@ return (
 )
 go
 
-
 --Harmonogram translatora -K-
 create function FN_ScheduleForTranslator (@TranslatorID int)
 returns table
@@ -703,4 +701,3 @@ return (
     where L.TranslatorID = @TranslatorID
 );
 go
->>>>>>> cc6117fc107c8317e0728a812f9c6a57bb3c9b82
