@@ -12,8 +12,6 @@ grant select on VW_Future_CourseModules to Gosc;
 grant select on VW_Future_Webinars to Gosc;
 grant select on VW_Future_Classes to Gosc;
 
-grant insert on Students to Gosc;
-
 grant execute on PR_Add_Student to Gosc;
 
 -- Grant permissions to Student
