@@ -12,7 +12,10 @@ execute PR_Add_Student
     @Address = 'ul. Kowalskiego 1, 00-001 Warsaw',
     @City = 'Warsaw',
     @Country = 'Poland',
-    @BirthDate = '1990-01-01'
+    @BirthDate = '1990-01-01',
+    @StudentID = null
+
+select * from Students
 
 -------------------------------------------------------
 -------------------------------------------------------
@@ -20,10 +23,14 @@ execute PR_Add_Student
 -- Student chce kupić szkolenie
 
 declare @CurrentStudentID int
-set @CurrentStudentID = 1
+set @CurrentStudentID = (select max(StudentID) from Students)
 
 execute PR_Create_Cart
-    @StudentId = @CurrentStudentID
+    @StudentID = @CurrentStudentID,
+    @OrderID = null
+
+declare @CurrentStudentID int
+set @CurrentStudentID = (select max(StudentID) from Students)
 
 execute PR_Add_To_Cart
     @StudentID = @CurrentStudentID,
@@ -69,7 +76,7 @@ select * from VW_StationaryClasses_Attendance_Summary
 
 -- Nauczyciel chce zobaczyć całkowitą obecność na jego zajęciach na kursach
 declare @CurrentTeacher int
-set @CurrentTeacher = 9
+set @CurrentTeacher = 1
 
 select * from VW_OnlineCourseModules_Attendance_Summary
          where TeacherID = @CurrentTeacher
@@ -138,7 +145,8 @@ execute PR_Create_Class
     @StudiesID = 'YTJUe',
     @TeacherID = 9,
     @Name = 'Klasa testowa',
-    @Description = 'Klasa testowa'
+    @Description = 'Klasa testowa',
+    @ClassID = null
 
 --Pracownik Sekretariatu chce zmienić limit miejsc na studiach
 update Studies

@@ -51,7 +51,7 @@ select A.attendableid, totalstudents, presentstudents, attendancerate, OCM.Onlin
 go
 
 create view VW_StationaryCourseModules_Attendance_Summary as
-select A.attendableid, totalstudents, presentstudents, attendancerate, SCM.StationaryCourseID, CourseID, CM.CourseModuleID, Classroom, SeatLimit,  TeacherID, CourseID, Name, Description
+select A.attendableid, totalstudents, presentstudents, attendancerate, SCM.StationaryCourseID, CM.CourseModuleID, Classroom, SeatLimit,  TeacherID, CourseID, Name, Description
 from VW_All_Attendance_Summary A
              inner join StationaryCourseModules SCM on A.attendableid = SCM.AttendableID
 inner join dbo.CourseModules CM on SCM.CourseModuleID = CM.CourseModuleID
@@ -204,6 +204,7 @@ from students_allAttendable A inner join students_allAttendable B
 go
 
 -- Zestawienie przychodów dla każdego szkolenia -K-
+create view VW_FinancialReports as
 select
     l.LectureID,
     COALESCE(CAST(w.WebinarID AS NVARCHAR), CAST(c.CourseID AS NVARCHAR), CAST(s.StudiesID AS NVARCHAR),CAST(oc.OnlineClassID AS NVARCHAR),CAST(sc.StationaryClassID AS NVARCHAR)) AS EventID,
