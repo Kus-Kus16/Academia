@@ -1,6 +1,9 @@
 --Gosc chce wyświetlić przyszłe szkolenia
 
-select * from VW_All_FutureLectures
+select *
+from VW_All_FutureLectures V
+    join Lectures L on V.LectureID = L.LectureID
+    join Studies S on S.LectureID = L.LectureID
 
 --Gosc chce się zarejestrować
 
@@ -17,6 +20,7 @@ execute PR_Add_Student
 
 select * from Students
 
+delete from Students where StudentID = (select max(StudentID) from Students)
 -------------------------------------------------------
 -------------------------------------------------------
 
@@ -31,16 +35,33 @@ execute PR_Create_Cart
 
 declare @CurrentStudentID int
 set @CurrentStudentID = (select max(StudentID) from Students)
+select * from Orders where StudentID = @CurrentStudentID
 
+declare @CurrentStudentID int
+set @CurrentStudentID = (select max(StudentID) from Students)
 execute PR_Add_To_Cart
     @StudentID = @CurrentStudentID,
-    @LectureID = 355
+    @LectureID = 100
+
+declare @CurrentStudentID int
+set @CurrentStudentID = (select max(StudentID) from Students)
+execute PR_Add_To_Cart
+    @StudentID = @CurrentStudentID,
+    @LectureID = 46
 
 declare @LastOrderID int
 set @LastOrderID = (select max(OrderID) from Orders)
 
+select * from Enrollments where OrderID = @LastOrderID
+
 execute PR_Place_Order
     @OrderID = @LastOrderID
+
+declare @LastOrderID int
+set @LastOrderID = (select max(OrderID) from Orders)
+delete from Enrollments where OrderID = @LastOrderID
+delete from Orders where OrderID = @LastOrderID
+
 
 -- Student 1 chce zobaczyć swój harmonogram
 declare @CurrentStudentID int
@@ -92,7 +113,7 @@ set @CurrentTeacher = 9
 declare @CurrentAttendableID int
 set @CurrentAttendableID = 2151
 
-select ST.StudentID, ST.Name, ST.Surname, A.AttendableID, A.StartDate
+select ST.StudentID, ST.Name, ST.Surname, A.AttendableID, A.StartDate, E.*
 from Attendable A
     join StationaryClasses SC on A.AttendableID = SC.AttendableID
     join Classes C on SC.ClassID = C.ClassID and C.TeacherID = @CurrentTeacher
@@ -106,8 +127,6 @@ where A.AttendableID = @CurrentAttendableID
 declare @AttendanceList AttendanceListTable;
 insert into @AttendanceList (StudentID, Attendance)
 values
-    (4, 1),
-    (197, 0),
     (265, 1),
     (292, 1),
     (374, 0),
@@ -121,6 +140,9 @@ execute PR_Set_Attendances
         @AttendableID = 2151,
         @AttendanceList = @AttendanceList
 
+select * from Attendances where AttendableID = 2151
+
+delete from Attendances where AttendableID = 2151
 -------------------------------------------------------
 -------------------------------------------------------
 
@@ -148,10 +170,17 @@ execute PR_Create_Class
     @Description = 'Klasa testowa',
     @ClassID = null
 
+select * from Classes where ClassID = (select max(ClassID) from Classes)
+delete from Classes where ClassID = (select max(ClassID) from Classes)
+
 --Pracownik Sekretariatu chce zmienić limit miejsc na studiach
+select * from Studies where StudiesID = 'YTJUe'
+
 update Studies
     set CapacityLimit = 110
     where StudiesID = 'YTJUe'
+
+
 
 --Pracownik Sekretariatu chce zmienić nazwę klasy
 update Classes
