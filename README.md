@@ -24,6 +24,7 @@ Academia is a database project designed to manage academic and administrative ta
 
 - **Microsoft SQL Server (MSSQL)**: The database management system used for this project.
 - **Transact-SQL (T-SQL)**: The SQL dialect used in the project.
+- **Python**: Used for generating large amount of dummy data to fill the database with.
 
 ## Documentation
 
